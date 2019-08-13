@@ -12343,12 +12343,31 @@ public final class Dlvc {
     int getEncodingTypesValue(int index);
 
     /**
-     * <code>int64 len_bytes = 6;</code>
+     * <code>repeated string custom_encoding_types = 6;</code>
+     */
+    java.util.List<java.lang.String>
+        getCustomEncodingTypesList();
+    /**
+     * <code>repeated string custom_encoding_types = 6;</code>
+     */
+    int getCustomEncodingTypesCount();
+    /**
+     * <code>repeated string custom_encoding_types = 6;</code>
+     */
+    java.lang.String getCustomEncodingTypes(int index);
+    /**
+     * <code>repeated string custom_encoding_types = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getCustomEncodingTypesBytes(int index);
+
+    /**
+     * <code>int64 len_bytes = 7;</code>
      */
     long getLenBytes();
 
     /**
-     * <code>int64 count = 7;</code>
+     * <code>int64 count = 8;</code>
      */
     long getCount();
   }
@@ -12369,6 +12388,7 @@ public final class Dlvc {
       userMetadataKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       messageTypes_ = java.util.Collections.emptyList();
       encodingTypes_ = java.util.Collections.emptyList();
+      customEncodingTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
     @java.lang.Override
@@ -12466,12 +12486,21 @@ public final class Dlvc {
               input.popLimit(oldLimit);
               break;
             }
-            case 48: {
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000010) != 0)) {
+                customEncodingTypes_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000010;
+              }
+              customEncodingTypes_.add(s);
+              break;
+            }
+            case 56: {
 
               lenBytes_ = input.readInt64();
               break;
             }
-            case 56: {
+            case 64: {
 
               count_ = input.readInt64();
               break;
@@ -12502,6 +12531,9 @@ public final class Dlvc {
         }
         if (((mutable_bitField0_ & 0x00000008) != 0)) {
           encodingTypes_ = java.util.Collections.unmodifiableList(encodingTypes_);
+        }
+        if (((mutable_bitField0_ & 0x00000010) != 0)) {
+          customEncodingTypes_ = customEncodingTypes_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -12670,19 +12702,48 @@ public final class Dlvc {
     }
     private int encodingTypesMemoizedSerializedSize;
 
-    public static final int LEN_BYTES_FIELD_NUMBER = 6;
+    public static final int CUSTOM_ENCODING_TYPES_FIELD_NUMBER = 6;
+    private com.google.protobuf.LazyStringList customEncodingTypes_;
+    /**
+     * <code>repeated string custom_encoding_types = 6;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getCustomEncodingTypesList() {
+      return customEncodingTypes_;
+    }
+    /**
+     * <code>repeated string custom_encoding_types = 6;</code>
+     */
+    public int getCustomEncodingTypesCount() {
+      return customEncodingTypes_.size();
+    }
+    /**
+     * <code>repeated string custom_encoding_types = 6;</code>
+     */
+    public java.lang.String getCustomEncodingTypes(int index) {
+      return customEncodingTypes_.get(index);
+    }
+    /**
+     * <code>repeated string custom_encoding_types = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCustomEncodingTypesBytes(int index) {
+      return customEncodingTypes_.getByteString(index);
+    }
+
+    public static final int LEN_BYTES_FIELD_NUMBER = 7;
     private long lenBytes_;
     /**
-     * <code>int64 len_bytes = 6;</code>
+     * <code>int64 len_bytes = 7;</code>
      */
     public long getLenBytes() {
       return lenBytes_;
     }
 
-    public static final int COUNT_FIELD_NUMBER = 7;
+    public static final int COUNT_FIELD_NUMBER = 8;
     private long count_;
     /**
-     * <code>int64 count = 7;</code>
+     * <code>int64 count = 8;</code>
      */
     public long getCount() {
       return count_;
@@ -12723,11 +12784,14 @@ public final class Dlvc {
       for (int i = 0; i < encodingTypes_.size(); i++) {
         output.writeEnumNoTag(encodingTypes_.get(i));
       }
+      for (int i = 0; i < customEncodingTypes_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, customEncodingTypes_.getRaw(i));
+      }
       if (lenBytes_ != 0L) {
-        output.writeInt64(6, lenBytes_);
+        output.writeInt64(7, lenBytes_);
       }
       if (count_ != 0L) {
-        output.writeInt64(7, count_);
+        output.writeInt64(8, count_);
       }
       unknownFields.writeTo(output);
     }
@@ -12778,13 +12842,21 @@ public final class Dlvc {
             .computeUInt32SizeNoTag(dataSize);
         }encodingTypesMemoizedSerializedSize = dataSize;
       }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < customEncodingTypes_.size(); i++) {
+          dataSize += computeStringSizeNoTag(customEncodingTypes_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getCustomEncodingTypesList().size();
+      }
       if (lenBytes_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(6, lenBytes_);
+          .computeInt64Size(7, lenBytes_);
       }
       if (count_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(7, count_);
+          .computeInt64Size(8, count_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -12807,6 +12879,8 @@ public final class Dlvc {
           .equals(other.getUserMetadataKeysList())) return false;
       if (!messageTypes_.equals(other.messageTypes_)) return false;
       if (!encodingTypes_.equals(other.encodingTypes_)) return false;
+      if (!getCustomEncodingTypesList()
+          .equals(other.getCustomEncodingTypesList())) return false;
       if (getLenBytes()
           != other.getLenBytes()) return false;
       if (getCount()
@@ -12837,6 +12911,10 @@ public final class Dlvc {
       if (getEncodingTypesCount() > 0) {
         hash = (37 * hash) + ENCODING_TYPES_FIELD_NUMBER;
         hash = (53 * hash) + encodingTypes_.hashCode();
+      }
+      if (getCustomEncodingTypesCount() > 0) {
+        hash = (37 * hash) + CUSTOM_ENCODING_TYPES_FIELD_NUMBER;
+        hash = (53 * hash) + getCustomEncodingTypesList().hashCode();
       }
       hash = (37 * hash) + LEN_BYTES_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -12985,6 +13063,8 @@ public final class Dlvc {
         bitField0_ = (bitField0_ & ~0x00000004);
         encodingTypes_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000008);
+        customEncodingTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
         lenBytes_ = 0L;
 
         count_ = 0L;
@@ -13036,6 +13116,11 @@ public final class Dlvc {
           bitField0_ = (bitField0_ & ~0x00000008);
         }
         result.encodingTypes_ = encodingTypes_;
+        if (((bitField0_ & 0x00000010) != 0)) {
+          customEncodingTypes_ = customEncodingTypes_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000010);
+        }
+        result.customEncodingTypes_ = customEncodingTypes_;
         result.lenBytes_ = lenBytes_;
         result.count_ = count_;
         onBuilt();
@@ -13123,6 +13208,16 @@ public final class Dlvc {
           } else {
             ensureEncodingTypesIsMutable();
             encodingTypes_.addAll(other.encodingTypes_);
+          }
+          onChanged();
+        }
+        if (!other.customEncodingTypes_.isEmpty()) {
+          if (customEncodingTypes_.isEmpty()) {
+            customEncodingTypes_ = other.customEncodingTypes_;
+            bitField0_ = (bitField0_ & ~0x00000010);
+          } else {
+            ensureCustomEncodingTypesIsMutable();
+            customEncodingTypes_.addAll(other.customEncodingTypes_);
           }
           onChanged();
         }
@@ -13586,15 +13681,109 @@ public final class Dlvc {
         return this;
       }
 
+      private com.google.protobuf.LazyStringList customEncodingTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureCustomEncodingTypesIsMutable() {
+        if (!((bitField0_ & 0x00000010) != 0)) {
+          customEncodingTypes_ = new com.google.protobuf.LazyStringArrayList(customEncodingTypes_);
+          bitField0_ |= 0x00000010;
+         }
+      }
+      /**
+       * <code>repeated string custom_encoding_types = 6;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getCustomEncodingTypesList() {
+        return customEncodingTypes_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string custom_encoding_types = 6;</code>
+       */
+      public int getCustomEncodingTypesCount() {
+        return customEncodingTypes_.size();
+      }
+      /**
+       * <code>repeated string custom_encoding_types = 6;</code>
+       */
+      public java.lang.String getCustomEncodingTypes(int index) {
+        return customEncodingTypes_.get(index);
+      }
+      /**
+       * <code>repeated string custom_encoding_types = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCustomEncodingTypesBytes(int index) {
+        return customEncodingTypes_.getByteString(index);
+      }
+      /**
+       * <code>repeated string custom_encoding_types = 6;</code>
+       */
+      public Builder setCustomEncodingTypes(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureCustomEncodingTypesIsMutable();
+        customEncodingTypes_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string custom_encoding_types = 6;</code>
+       */
+      public Builder addCustomEncodingTypes(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureCustomEncodingTypesIsMutable();
+        customEncodingTypes_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string custom_encoding_types = 6;</code>
+       */
+      public Builder addAllCustomEncodingTypes(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureCustomEncodingTypesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, customEncodingTypes_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string custom_encoding_types = 6;</code>
+       */
+      public Builder clearCustomEncodingTypes() {
+        customEncodingTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string custom_encoding_types = 6;</code>
+       */
+      public Builder addCustomEncodingTypesBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureCustomEncodingTypesIsMutable();
+        customEncodingTypes_.add(value);
+        onChanged();
+        return this;
+      }
+
       private long lenBytes_ ;
       /**
-       * <code>int64 len_bytes = 6;</code>
+       * <code>int64 len_bytes = 7;</code>
        */
       public long getLenBytes() {
         return lenBytes_;
       }
       /**
-       * <code>int64 len_bytes = 6;</code>
+       * <code>int64 len_bytes = 7;</code>
        */
       public Builder setLenBytes(long value) {
         
@@ -13603,7 +13792,7 @@ public final class Dlvc {
         return this;
       }
       /**
-       * <code>int64 len_bytes = 6;</code>
+       * <code>int64 len_bytes = 7;</code>
        */
       public Builder clearLenBytes() {
         
@@ -13614,13 +13803,13 @@ public final class Dlvc {
 
       private long count_ ;
       /**
-       * <code>int64 count = 7;</code>
+       * <code>int64 count = 8;</code>
        */
       public long getCount() {
         return count_;
       }
       /**
-       * <code>int64 count = 7;</code>
+       * <code>int64 count = 8;</code>
        */
       public Builder setCount(long value) {
         
@@ -13629,7 +13818,7 @@ public final class Dlvc {
         return this;
       }
       /**
-       * <code>int64 count = 7;</code>
+       * <code>int64 count = 8;</code>
        */
       public Builder clearCount() {
         
@@ -23253,70 +23442,71 @@ public final class Dlvc {
       "\004 \001(\tJ\004\010\001\020\002\"o\n\tTimeRange\022.\n\nstart_time\030\002" +
       " \001(\0132\032.google.protobuf.Timestamp\022,\n\010end_" +
       "time\030\003 \001(\0132\032.google.protobuf.TimestampJ\004" +
-      "\010\001\020\002\"\030\n\020SummarizeRequestJ\004\010\001\020\002\"\353\001\n\021Summa" +
+      "\010\001\020\002\"\030\n\020SummarizeRequestJ\004\010\001\020\002\"\212\002\n\021Summa" +
       "rizeResponse\022\025\n\rmetadata_keys\030\002 \003(\t\022\032\n\022u" +
       "ser_metadata_keys\030\003 \003(\t\022;\n\rmessage_types" +
       "\030\004 \003(\0162$.dlvc_api.WrappedMessage.Message" +
       "Type\022>\n\016encoding_types\030\005 \003(\0162&.dlvc_api." +
-      "MessageEncoding.EncodingType\022\021\n\tlen_byte" +
-      "s\030\006 \001(\003\022\r\n\005count\030\007 \001(\003J\004\010\001\020\002\".\n\031ListMeta" +
-      "dataValuesRequest\022\013\n\003key\030\002 \001(\tJ\004\010\001\020\002\"?\n\032" +
-      "ListMetadataValuesResponse\022\013\n\003key\030\002 \001(\t\022" +
-      "\016\n\006values\030\003 \003(\tJ\004\010\001\020\002\"\034\n\024ListExercisesRe" +
-      "questJ\004\010\001\020\002\"3\n\025ListExercisesResponse\022\024\n\014" +
-      "exercise_ids\030\003 \003(\tJ\004\010\001\020\002\"\327\003\n\016WrappedMess" +
-      "age\022\027\n\017idempotency_key\030\002 \001(\t\022$\n\010metadata" +
-      "\030\003 \001(\0132\022.dlvc_api.Metadata\0224\n\ruser_metad" +
-      "ata\030\004 \003(\0132\035.dlvc_api.UserDefinedMetadata" +
-      "\022:\n\014message_type\030\005 \001(\0162$.dlvc_api.Wrappe" +
-      "dMessage.MessageType\0223\n\020message_encoding" +
-      "\030\006 \001(\0132\031.dlvc_api.MessageEncoding\022$\n\010pos" +
-      "ition\030\007 \001(\0132\022.dlvc_api.Position\0220\n\014creat" +
-      "ed_time\030\010 \001(\0132\032.google.protobuf.Timestam" +
-      "p\022\023\n\013raw_message\030\t \001(\014\"l\n\013MessageType\022\017\n" +
-      "\013UNSPECIFIED\020\000\022\n\n\006CUSTOM\020\001\022\010\n\004DIS7\020\002\022\007\n\003" +
-      "COT\020\003\022\n\n\006LINK16\020\004\022\t\n\005JREAP\020\005\022\026\n\022INSTRUCT" +
-      "OR_COMMENT\020\006J\004\010\001\020\002\"\222\002\n\010Metadata\022\022\n\npartn" +
-      "er_id\030\002 \001(\t\022\027\n\017partner_cert_id\030\003 \001(\t\022\021\n\t" +
-      "source_id\030\004 \001(\t\022\023\n\013exercise_id\030\005 \001(\t\022\025\n\r" +
-      "exercise_name\030\006 \001(\t\022\030\n\020entity_state_pdu\030" +
-      "\007 \001(\t\0222\n\013force_color\030\010 \001(\0162\035.dlvc_api.Me" +
-      "tadata.ForceColor\"F\n\nForceColor\022\017\n\013UNSPE" +
-      "CIFIED\020\000\022\010\n\004BLUE\020\001\022\007\n\003RED\020\002\022\t\n\005WHITE\020\003\022\t" +
-      "\n\005GREEN\020\004J\004\010\001\020\002\"^\n\023UserDefinedMetadata\022\013" +
-      "\n\003key\030\002 \001(\t\022\r\n\005value\030\003 \001(\t\022\022\n\nvalue_type" +
-      "\030\004 \001(\t\022\021\n\tunit_type\030\005 \001(\tJ\004\010\001\020\002\"\307\001\n\017Mess" +
-      "ageEncoding\022=\n\rencoding_type\030\002 \001(\0162&.dlv" +
-      "c_api.MessageEncoding.EncodingType\022\034\n\024cu" +
-      "stom_encoding_type\030\003 \001(\t\"Q\n\014EncodingType" +
-      "\022\017\n\013UNSPECIFIED\020\000\022\n\n\006CUSTOM\020\001\022\010\n\004TEXT\020\002\022" +
-      "\010\n\004JSON\020\003\022\007\n\003XML\020\004\022\007\n\003CSV\020\005J\004\010\001\020\002\"\223\004\n\010Po" +
-      "sition\022\020\n\010latitude\030\002 \001(\002\022\021\n\tlongitude\030\003 " +
-      "\001(\002\022\r\n\005pitch\030\004 \001(\002\022\013\n\003yaw\030\005 \001(\002\022\014\n\004roll\030" +
-      "\006 \001(\002\022\025\n\rradius_meters\030\007 \001(\002\022\031\n\021resoluti" +
-      "on_meters\030\010 \001(\002\022%\n\004tfom\030\t \001(\0162\027.dlvc_api" +
-      ".Position.TFOM\"\330\002\n\004TFOM\022\017\n\013UNSPECIFIED\020\000" +
-      "\022\024\n\020LTE_1_NANOSECOND\020\001\022\026\n\022LTE_10_NANOSEC" +
-      "ONDS\020\002\022\027\n\023LTE_100_NANOSECONDS\020\003\022\025\n\021LTE_1" +
-      "_MICROSECOND\020\004\022\027\n\023LTE_10_MICROSECONDS\020\005\022" +
-      "\030\n\024LTE_100_MICROSECONDS\020\006\022\025\n\021LTE_1_MILLI" +
-      "SECOND\020\007\022\027\n\023LTE_10_MILLISECONDS\020\010\022\030\n\024LTE" +
-      "_100_MILLISECONDS\020\t\022\020\n\014LTE_1_SECOND\020\n\022\022\n" +
-      "\016LTE_10_SECONDS\020\013\022\023\n\017LTE_100_SECONDS\020\014\022\024" +
-      "\n\020LTE_1000_SECONDS\020\r\022\023\n\017GT_1000_SECONDS\020" +
-      "\016J\004\010\001\020\002\"u\n\023PositionBoundingBox\022\024\n\014min_la" +
-      "titude\030\002 \001(\002\022\024\n\014max_latitude\030\003 \001(\002\022\025\n\rmi" +
-      "n_longitude\030\004 \001(\002\022\025\n\rmax_longitude\030\005 \001(\002" +
-      "J\004\010\001\020\002*\245\001\n\024MessageRetrievalType\022\017\n\013UNSPE" +
-      "CIFIED\020\000\022\t\n\005INDEX\020\001\022\010\n\004TIME\020\002\022\020\n\014MESSAGE" +
-      "_TYPE\020\003\022\021\n\rENCODING_TYPE\020\004\022\014\n\010METADATA\020\005" +
-      "\022\031\n\025USER_DEFINED_METADATA\020\006\022\031\n\025POSITION_" +
-      "BOUNDING_BOX\020\007*\304\001\n\024ReturnedMetadataType\022" +
-      "\026\n\022RETURN_UNSPECIFIED\020\000\022\017\n\013RETURN_NONE\020\001" +
-      "\022\016\n\nRETURN_ALL\020\002\022\017\n\013RETURN_TIME\020\003\022\026\n\022RET" +
-      "URN_SOURCE_TYPE\020\004\022\023\n\017RETURN_METADATA\020\005\022 " +
-      "\n\034RETURN_USER_DEFINED_METADATA\020\006\022\023\n\017RETU" +
-      "RN_POSITION\020\007b\006proto3"
+      "MessageEncoding.EncodingType\022\035\n\025custom_e" +
+      "ncoding_types\030\006 \003(\t\022\021\n\tlen_bytes\030\007 \001(\003\022\r" +
+      "\n\005count\030\010 \001(\003J\004\010\001\020\002\".\n\031ListMetadataValue" +
+      "sRequest\022\013\n\003key\030\002 \001(\tJ\004\010\001\020\002\"?\n\032ListMetad" +
+      "ataValuesResponse\022\013\n\003key\030\002 \001(\t\022\016\n\006values" +
+      "\030\003 \003(\tJ\004\010\001\020\002\"\034\n\024ListExercisesRequestJ\004\010\001" +
+      "\020\002\"3\n\025ListExercisesResponse\022\024\n\014exercise_" +
+      "ids\030\003 \003(\tJ\004\010\001\020\002\"\327\003\n\016WrappedMessage\022\027\n\017id" +
+      "empotency_key\030\002 \001(\t\022$\n\010metadata\030\003 \001(\0132\022." +
+      "dlvc_api.Metadata\0224\n\ruser_metadata\030\004 \003(\013" +
+      "2\035.dlvc_api.UserDefinedMetadata\022:\n\014messa" +
+      "ge_type\030\005 \001(\0162$.dlvc_api.WrappedMessage." +
+      "MessageType\0223\n\020message_encoding\030\006 \001(\0132\031." +
+      "dlvc_api.MessageEncoding\022$\n\010position\030\007 \001" +
+      "(\0132\022.dlvc_api.Position\0220\n\014created_time\030\010" +
+      " \001(\0132\032.google.protobuf.Timestamp\022\023\n\013raw_" +
+      "message\030\t \001(\014\"l\n\013MessageType\022\017\n\013UNSPECIF" +
+      "IED\020\000\022\n\n\006CUSTOM\020\001\022\010\n\004DIS7\020\002\022\007\n\003COT\020\003\022\n\n\006" +
+      "LINK16\020\004\022\t\n\005JREAP\020\005\022\026\n\022INSTRUCTOR_COMMEN" +
+      "T\020\006J\004\010\001\020\002\"\222\002\n\010Metadata\022\022\n\npartner_id\030\002 \001" +
+      "(\t\022\027\n\017partner_cert_id\030\003 \001(\t\022\021\n\tsource_id" +
+      "\030\004 \001(\t\022\023\n\013exercise_id\030\005 \001(\t\022\025\n\rexercise_" +
+      "name\030\006 \001(\t\022\030\n\020entity_state_pdu\030\007 \001(\t\0222\n\013" +
+      "force_color\030\010 \001(\0162\035.dlvc_api.Metadata.Fo" +
+      "rceColor\"F\n\nForceColor\022\017\n\013UNSPECIFIED\020\000\022" +
+      "\010\n\004BLUE\020\001\022\007\n\003RED\020\002\022\t\n\005WHITE\020\003\022\t\n\005GREEN\020\004" +
+      "J\004\010\001\020\002\"^\n\023UserDefinedMetadata\022\013\n\003key\030\002 \001" +
+      "(\t\022\r\n\005value\030\003 \001(\t\022\022\n\nvalue_type\030\004 \001(\t\022\021\n" +
+      "\tunit_type\030\005 \001(\tJ\004\010\001\020\002\"\307\001\n\017MessageEncodi" +
+      "ng\022=\n\rencoding_type\030\002 \001(\0162&.dlvc_api.Mes" +
+      "sageEncoding.EncodingType\022\034\n\024custom_enco" +
+      "ding_type\030\003 \001(\t\"Q\n\014EncodingType\022\017\n\013UNSPE" +
+      "CIFIED\020\000\022\n\n\006CUSTOM\020\001\022\010\n\004TEXT\020\002\022\010\n\004JSON\020\003" +
+      "\022\007\n\003XML\020\004\022\007\n\003CSV\020\005J\004\010\001\020\002\"\223\004\n\010Position\022\020\n" +
+      "\010latitude\030\002 \001(\002\022\021\n\tlongitude\030\003 \001(\002\022\r\n\005pi" +
+      "tch\030\004 \001(\002\022\013\n\003yaw\030\005 \001(\002\022\014\n\004roll\030\006 \001(\002\022\025\n\r" +
+      "radius_meters\030\007 \001(\002\022\031\n\021resolution_meters" +
+      "\030\010 \001(\002\022%\n\004tfom\030\t \001(\0162\027.dlvc_api.Position" +
+      ".TFOM\"\330\002\n\004TFOM\022\017\n\013UNSPECIFIED\020\000\022\024\n\020LTE_1" +
+      "_NANOSECOND\020\001\022\026\n\022LTE_10_NANOSECONDS\020\002\022\027\n" +
+      "\023LTE_100_NANOSECONDS\020\003\022\025\n\021LTE_1_MICROSEC" +
+      "OND\020\004\022\027\n\023LTE_10_MICROSECONDS\020\005\022\030\n\024LTE_10" +
+      "0_MICROSECONDS\020\006\022\025\n\021LTE_1_MILLISECOND\020\007\022" +
+      "\027\n\023LTE_10_MILLISECONDS\020\010\022\030\n\024LTE_100_MILL" +
+      "ISECONDS\020\t\022\020\n\014LTE_1_SECOND\020\n\022\022\n\016LTE_10_S" +
+      "ECONDS\020\013\022\023\n\017LTE_100_SECONDS\020\014\022\024\n\020LTE_100" +
+      "0_SECONDS\020\r\022\023\n\017GT_1000_SECONDS\020\016J\004\010\001\020\002\"u" +
+      "\n\023PositionBoundingBox\022\024\n\014min_latitude\030\002 " +
+      "\001(\002\022\024\n\014max_latitude\030\003 \001(\002\022\025\n\rmin_longitu" +
+      "de\030\004 \001(\002\022\025\n\rmax_longitude\030\005 \001(\002J\004\010\001\020\002*\245\001" +
+      "\n\024MessageRetrievalType\022\017\n\013UNSPECIFIED\020\000\022" +
+      "\t\n\005INDEX\020\001\022\010\n\004TIME\020\002\022\020\n\014MESSAGE_TYPE\020\003\022\021" +
+      "\n\rENCODING_TYPE\020\004\022\014\n\010METADATA\020\005\022\031\n\025USER_" +
+      "DEFINED_METADATA\020\006\022\031\n\025POSITION_BOUNDING_" +
+      "BOX\020\007*\304\001\n\024ReturnedMetadataType\022\026\n\022RETURN" +
+      "_UNSPECIFIED\020\000\022\017\n\013RETURN_NONE\020\001\022\016\n\nRETUR" +
+      "N_ALL\020\002\022\017\n\013RETURN_TIME\020\003\022\026\n\022RETURN_SOURC" +
+      "E_TYPE\020\004\022\023\n\017RETURN_METADATA\020\005\022 \n\034RETURN_" +
+      "USER_DEFINED_METADATA\020\006\022\023\n\017RETURN_POSITI" +
+      "ON\020\007b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -23400,7 +23590,7 @@ public final class Dlvc {
     internal_static_dlvc_api_SummarizeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_SummarizeResponse_descriptor,
-        new java.lang.String[] { "MetadataKeys", "UserMetadataKeys", "MessageTypes", "EncodingTypes", "LenBytes", "Count", });
+        new java.lang.String[] { "MetadataKeys", "UserMetadataKeys", "MessageTypes", "EncodingTypes", "CustomEncodingTypes", "LenBytes", "Count", });
     internal_static_dlvc_api_ListMetadataValuesRequest_descriptor =
       getDescriptor().getMessageTypes().get(13);
     internal_static_dlvc_api_ListMetadataValuesRequest_fieldAccessorTable = new

@@ -3572,6 +3572,7 @@ export const dlvc_api = $root.dlvc_api = (() => {
          * @property {Array.<string>|null} [userMetadataKeys] SummarizeResponse userMetadataKeys
          * @property {Array.<dlvc_api.WrappedMessage.MessageType>|null} [messageTypes] SummarizeResponse messageTypes
          * @property {Array.<dlvc_api.MessageEncoding.EncodingType>|null} [encodingTypes] SummarizeResponse encodingTypes
+         * @property {Array.<string>|null} [customEncodingTypes] SummarizeResponse customEncodingTypes
          * @property {number|Long|null} [lenBytes] SummarizeResponse lenBytes
          * @property {number|Long|null} [count] SummarizeResponse count
          */
@@ -3589,6 +3590,7 @@ export const dlvc_api = $root.dlvc_api = (() => {
             this.userMetadataKeys = [];
             this.messageTypes = [];
             this.encodingTypes = [];
+            this.customEncodingTypes = [];
             if (properties)
                 for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -3626,6 +3628,14 @@ export const dlvc_api = $root.dlvc_api = (() => {
          * @instance
          */
         SummarizeResponse.prototype.encodingTypes = $util.emptyArray;
+
+        /**
+         * SummarizeResponse customEncodingTypes.
+         * @member {Array.<string>} customEncodingTypes
+         * @memberof dlvc_api.SummarizeResponse
+         * @instance
+         */
+        SummarizeResponse.prototype.customEncodingTypes = $util.emptyArray;
 
         /**
          * SummarizeResponse lenBytes.
@@ -3685,10 +3695,13 @@ export const dlvc_api = $root.dlvc_api = (() => {
                     writer.int32(message.encodingTypes[i]);
                 writer.ldelim();
             }
+            if (message.customEncodingTypes != null && message.customEncodingTypes.length)
+                for (let i = 0; i < message.customEncodingTypes.length; ++i)
+                    writer.uint32(/* id 6, wireType 2 =*/50).string(message.customEncodingTypes[i]);
             if (message.lenBytes != null && Object.hasOwnProperty.call(message, "lenBytes"))
-                writer.uint32(/* id 6, wireType 0 =*/48).int64(message.lenBytes);
+                writer.uint32(/* id 7, wireType 0 =*/56).int64(message.lenBytes);
             if (message.count != null && Object.hasOwnProperty.call(message, "count"))
-                writer.uint32(/* id 7, wireType 0 =*/56).int64(message.count);
+                writer.uint32(/* id 8, wireType 0 =*/64).int64(message.count);
             return writer;
         };
 
@@ -3754,9 +3767,14 @@ export const dlvc_api = $root.dlvc_api = (() => {
                         message.encodingTypes.push(reader.int32());
                     break;
                 case 6:
-                    message.lenBytes = reader.int64();
+                    if (!(message.customEncodingTypes && message.customEncodingTypes.length))
+                        message.customEncodingTypes = [];
+                    message.customEncodingTypes.push(reader.string());
                     break;
                 case 7:
+                    message.lenBytes = reader.int64();
+                    break;
+                case 8:
                     message.count = reader.int64();
                     break;
                 default:
@@ -3840,6 +3858,13 @@ export const dlvc_api = $root.dlvc_api = (() => {
                     case 5:
                         break;
                     }
+            }
+            if (message.customEncodingTypes != null && message.hasOwnProperty("customEncodingTypes")) {
+                if (!Array.isArray(message.customEncodingTypes))
+                    return "customEncodingTypes: array expected";
+                for (let i = 0; i < message.customEncodingTypes.length; ++i)
+                    if (!$util.isString(message.customEncodingTypes[i]))
+                        return "customEncodingTypes: string[] expected";
             }
             if (message.lenBytes != null && message.hasOwnProperty("lenBytes"))
                 if (!$util.isInteger(message.lenBytes) && !(message.lenBytes && $util.isInteger(message.lenBytes.low) && $util.isInteger(message.lenBytes.high)))
@@ -3946,6 +3971,13 @@ export const dlvc_api = $root.dlvc_api = (() => {
                         break;
                     }
             }
+            if (object.customEncodingTypes) {
+                if (!Array.isArray(object.customEncodingTypes))
+                    throw TypeError(".dlvc_api.SummarizeResponse.customEncodingTypes: array expected");
+                message.customEncodingTypes = [];
+                for (let i = 0; i < object.customEncodingTypes.length; ++i)
+                    message.customEncodingTypes[i] = String(object.customEncodingTypes[i]);
+            }
             if (object.lenBytes != null)
                 if ($util.Long)
                     (message.lenBytes = $util.Long.fromValue(object.lenBytes)).unsigned = false;
@@ -3985,6 +4017,7 @@ export const dlvc_api = $root.dlvc_api = (() => {
                 object.userMetadataKeys = [];
                 object.messageTypes = [];
                 object.encodingTypes = [];
+                object.customEncodingTypes = [];
             }
             if (options.defaults) {
                 if ($util.Long) {
@@ -4017,6 +4050,11 @@ export const dlvc_api = $root.dlvc_api = (() => {
                 object.encodingTypes = [];
                 for (let j = 0; j < message.encodingTypes.length; ++j)
                     object.encodingTypes[j] = options.enums === String ? $root.dlvc_api.MessageEncoding.EncodingType[message.encodingTypes[j]] : message.encodingTypes[j];
+            }
+            if (message.customEncodingTypes && message.customEncodingTypes.length) {
+                object.customEncodingTypes = [];
+                for (let j = 0; j < message.customEncodingTypes.length; ++j)
+                    object.customEncodingTypes[j] = message.customEncodingTypes[j];
             }
             if (message.lenBytes != null && message.hasOwnProperty("lenBytes"))
                 if (typeof message.lenBytes === "number")

@@ -1279,6 +1279,9 @@ export namespace dlvc_api {
         /** SummarizeResponse encodingTypes */
         encodingTypes?: (dlvc_api.MessageEncoding.EncodingType[]|null);
 
+        /** SummarizeResponse customEncodingTypes */
+        customEncodingTypes?: (string[]|null);
+
         /** SummarizeResponse lenBytes */
         lenBytes?: (number|Long|null);
 
@@ -1306,6 +1309,9 @@ export namespace dlvc_api {
 
         /** SummarizeResponse encodingTypes. */
         public encodingTypes: dlvc_api.MessageEncoding.EncodingType[];
+
+        /** SummarizeResponse customEncodingTypes. */
+        public customEncodingTypes: string[];
 
         /** SummarizeResponse lenBytes. */
         public lenBytes: (number|Long);

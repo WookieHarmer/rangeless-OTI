@@ -2315,15 +2315,33 @@ class SummarizeResponse :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>& encoding_types() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int>* mutable_encoding_types();
 
-  // int64 len_bytes = 6;
+  // repeated string custom_encoding_types = 6;
+  int custom_encoding_types_size() const;
+  void clear_custom_encoding_types();
+  static const int kCustomEncodingTypesFieldNumber = 6;
+  const std::string& custom_encoding_types(int index) const;
+  std::string* mutable_custom_encoding_types(int index);
+  void set_custom_encoding_types(int index, const std::string& value);
+  void set_custom_encoding_types(int index, std::string&& value);
+  void set_custom_encoding_types(int index, const char* value);
+  void set_custom_encoding_types(int index, const char* value, size_t size);
+  std::string* add_custom_encoding_types();
+  void add_custom_encoding_types(const std::string& value);
+  void add_custom_encoding_types(std::string&& value);
+  void add_custom_encoding_types(const char* value);
+  void add_custom_encoding_types(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& custom_encoding_types() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_custom_encoding_types();
+
+  // int64 len_bytes = 7;
   void clear_len_bytes();
-  static const int kLenBytesFieldNumber = 6;
+  static const int kLenBytesFieldNumber = 7;
   ::PROTOBUF_NAMESPACE_ID::int64 len_bytes() const;
   void set_len_bytes(::PROTOBUF_NAMESPACE_ID::int64 value);
 
-  // int64 count = 7;
+  // int64 count = 8;
   void clear_count();
-  static const int kCountFieldNumber = 7;
+  static const int kCountFieldNumber = 8;
   ::PROTOBUF_NAMESPACE_ID::int64 count() const;
   void set_count(::PROTOBUF_NAMESPACE_ID::int64 value);
 
@@ -2338,6 +2356,7 @@ class SummarizeResponse :
   mutable std::atomic<int> _message_types_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> encoding_types_;
   mutable std::atomic<int> _encoding_types_cached_byte_size_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> custom_encoding_types_;
   ::PROTOBUF_NAMESPACE_ID::int64 len_bytes_;
   ::PROTOBUF_NAMESPACE_ID::int64 count_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -5652,7 +5671,72 @@ SummarizeResponse::mutable_encoding_types() {
   return &encoding_types_;
 }
 
-// int64 len_bytes = 6;
+// repeated string custom_encoding_types = 6;
+inline int SummarizeResponse::custom_encoding_types_size() const {
+  return custom_encoding_types_.size();
+}
+inline void SummarizeResponse::clear_custom_encoding_types() {
+  custom_encoding_types_.Clear();
+}
+inline const std::string& SummarizeResponse::custom_encoding_types(int index) const {
+  // @@protoc_insertion_point(field_get:dlvc_api.SummarizeResponse.custom_encoding_types)
+  return custom_encoding_types_.Get(index);
+}
+inline std::string* SummarizeResponse::mutable_custom_encoding_types(int index) {
+  // @@protoc_insertion_point(field_mutable:dlvc_api.SummarizeResponse.custom_encoding_types)
+  return custom_encoding_types_.Mutable(index);
+}
+inline void SummarizeResponse::set_custom_encoding_types(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:dlvc_api.SummarizeResponse.custom_encoding_types)
+  custom_encoding_types_.Mutable(index)->assign(value);
+}
+inline void SummarizeResponse::set_custom_encoding_types(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:dlvc_api.SummarizeResponse.custom_encoding_types)
+  custom_encoding_types_.Mutable(index)->assign(std::move(value));
+}
+inline void SummarizeResponse::set_custom_encoding_types(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  custom_encoding_types_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:dlvc_api.SummarizeResponse.custom_encoding_types)
+}
+inline void SummarizeResponse::set_custom_encoding_types(int index, const char* value, size_t size) {
+  custom_encoding_types_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:dlvc_api.SummarizeResponse.custom_encoding_types)
+}
+inline std::string* SummarizeResponse::add_custom_encoding_types() {
+  // @@protoc_insertion_point(field_add_mutable:dlvc_api.SummarizeResponse.custom_encoding_types)
+  return custom_encoding_types_.Add();
+}
+inline void SummarizeResponse::add_custom_encoding_types(const std::string& value) {
+  custom_encoding_types_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:dlvc_api.SummarizeResponse.custom_encoding_types)
+}
+inline void SummarizeResponse::add_custom_encoding_types(std::string&& value) {
+  custom_encoding_types_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:dlvc_api.SummarizeResponse.custom_encoding_types)
+}
+inline void SummarizeResponse::add_custom_encoding_types(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  custom_encoding_types_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:dlvc_api.SummarizeResponse.custom_encoding_types)
+}
+inline void SummarizeResponse::add_custom_encoding_types(const char* value, size_t size) {
+  custom_encoding_types_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:dlvc_api.SummarizeResponse.custom_encoding_types)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+SummarizeResponse::custom_encoding_types() const {
+  // @@protoc_insertion_point(field_list:dlvc_api.SummarizeResponse.custom_encoding_types)
+  return custom_encoding_types_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+SummarizeResponse::mutable_custom_encoding_types() {
+  // @@protoc_insertion_point(field_mutable_list:dlvc_api.SummarizeResponse.custom_encoding_types)
+  return &custom_encoding_types_;
+}
+
+// int64 len_bytes = 7;
 inline void SummarizeResponse::clear_len_bytes() {
   len_bytes_ = PROTOBUF_LONGLONG(0);
 }
@@ -5666,7 +5750,7 @@ inline void SummarizeResponse::set_len_bytes(::PROTOBUF_NAMESPACE_ID::int64 valu
   // @@protoc_insertion_point(field_set:dlvc_api.SummarizeResponse.len_bytes)
 }
 
-// int64 count = 7;
+// int64 count = 8;
 inline void SummarizeResponse::clear_count() {
   count_ = PROTOBUF_LONGLONG(0);
 }
