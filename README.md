@@ -56,9 +56,6 @@ Language specific documentation is available at links in the table below.
 | [**Typescript**](/pkgs/ts) |    ✓    |     ✓    |                   |
 | [**C++**](/pkgs/cpp)       |         |     ✓    |                   |
 
-_(Additional integration tests will be added soon)_
-\
-\
 For additional information about Protobufs or Twirp, please see the official docs.
 
 |           | Docs | Source Code |

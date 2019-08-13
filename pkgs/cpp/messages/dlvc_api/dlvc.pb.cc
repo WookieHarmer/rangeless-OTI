@@ -577,6 +577,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_dlvc_5fapi_2fdlvc_2eproto::off
   PROTOBUF_FIELD_OFFSET(::dlvc_api::SummarizeResponse, user_metadata_keys_),
   PROTOBUF_FIELD_OFFSET(::dlvc_api::SummarizeResponse, message_types_),
   PROTOBUF_FIELD_OFFSET(::dlvc_api::SummarizeResponse, encoding_types_),
+  PROTOBUF_FIELD_OFFSET(::dlvc_api::SummarizeResponse, custom_encoding_types_),
   PROTOBUF_FIELD_OFFSET(::dlvc_api::SummarizeResponse, len_bytes_),
   PROTOBUF_FIELD_OFFSET(::dlvc_api::SummarizeResponse, count_),
   ~0u,  // no _has_bits_
@@ -681,16 +682,16 @@ static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOB
   { 86, -1, sizeof(::dlvc_api::TimeRange)},
   { 93, -1, sizeof(::dlvc_api::SummarizeRequest)},
   { 98, -1, sizeof(::dlvc_api::SummarizeResponse)},
-  { 109, -1, sizeof(::dlvc_api::ListMetadataValuesRequest)},
-  { 115, -1, sizeof(::dlvc_api::ListMetadataValuesResponse)},
-  { 122, -1, sizeof(::dlvc_api::ListExercisesRequest)},
-  { 127, -1, sizeof(::dlvc_api::ListExercisesResponse)},
-  { 133, -1, sizeof(::dlvc_api::WrappedMessage)},
-  { 146, -1, sizeof(::dlvc_api::Metadata)},
-  { 158, -1, sizeof(::dlvc_api::UserDefinedMetadata)},
-  { 167, -1, sizeof(::dlvc_api::MessageEncoding)},
-  { 174, -1, sizeof(::dlvc_api::Position)},
-  { 187, -1, sizeof(::dlvc_api::PositionBoundingBox)},
+  { 110, -1, sizeof(::dlvc_api::ListMetadataValuesRequest)},
+  { 116, -1, sizeof(::dlvc_api::ListMetadataValuesResponse)},
+  { 123, -1, sizeof(::dlvc_api::ListExercisesRequest)},
+  { 128, -1, sizeof(::dlvc_api::ListExercisesResponse)},
+  { 134, -1, sizeof(::dlvc_api::WrappedMessage)},
+  { 147, -1, sizeof(::dlvc_api::Metadata)},
+  { 159, -1, sizeof(::dlvc_api::UserDefinedMetadata)},
+  { 168, -1, sizeof(::dlvc_api::MessageEncoding)},
+  { 175, -1, sizeof(::dlvc_api::Position)},
+  { 188, -1, sizeof(::dlvc_api::PositionBoundingBox)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -768,70 +769,71 @@ const char descriptor_table_protodef_dlvc_5fapi_2fdlvc_2eproto[] =
   "\004 \001(\tJ\004\010\001\020\002\"o\n\tTimeRange\022.\n\nstart_time\030\002"
   " \001(\0132\032.google.protobuf.Timestamp\022,\n\010end_"
   "time\030\003 \001(\0132\032.google.protobuf.TimestampJ\004"
-  "\010\001\020\002\"\030\n\020SummarizeRequestJ\004\010\001\020\002\"\353\001\n\021Summa"
+  "\010\001\020\002\"\030\n\020SummarizeRequestJ\004\010\001\020\002\"\212\002\n\021Summa"
   "rizeResponse\022\025\n\rmetadata_keys\030\002 \003(\t\022\032\n\022u"
   "ser_metadata_keys\030\003 \003(\t\022;\n\rmessage_types"
   "\030\004 \003(\0162$.dlvc_api.WrappedMessage.Message"
   "Type\022>\n\016encoding_types\030\005 \003(\0162&.dlvc_api."
-  "MessageEncoding.EncodingType\022\021\n\tlen_byte"
-  "s\030\006 \001(\003\022\r\n\005count\030\007 \001(\003J\004\010\001\020\002\".\n\031ListMeta"
-  "dataValuesRequest\022\013\n\003key\030\002 \001(\tJ\004\010\001\020\002\"\?\n\032"
-  "ListMetadataValuesResponse\022\013\n\003key\030\002 \001(\t\022"
-  "\016\n\006values\030\003 \003(\tJ\004\010\001\020\002\"\034\n\024ListExercisesRe"
-  "questJ\004\010\001\020\002\"3\n\025ListExercisesResponse\022\024\n\014"
-  "exercise_ids\030\003 \003(\tJ\004\010\001\020\002\"\327\003\n\016WrappedMess"
-  "age\022\027\n\017idempotency_key\030\002 \001(\t\022$\n\010metadata"
-  "\030\003 \001(\0132\022.dlvc_api.Metadata\0224\n\ruser_metad"
-  "ata\030\004 \003(\0132\035.dlvc_api.UserDefinedMetadata"
-  "\022:\n\014message_type\030\005 \001(\0162$.dlvc_api.Wrappe"
-  "dMessage.MessageType\0223\n\020message_encoding"
-  "\030\006 \001(\0132\031.dlvc_api.MessageEncoding\022$\n\010pos"
-  "ition\030\007 \001(\0132\022.dlvc_api.Position\0220\n\014creat"
-  "ed_time\030\010 \001(\0132\032.google.protobuf.Timestam"
-  "p\022\023\n\013raw_message\030\t \001(\014\"l\n\013MessageType\022\017\n"
-  "\013UNSPECIFIED\020\000\022\n\n\006CUSTOM\020\001\022\010\n\004DIS7\020\002\022\007\n\003"
-  "COT\020\003\022\n\n\006LINK16\020\004\022\t\n\005JREAP\020\005\022\026\n\022INSTRUCT"
-  "OR_COMMENT\020\006J\004\010\001\020\002\"\222\002\n\010Metadata\022\022\n\npartn"
-  "er_id\030\002 \001(\t\022\027\n\017partner_cert_id\030\003 \001(\t\022\021\n\t"
-  "source_id\030\004 \001(\t\022\023\n\013exercise_id\030\005 \001(\t\022\025\n\r"
-  "exercise_name\030\006 \001(\t\022\030\n\020entity_state_pdu\030"
-  "\007 \001(\t\0222\n\013force_color\030\010 \001(\0162\035.dlvc_api.Me"
-  "tadata.ForceColor\"F\n\nForceColor\022\017\n\013UNSPE"
-  "CIFIED\020\000\022\010\n\004BLUE\020\001\022\007\n\003RED\020\002\022\t\n\005WHITE\020\003\022\t"
-  "\n\005GREEN\020\004J\004\010\001\020\002\"^\n\023UserDefinedMetadata\022\013"
-  "\n\003key\030\002 \001(\t\022\r\n\005value\030\003 \001(\t\022\022\n\nvalue_type"
-  "\030\004 \001(\t\022\021\n\tunit_type\030\005 \001(\tJ\004\010\001\020\002\"\307\001\n\017Mess"
-  "ageEncoding\022=\n\rencoding_type\030\002 \001(\0162&.dlv"
-  "c_api.MessageEncoding.EncodingType\022\034\n\024cu"
-  "stom_encoding_type\030\003 \001(\t\"Q\n\014EncodingType"
-  "\022\017\n\013UNSPECIFIED\020\000\022\n\n\006CUSTOM\020\001\022\010\n\004TEXT\020\002\022"
-  "\010\n\004JSON\020\003\022\007\n\003XML\020\004\022\007\n\003CSV\020\005J\004\010\001\020\002\"\223\004\n\010Po"
-  "sition\022\020\n\010latitude\030\002 \001(\002\022\021\n\tlongitude\030\003 "
-  "\001(\002\022\r\n\005pitch\030\004 \001(\002\022\013\n\003yaw\030\005 \001(\002\022\014\n\004roll\030"
-  "\006 \001(\002\022\025\n\rradius_meters\030\007 \001(\002\022\031\n\021resoluti"
-  "on_meters\030\010 \001(\002\022%\n\004tfom\030\t \001(\0162\027.dlvc_api"
-  ".Position.TFOM\"\330\002\n\004TFOM\022\017\n\013UNSPECIFIED\020\000"
-  "\022\024\n\020LTE_1_NANOSECOND\020\001\022\026\n\022LTE_10_NANOSEC"
-  "ONDS\020\002\022\027\n\023LTE_100_NANOSECONDS\020\003\022\025\n\021LTE_1"
-  "_MICROSECOND\020\004\022\027\n\023LTE_10_MICROSECONDS\020\005\022"
-  "\030\n\024LTE_100_MICROSECONDS\020\006\022\025\n\021LTE_1_MILLI"
-  "SECOND\020\007\022\027\n\023LTE_10_MILLISECONDS\020\010\022\030\n\024LTE"
-  "_100_MILLISECONDS\020\t\022\020\n\014LTE_1_SECOND\020\n\022\022\n"
-  "\016LTE_10_SECONDS\020\013\022\023\n\017LTE_100_SECONDS\020\014\022\024"
-  "\n\020LTE_1000_SECONDS\020\r\022\023\n\017GT_1000_SECONDS\020"
-  "\016J\004\010\001\020\002\"u\n\023PositionBoundingBox\022\024\n\014min_la"
-  "titude\030\002 \001(\002\022\024\n\014max_latitude\030\003 \001(\002\022\025\n\rmi"
-  "n_longitude\030\004 \001(\002\022\025\n\rmax_longitude\030\005 \001(\002"
-  "J\004\010\001\020\002*\245\001\n\024MessageRetrievalType\022\017\n\013UNSPE"
-  "CIFIED\020\000\022\t\n\005INDEX\020\001\022\010\n\004TIME\020\002\022\020\n\014MESSAGE"
-  "_TYPE\020\003\022\021\n\rENCODING_TYPE\020\004\022\014\n\010METADATA\020\005"
-  "\022\031\n\025USER_DEFINED_METADATA\020\006\022\031\n\025POSITION_"
-  "BOUNDING_BOX\020\007*\304\001\n\024ReturnedMetadataType\022"
-  "\026\n\022RETURN_UNSPECIFIED\020\000\022\017\n\013RETURN_NONE\020\001"
-  "\022\016\n\nRETURN_ALL\020\002\022\017\n\013RETURN_TIME\020\003\022\026\n\022RET"
-  "URN_SOURCE_TYPE\020\004\022\023\n\017RETURN_METADATA\020\005\022 "
-  "\n\034RETURN_USER_DEFINED_METADATA\020\006\022\023\n\017RETU"
-  "RN_POSITION\020\007b\006proto3"
+  "MessageEncoding.EncodingType\022\035\n\025custom_e"
+  "ncoding_types\030\006 \003(\t\022\021\n\tlen_bytes\030\007 \001(\003\022\r"
+  "\n\005count\030\010 \001(\003J\004\010\001\020\002\".\n\031ListMetadataValue"
+  "sRequest\022\013\n\003key\030\002 \001(\tJ\004\010\001\020\002\"\?\n\032ListMetad"
+  "ataValuesResponse\022\013\n\003key\030\002 \001(\t\022\016\n\006values"
+  "\030\003 \003(\tJ\004\010\001\020\002\"\034\n\024ListExercisesRequestJ\004\010\001"
+  "\020\002\"3\n\025ListExercisesResponse\022\024\n\014exercise_"
+  "ids\030\003 \003(\tJ\004\010\001\020\002\"\327\003\n\016WrappedMessage\022\027\n\017id"
+  "empotency_key\030\002 \001(\t\022$\n\010metadata\030\003 \001(\0132\022."
+  "dlvc_api.Metadata\0224\n\ruser_metadata\030\004 \003(\013"
+  "2\035.dlvc_api.UserDefinedMetadata\022:\n\014messa"
+  "ge_type\030\005 \001(\0162$.dlvc_api.WrappedMessage."
+  "MessageType\0223\n\020message_encoding\030\006 \001(\0132\031."
+  "dlvc_api.MessageEncoding\022$\n\010position\030\007 \001"
+  "(\0132\022.dlvc_api.Position\0220\n\014created_time\030\010"
+  " \001(\0132\032.google.protobuf.Timestamp\022\023\n\013raw_"
+  "message\030\t \001(\014\"l\n\013MessageType\022\017\n\013UNSPECIF"
+  "IED\020\000\022\n\n\006CUSTOM\020\001\022\010\n\004DIS7\020\002\022\007\n\003COT\020\003\022\n\n\006"
+  "LINK16\020\004\022\t\n\005JREAP\020\005\022\026\n\022INSTRUCTOR_COMMEN"
+  "T\020\006J\004\010\001\020\002\"\222\002\n\010Metadata\022\022\n\npartner_id\030\002 \001"
+  "(\t\022\027\n\017partner_cert_id\030\003 \001(\t\022\021\n\tsource_id"
+  "\030\004 \001(\t\022\023\n\013exercise_id\030\005 \001(\t\022\025\n\rexercise_"
+  "name\030\006 \001(\t\022\030\n\020entity_state_pdu\030\007 \001(\t\0222\n\013"
+  "force_color\030\010 \001(\0162\035.dlvc_api.Metadata.Fo"
+  "rceColor\"F\n\nForceColor\022\017\n\013UNSPECIFIED\020\000\022"
+  "\010\n\004BLUE\020\001\022\007\n\003RED\020\002\022\t\n\005WHITE\020\003\022\t\n\005GREEN\020\004"
+  "J\004\010\001\020\002\"^\n\023UserDefinedMetadata\022\013\n\003key\030\002 \001"
+  "(\t\022\r\n\005value\030\003 \001(\t\022\022\n\nvalue_type\030\004 \001(\t\022\021\n"
+  "\tunit_type\030\005 \001(\tJ\004\010\001\020\002\"\307\001\n\017MessageEncodi"
+  "ng\022=\n\rencoding_type\030\002 \001(\0162&.dlvc_api.Mes"
+  "sageEncoding.EncodingType\022\034\n\024custom_enco"
+  "ding_type\030\003 \001(\t\"Q\n\014EncodingType\022\017\n\013UNSPE"
+  "CIFIED\020\000\022\n\n\006CUSTOM\020\001\022\010\n\004TEXT\020\002\022\010\n\004JSON\020\003"
+  "\022\007\n\003XML\020\004\022\007\n\003CSV\020\005J\004\010\001\020\002\"\223\004\n\010Position\022\020\n"
+  "\010latitude\030\002 \001(\002\022\021\n\tlongitude\030\003 \001(\002\022\r\n\005pi"
+  "tch\030\004 \001(\002\022\013\n\003yaw\030\005 \001(\002\022\014\n\004roll\030\006 \001(\002\022\025\n\r"
+  "radius_meters\030\007 \001(\002\022\031\n\021resolution_meters"
+  "\030\010 \001(\002\022%\n\004tfom\030\t \001(\0162\027.dlvc_api.Position"
+  ".TFOM\"\330\002\n\004TFOM\022\017\n\013UNSPECIFIED\020\000\022\024\n\020LTE_1"
+  "_NANOSECOND\020\001\022\026\n\022LTE_10_NANOSECONDS\020\002\022\027\n"
+  "\023LTE_100_NANOSECONDS\020\003\022\025\n\021LTE_1_MICROSEC"
+  "OND\020\004\022\027\n\023LTE_10_MICROSECONDS\020\005\022\030\n\024LTE_10"
+  "0_MICROSECONDS\020\006\022\025\n\021LTE_1_MILLISECOND\020\007\022"
+  "\027\n\023LTE_10_MILLISECONDS\020\010\022\030\n\024LTE_100_MILL"
+  "ISECONDS\020\t\022\020\n\014LTE_1_SECOND\020\n\022\022\n\016LTE_10_S"
+  "ECONDS\020\013\022\023\n\017LTE_100_SECONDS\020\014\022\024\n\020LTE_100"
+  "0_SECONDS\020\r\022\023\n\017GT_1000_SECONDS\020\016J\004\010\001\020\002\"u"
+  "\n\023PositionBoundingBox\022\024\n\014min_latitude\030\002 "
+  "\001(\002\022\024\n\014max_latitude\030\003 \001(\002\022\025\n\rmin_longitu"
+  "de\030\004 \001(\002\022\025\n\rmax_longitude\030\005 \001(\002J\004\010\001\020\002*\245\001"
+  "\n\024MessageRetrievalType\022\017\n\013UNSPECIFIED\020\000\022"
+  "\t\n\005INDEX\020\001\022\010\n\004TIME\020\002\022\020\n\014MESSAGE_TYPE\020\003\022\021"
+  "\n\rENCODING_TYPE\020\004\022\014\n\010METADATA\020\005\022\031\n\025USER_"
+  "DEFINED_METADATA\020\006\022\031\n\025POSITION_BOUNDING_"
+  "BOX\020\007*\304\001\n\024ReturnedMetadataType\022\026\n\022RETURN"
+  "_UNSPECIFIED\020\000\022\017\n\013RETURN_NONE\020\001\022\016\n\nRETUR"
+  "N_ALL\020\002\022\017\n\013RETURN_TIME\020\003\022\026\n\022RETURN_SOURC"
+  "E_TYPE\020\004\022\023\n\017RETURN_METADATA\020\005\022 \n\034RETURN_"
+  "USER_DEFINED_METADATA\020\006\022\023\n\017RETURN_POSITI"
+  "ON\020\007b\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_dlvc_5fapi_2fdlvc_2eproto_deps[1] = {
   &::descriptor_table_google_2fprotobuf_2ftimestamp_2eproto,
@@ -864,7 +866,7 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_dlv
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_dlvc_5fapi_2fdlvc_2eproto_once;
 static bool descriptor_table_dlvc_5fapi_2fdlvc_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_dlvc_5fapi_2fdlvc_2eproto = {
-  &descriptor_table_dlvc_5fapi_2fdlvc_2eproto_initialized, descriptor_table_protodef_dlvc_5fapi_2fdlvc_2eproto, "dlvc_api/dlvc.proto", 4461,
+  &descriptor_table_dlvc_5fapi_2fdlvc_2eproto_initialized, descriptor_table_protodef_dlvc_5fapi_2fdlvc_2eproto, "dlvc_api/dlvc.proto", 4492,
   &descriptor_table_dlvc_5fapi_2fdlvc_2eproto_once, descriptor_table_dlvc_5fapi_2fdlvc_2eproto_sccs, descriptor_table_dlvc_5fapi_2fdlvc_2eproto_deps, 23, 1,
   schemas, file_default_instances, TableStruct_dlvc_5fapi_2fdlvc_2eproto::offsets,
   file_level_metadata_dlvc_5fapi_2fdlvc_2eproto, 23, file_level_enum_descriptors_dlvc_5fapi_2fdlvc_2eproto, file_level_service_descriptors_dlvc_5fapi_2fdlvc_2eproto,
@@ -5830,6 +5832,7 @@ const int SummarizeResponse::kMetadataKeysFieldNumber;
 const int SummarizeResponse::kUserMetadataKeysFieldNumber;
 const int SummarizeResponse::kMessageTypesFieldNumber;
 const int SummarizeResponse::kEncodingTypesFieldNumber;
+const int SummarizeResponse::kCustomEncodingTypesFieldNumber;
 const int SummarizeResponse::kLenBytesFieldNumber;
 const int SummarizeResponse::kCountFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
@@ -5845,7 +5848,8 @@ SummarizeResponse::SummarizeResponse(const SummarizeResponse& from)
       metadata_keys_(from.metadata_keys_),
       user_metadata_keys_(from.user_metadata_keys_),
       message_types_(from.message_types_),
-      encoding_types_(from.encoding_types_) {
+      encoding_types_(from.encoding_types_),
+      custom_encoding_types_(from.custom_encoding_types_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   ::memcpy(&len_bytes_, &from.len_bytes_,
     static_cast<size_t>(reinterpret_cast<char*>(&count_) -
@@ -5887,6 +5891,7 @@ void SummarizeResponse::Clear() {
   user_metadata_keys_.Clear();
   message_types_.Clear();
   encoding_types_.Clear();
+  custom_encoding_types_.Clear();
   ::memset(&len_bytes_, 0, static_cast<size_t>(
       reinterpret_cast<char*>(&count_) -
       reinterpret_cast<char*>(&len_bytes_)) + sizeof(count_));
@@ -5947,16 +5952,28 @@ const char* SummarizeResponse::_InternalParse(const char* ptr, ::PROTOBUF_NAMESP
           add_encoding_types(static_cast<::dlvc_api::MessageEncoding_EncodingType>(val));
         } else goto handle_unusual;
         continue;
-      // int64 len_bytes = 6;
+      // repeated string custom_encoding_types = 6;
       case 6:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 50)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParserUTF8(add_custom_encoding_types(), ptr, ctx, "dlvc_api.SummarizeResponse.custom_encoding_types");
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<::PROTOBUF_NAMESPACE_ID::uint8>(ptr) == 50);
+        } else goto handle_unusual;
+        continue;
+      // int64 len_bytes = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
           len_bytes_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // int64 count = 7;
-      case 7:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 56)) {
+      // int64 count = 8;
+      case 8:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 64)) {
           count_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
           CHK_(ptr);
         } else goto handle_unusual;
@@ -6075,9 +6092,25 @@ bool SummarizeResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // int64 len_bytes = 6;
+      // repeated string custom_encoding_types = 6;
       case 6: {
-        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (48 & 0xFF)) {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (50 & 0xFF)) {
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadString(
+                input, this->add_custom_encoding_types()));
+          DO_(::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+            this->custom_encoding_types(this->custom_encoding_types_size() - 1).data(),
+            static_cast<int>(this->custom_encoding_types(this->custom_encoding_types_size() - 1).length()),
+            ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::PARSE,
+            "dlvc_api.SummarizeResponse.custom_encoding_types"));
+        } else {
+          goto handle_unusual;
+        }
+        break;
+      }
+
+      // int64 len_bytes = 7;
+      case 7: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (56 & 0xFF)) {
 
           DO_((::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadPrimitive<
                    ::PROTOBUF_NAMESPACE_ID::int64, ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT64>(
@@ -6088,9 +6121,9 @@ bool SummarizeResponse::MergePartialFromCodedStream(
         break;
       }
 
-      // int64 count = 7;
-      case 7: {
-        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (56 & 0xFF)) {
+      // int64 count = 8;
+      case 8: {
+        if (static_cast< ::PROTOBUF_NAMESPACE_ID::uint8>(tag) == (64 & 0xFF)) {
 
           DO_((::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::ReadPrimitive<
                    ::PROTOBUF_NAMESPACE_ID::int64, ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::TYPE_INT64>(
@@ -6176,14 +6209,24 @@ void SummarizeResponse::SerializeWithCachedSizes(
       this->encoding_types(i), output);
   }
 
-  // int64 len_bytes = 6;
-  if (this->len_bytes() != 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64(6, this->len_bytes(), output);
+  // repeated string custom_encoding_types = 6;
+  for (int i = 0, n = this->custom_encoding_types_size(); i < n; i++) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->custom_encoding_types(i).data(), static_cast<int>(this->custom_encoding_types(i).length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dlvc_api.SummarizeResponse.custom_encoding_types");
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteString(
+      6, this->custom_encoding_types(i), output);
   }
 
-  // int64 count = 7;
+  // int64 len_bytes = 7;
+  if (this->len_bytes() != 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64(7, this->len_bytes(), output);
+  }
+
+  // int64 count = 8;
   if (this->count() != 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64(7, this->count(), output);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64(8, this->count(), output);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6243,14 +6286,24 @@ void SummarizeResponse::SerializeWithCachedSizes(
       this->encoding_types_, target);
   }
 
-  // int64 len_bytes = 6;
-  if (this->len_bytes() != 0) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(6, this->len_bytes(), target);
+  // repeated string custom_encoding_types = 6;
+  for (int i = 0, n = this->custom_encoding_types_size(); i < n; i++) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->custom_encoding_types(i).data(), static_cast<int>(this->custom_encoding_types(i).length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "dlvc_api.SummarizeResponse.custom_encoding_types");
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      WriteStringToArray(6, this->custom_encoding_types(i), target);
   }
 
-  // int64 count = 7;
+  // int64 len_bytes = 7;
+  if (this->len_bytes() != 0) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(7, this->len_bytes(), target);
+  }
+
+  // int64 count = 8;
   if (this->count() != 0) {
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(7, this->count(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt64ToArray(8, this->count(), target);
   }
 
   if (_internal_metadata_.have_unknown_fields()) {
@@ -6326,14 +6379,22 @@ size_t SummarizeResponse::ByteSizeLong() const {
     total_size += data_size;
   }
 
-  // int64 len_bytes = 6;
+  // repeated string custom_encoding_types = 6;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(this->custom_encoding_types_size());
+  for (int i = 0, n = this->custom_encoding_types_size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      this->custom_encoding_types(i));
+  }
+
+  // int64 len_bytes = 7;
   if (this->len_bytes() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
         this->len_bytes());
   }
 
-  // int64 count = 7;
+  // int64 count = 8;
   if (this->count() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int64Size(
@@ -6371,6 +6432,7 @@ void SummarizeResponse::MergeFrom(const SummarizeResponse& from) {
   user_metadata_keys_.MergeFrom(from.user_metadata_keys_);
   message_types_.MergeFrom(from.message_types_);
   encoding_types_.MergeFrom(from.encoding_types_);
+  custom_encoding_types_.MergeFrom(from.custom_encoding_types_);
   if (from.len_bytes() != 0) {
     set_len_bytes(from.len_bytes());
   }
@@ -6408,6 +6470,7 @@ void SummarizeResponse::InternalSwap(SummarizeResponse* other) {
   user_metadata_keys_.InternalSwap(CastToBase(&other->user_metadata_keys_));
   message_types_.InternalSwap(&other->message_types_);
   encoding_types_.InternalSwap(&other->encoding_types_);
+  custom_encoding_types_.InternalSwap(CastToBase(&other->custom_encoding_types_));
   swap(len_bytes_, other->len_bytes_);
   swap(count_, other->count_);
 }

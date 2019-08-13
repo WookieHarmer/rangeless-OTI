@@ -22,7 +22,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='dlvc_api',
   syntax='proto3',
   serialized_options=None,
-  serialized_pb=_b('\n\x13\x64lvc_api/dlvc.proto\x12\x08\x64lvc_api\x1a\x1fgoogle/protobuf/timestamp.proto\"H\n\x15PushRawMessageRequest\x12)\n\x07message\x18\x02 \x01(\x0b\x32\x18.dlvc_api.WrappedMessageJ\x04\x08\x01\x10\x02\"U\n\x16PushRawMessageResponse\x12\x35\n\x11\x64uplicate_details\x18\x02 \x01(\x0b\x32\x1a.dlvc_api.DuplicateDetailsJ\x04\x08\x01\x10\x02\"\xa6\x01\n\x16PushRawMessagesRequest\x12$\n\x08metadata\x18\x02 \x01(\x0b\x32\x12.dlvc_api.Metadata\x12\x34\n\ruser_metadata\x18\x03 \x03(\x0b\x32\x1d.dlvc_api.UserDefinedMetadata\x12*\n\x08messages\x18\x04 \x03(\x0b\x32\x18.dlvc_api.WrappedMessageJ\x04\x08\x01\x10\x02\"V\n\x17PushRawMessagesResponse\x12\x35\n\x11\x64uplicate_details\x18\x02 \x01(\x0b\x32\x1a.dlvc_api.DuplicateDetailsJ\x04\x08\x01\x10\x02\"F\n\x10\x44uplicateDetails\x12\x12\n\nduplicates\x18\x02 \x01(\x08\x12\x18\n\x10idempotency_keys\x18\x03 \x03(\tJ\x04\x08\x01\x10\x02\"\x8f\x03\n\x14GetRawMessageRequest\x12\x37\n\x0fretrieval_types\x18\x02 \x03(\x0e\x32\x1e.dlvc_api.MessageRetrievalType\x12?\n\x17returned_metadata_types\x18\x03 \x03(\x0e\x32\x1e.dlvc_api.ReturnedMetadataType\x12$\n\x08metadata\x18\x04 \x01(\x0b\x32\x12.dlvc_api.Metadata\x12\x34\n\ruser_metadata\x18\x05 \x03(\x0b\x32\x1d.dlvc_api.UserDefinedMetadata\x12)\n\x0bsource_type\x18\x06 \x01(\x0b\x32\x14.dlvc_api.SourceType\x12\x33\n\x0c\x62ounding_box\x18\x07 \x01(\x0b\x32\x1d.dlvc_api.PositionBoundingBox\x12\'\n\ntime_range\x18\x08 \x01(\x0b\x32\x13.dlvc_api.TimeRange\x12\x12\n\nnext_index\x18\t \x01(\x03J\x04\x08\x01\x10\x02\"o\n\x15GetRawMessageResponse\x12)\n\x07message\x18\x02 \x01(\x0b\x32\x18.dlvc_api.WrappedMessage\x12\x12\n\nnext_index\x18\x03 \x01(\x03\x12\x11\n\tlen_bytes\x18\x04 \x01(\x03J\x04\x08\x01\x10\x02\"\xb2\x03\n\x15GetRawMessagesRequest\x12\x37\n\x0fretrieval_types\x18\x02 \x03(\x0e\x32\x1e.dlvc_api.MessageRetrievalType\x12?\n\x17returned_metadata_types\x18\x03 \x03(\x0e\x32\x1e.dlvc_api.ReturnedMetadataType\x12$\n\x08metadata\x18\x04 \x01(\x0b\x32\x12.dlvc_api.Metadata\x12\x34\n\ruser_metadata\x18\x05 \x03(\x0b\x32\x1d.dlvc_api.UserDefinedMetadata\x12)\n\x0bsource_type\x18\x06 \x01(\x0b\x32\x14.dlvc_api.SourceType\x12\x33\n\x0c\x62ounding_box\x18\x07 \x01(\x0b\x32\x1d.dlvc_api.PositionBoundingBox\x12\'\n\ntime_range\x18\x08 \x01(\x0b\x32\x13.dlvc_api.TimeRange\x12\x12\n\nnext_index\x18\t \x01(\x03\x12\r\n\x05limit\x18\n \x01(\x03\x12\x11\n\tlen_bytes\x18\x0b \x01(\x03J\x04\x08\x01\x10\x02\"\x80\x01\n\x16GetRawMessagesResponse\x12*\n\x08messages\x18\x02 \x03(\x0b\x32\x18.dlvc_api.WrappedMessage\x12\x12\n\nnext_index\x18\x03 \x01(\x03\x12\x11\n\tlen_bytes\x18\x04 \x01(\x03\x12\r\n\x05\x63ount\x18\x05 \x01(\x03J\x04\x08\x01\x10\x02\"\xab\x01\n\nSourceType\x12:\n\x0cmessage_type\x18\x02 \x01(\x0e\x32$.dlvc_api.WrappedMessage.MessageType\x12=\n\rencoding_type\x18\x03 \x01(\x0e\x32&.dlvc_api.MessageEncoding.EncodingType\x12\x1c\n\x14\x63ustom_encoding_type\x18\x04 \x01(\tJ\x04\x08\x01\x10\x02\"o\n\tTimeRange\x12.\n\nstart_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampJ\x04\x08\x01\x10\x02\"\x18\n\x10SummarizeRequestJ\x04\x08\x01\x10\x02\"\xeb\x01\n\x11SummarizeResponse\x12\x15\n\rmetadata_keys\x18\x02 \x03(\t\x12\x1a\n\x12user_metadata_keys\x18\x03 \x03(\t\x12;\n\rmessage_types\x18\x04 \x03(\x0e\x32$.dlvc_api.WrappedMessage.MessageType\x12>\n\x0e\x65ncoding_types\x18\x05 \x03(\x0e\x32&.dlvc_api.MessageEncoding.EncodingType\x12\x11\n\tlen_bytes\x18\x06 \x01(\x03\x12\r\n\x05\x63ount\x18\x07 \x01(\x03J\x04\x08\x01\x10\x02\".\n\x19ListMetadataValuesRequest\x12\x0b\n\x03key\x18\x02 \x01(\tJ\x04\x08\x01\x10\x02\"?\n\x1aListMetadataValuesResponse\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\x0e\n\x06values\x18\x03 \x03(\tJ\x04\x08\x01\x10\x02\"\x1c\n\x14ListExercisesRequestJ\x04\x08\x01\x10\x02\"3\n\x15ListExercisesResponse\x12\x14\n\x0c\x65xercise_ids\x18\x03 \x03(\tJ\x04\x08\x01\x10\x02\"\xd7\x03\n\x0eWrappedMessage\x12\x17\n\x0fidempotency_key\x18\x02 \x01(\t\x12$\n\x08metadata\x18\x03 \x01(\x0b\x32\x12.dlvc_api.Metadata\x12\x34\n\ruser_metadata\x18\x04 \x03(\x0b\x32\x1d.dlvc_api.UserDefinedMetadata\x12:\n\x0cmessage_type\x18\x05 \x01(\x0e\x32$.dlvc_api.WrappedMessage.MessageType\x12\x33\n\x10message_encoding\x18\x06 \x01(\x0b\x32\x19.dlvc_api.MessageEncoding\x12$\n\x08position\x18\x07 \x01(\x0b\x32\x12.dlvc_api.Position\x12\x30\n\x0c\x63reated_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x13\n\x0braw_message\x18\t \x01(\x0c\"l\n\x0bMessageType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x08\n\x04\x44IS7\x10\x02\x12\x07\n\x03\x43OT\x10\x03\x12\n\n\x06LINK16\x10\x04\x12\t\n\x05JREAP\x10\x05\x12\x16\n\x12INSTRUCTOR_COMMENT\x10\x06J\x04\x08\x01\x10\x02\"\x92\x02\n\x08Metadata\x12\x12\n\npartner_id\x18\x02 \x01(\t\x12\x17\n\x0fpartner_cert_id\x18\x03 \x01(\t\x12\x11\n\tsource_id\x18\x04 \x01(\t\x12\x13\n\x0b\x65xercise_id\x18\x05 \x01(\t\x12\x15\n\rexercise_name\x18\x06 \x01(\t\x12\x18\n\x10\x65ntity_state_pdu\x18\x07 \x01(\t\x12\x32\n\x0b\x66orce_color\x18\x08 \x01(\x0e\x32\x1d.dlvc_api.Metadata.ForceColor\"F\n\nForceColor\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04\x42LUE\x10\x01\x12\x07\n\x03RED\x10\x02\x12\t\n\x05WHITE\x10\x03\x12\t\n\x05GREEN\x10\x04J\x04\x08\x01\x10\x02\"^\n\x13UserDefinedMetadata\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\t\x12\x12\n\nvalue_type\x18\x04 \x01(\t\x12\x11\n\tunit_type\x18\x05 \x01(\tJ\x04\x08\x01\x10\x02\"\xc7\x01\n\x0fMessageEncoding\x12=\n\rencoding_type\x18\x02 \x01(\x0e\x32&.dlvc_api.MessageEncoding.EncodingType\x12\x1c\n\x14\x63ustom_encoding_type\x18\x03 \x01(\t\"Q\n\x0c\x45ncodingType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x08\n\x04TEXT\x10\x02\x12\x08\n\x04JSON\x10\x03\x12\x07\n\x03XML\x10\x04\x12\x07\n\x03\x43SV\x10\x05J\x04\x08\x01\x10\x02\"\x93\x04\n\x08Position\x12\x10\n\x08latitude\x18\x02 \x01(\x02\x12\x11\n\tlongitude\x18\x03 \x01(\x02\x12\r\n\x05pitch\x18\x04 \x01(\x02\x12\x0b\n\x03yaw\x18\x05 \x01(\x02\x12\x0c\n\x04roll\x18\x06 \x01(\x02\x12\x15\n\rradius_meters\x18\x07 \x01(\x02\x12\x19\n\x11resolution_meters\x18\x08 \x01(\x02\x12%\n\x04tfom\x18\t \x01(\x0e\x32\x17.dlvc_api.Position.TFOM\"\xd8\x02\n\x04TFOM\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x14\n\x10LTE_1_NANOSECOND\x10\x01\x12\x16\n\x12LTE_10_NANOSECONDS\x10\x02\x12\x17\n\x13LTE_100_NANOSECONDS\x10\x03\x12\x15\n\x11LTE_1_MICROSECOND\x10\x04\x12\x17\n\x13LTE_10_MICROSECONDS\x10\x05\x12\x18\n\x14LTE_100_MICROSECONDS\x10\x06\x12\x15\n\x11LTE_1_MILLISECOND\x10\x07\x12\x17\n\x13LTE_10_MILLISECONDS\x10\x08\x12\x18\n\x14LTE_100_MILLISECONDS\x10\t\x12\x10\n\x0cLTE_1_SECOND\x10\n\x12\x12\n\x0eLTE_10_SECONDS\x10\x0b\x12\x13\n\x0fLTE_100_SECONDS\x10\x0c\x12\x14\n\x10LTE_1000_SECONDS\x10\r\x12\x13\n\x0fGT_1000_SECONDS\x10\x0eJ\x04\x08\x01\x10\x02\"u\n\x13PositionBoundingBox\x12\x14\n\x0cmin_latitude\x18\x02 \x01(\x02\x12\x14\n\x0cmax_latitude\x18\x03 \x01(\x02\x12\x15\n\rmin_longitude\x18\x04 \x01(\x02\x12\x15\n\rmax_longitude\x18\x05 \x01(\x02J\x04\x08\x01\x10\x02*\xa5\x01\n\x14MessageRetrievalType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\t\n\x05INDEX\x10\x01\x12\x08\n\x04TIME\x10\x02\x12\x10\n\x0cMESSAGE_TYPE\x10\x03\x12\x11\n\rENCODING_TYPE\x10\x04\x12\x0c\n\x08METADATA\x10\x05\x12\x19\n\x15USER_DEFINED_METADATA\x10\x06\x12\x19\n\x15POSITION_BOUNDING_BOX\x10\x07*\xc4\x01\n\x14ReturnedMetadataType\x12\x16\n\x12RETURN_UNSPECIFIED\x10\x00\x12\x0f\n\x0bRETURN_NONE\x10\x01\x12\x0e\n\nRETURN_ALL\x10\x02\x12\x0f\n\x0bRETURN_TIME\x10\x03\x12\x16\n\x12RETURN_SOURCE_TYPE\x10\x04\x12\x13\n\x0fRETURN_METADATA\x10\x05\x12 \n\x1cRETURN_USER_DEFINED_METADATA\x10\x06\x12\x13\n\x0fRETURN_POSITION\x10\x07\x62\x06proto3')
+  serialized_pb=_b('\n\x13\x64lvc_api/dlvc.proto\x12\x08\x64lvc_api\x1a\x1fgoogle/protobuf/timestamp.proto\"H\n\x15PushRawMessageRequest\x12)\n\x07message\x18\x02 \x01(\x0b\x32\x18.dlvc_api.WrappedMessageJ\x04\x08\x01\x10\x02\"U\n\x16PushRawMessageResponse\x12\x35\n\x11\x64uplicate_details\x18\x02 \x01(\x0b\x32\x1a.dlvc_api.DuplicateDetailsJ\x04\x08\x01\x10\x02\"\xa6\x01\n\x16PushRawMessagesRequest\x12$\n\x08metadata\x18\x02 \x01(\x0b\x32\x12.dlvc_api.Metadata\x12\x34\n\ruser_metadata\x18\x03 \x03(\x0b\x32\x1d.dlvc_api.UserDefinedMetadata\x12*\n\x08messages\x18\x04 \x03(\x0b\x32\x18.dlvc_api.WrappedMessageJ\x04\x08\x01\x10\x02\"V\n\x17PushRawMessagesResponse\x12\x35\n\x11\x64uplicate_details\x18\x02 \x01(\x0b\x32\x1a.dlvc_api.DuplicateDetailsJ\x04\x08\x01\x10\x02\"F\n\x10\x44uplicateDetails\x12\x12\n\nduplicates\x18\x02 \x01(\x08\x12\x18\n\x10idempotency_keys\x18\x03 \x03(\tJ\x04\x08\x01\x10\x02\"\x8f\x03\n\x14GetRawMessageRequest\x12\x37\n\x0fretrieval_types\x18\x02 \x03(\x0e\x32\x1e.dlvc_api.MessageRetrievalType\x12?\n\x17returned_metadata_types\x18\x03 \x03(\x0e\x32\x1e.dlvc_api.ReturnedMetadataType\x12$\n\x08metadata\x18\x04 \x01(\x0b\x32\x12.dlvc_api.Metadata\x12\x34\n\ruser_metadata\x18\x05 \x03(\x0b\x32\x1d.dlvc_api.UserDefinedMetadata\x12)\n\x0bsource_type\x18\x06 \x01(\x0b\x32\x14.dlvc_api.SourceType\x12\x33\n\x0c\x62ounding_box\x18\x07 \x01(\x0b\x32\x1d.dlvc_api.PositionBoundingBox\x12\'\n\ntime_range\x18\x08 \x01(\x0b\x32\x13.dlvc_api.TimeRange\x12\x12\n\nnext_index\x18\t \x01(\x03J\x04\x08\x01\x10\x02\"o\n\x15GetRawMessageResponse\x12)\n\x07message\x18\x02 \x01(\x0b\x32\x18.dlvc_api.WrappedMessage\x12\x12\n\nnext_index\x18\x03 \x01(\x03\x12\x11\n\tlen_bytes\x18\x04 \x01(\x03J\x04\x08\x01\x10\x02\"\xb2\x03\n\x15GetRawMessagesRequest\x12\x37\n\x0fretrieval_types\x18\x02 \x03(\x0e\x32\x1e.dlvc_api.MessageRetrievalType\x12?\n\x17returned_metadata_types\x18\x03 \x03(\x0e\x32\x1e.dlvc_api.ReturnedMetadataType\x12$\n\x08metadata\x18\x04 \x01(\x0b\x32\x12.dlvc_api.Metadata\x12\x34\n\ruser_metadata\x18\x05 \x03(\x0b\x32\x1d.dlvc_api.UserDefinedMetadata\x12)\n\x0bsource_type\x18\x06 \x01(\x0b\x32\x14.dlvc_api.SourceType\x12\x33\n\x0c\x62ounding_box\x18\x07 \x01(\x0b\x32\x1d.dlvc_api.PositionBoundingBox\x12\'\n\ntime_range\x18\x08 \x01(\x0b\x32\x13.dlvc_api.TimeRange\x12\x12\n\nnext_index\x18\t \x01(\x03\x12\r\n\x05limit\x18\n \x01(\x03\x12\x11\n\tlen_bytes\x18\x0b \x01(\x03J\x04\x08\x01\x10\x02\"\x80\x01\n\x16GetRawMessagesResponse\x12*\n\x08messages\x18\x02 \x03(\x0b\x32\x18.dlvc_api.WrappedMessage\x12\x12\n\nnext_index\x18\x03 \x01(\x03\x12\x11\n\tlen_bytes\x18\x04 \x01(\x03\x12\r\n\x05\x63ount\x18\x05 \x01(\x03J\x04\x08\x01\x10\x02\"\xab\x01\n\nSourceType\x12:\n\x0cmessage_type\x18\x02 \x01(\x0e\x32$.dlvc_api.WrappedMessage.MessageType\x12=\n\rencoding_type\x18\x03 \x01(\x0e\x32&.dlvc_api.MessageEncoding.EncodingType\x12\x1c\n\x14\x63ustom_encoding_type\x18\x04 \x01(\tJ\x04\x08\x01\x10\x02\"o\n\tTimeRange\x12.\n\nstart_time\x18\x02 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12,\n\x08\x65nd_time\x18\x03 \x01(\x0b\x32\x1a.google.protobuf.TimestampJ\x04\x08\x01\x10\x02\"\x18\n\x10SummarizeRequestJ\x04\x08\x01\x10\x02\"\x8a\x02\n\x11SummarizeResponse\x12\x15\n\rmetadata_keys\x18\x02 \x03(\t\x12\x1a\n\x12user_metadata_keys\x18\x03 \x03(\t\x12;\n\rmessage_types\x18\x04 \x03(\x0e\x32$.dlvc_api.WrappedMessage.MessageType\x12>\n\x0e\x65ncoding_types\x18\x05 \x03(\x0e\x32&.dlvc_api.MessageEncoding.EncodingType\x12\x1d\n\x15\x63ustom_encoding_types\x18\x06 \x03(\t\x12\x11\n\tlen_bytes\x18\x07 \x01(\x03\x12\r\n\x05\x63ount\x18\x08 \x01(\x03J\x04\x08\x01\x10\x02\".\n\x19ListMetadataValuesRequest\x12\x0b\n\x03key\x18\x02 \x01(\tJ\x04\x08\x01\x10\x02\"?\n\x1aListMetadataValuesResponse\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\x0e\n\x06values\x18\x03 \x03(\tJ\x04\x08\x01\x10\x02\"\x1c\n\x14ListExercisesRequestJ\x04\x08\x01\x10\x02\"3\n\x15ListExercisesResponse\x12\x14\n\x0c\x65xercise_ids\x18\x03 \x03(\tJ\x04\x08\x01\x10\x02\"\xd7\x03\n\x0eWrappedMessage\x12\x17\n\x0fidempotency_key\x18\x02 \x01(\t\x12$\n\x08metadata\x18\x03 \x01(\x0b\x32\x12.dlvc_api.Metadata\x12\x34\n\ruser_metadata\x18\x04 \x03(\x0b\x32\x1d.dlvc_api.UserDefinedMetadata\x12:\n\x0cmessage_type\x18\x05 \x01(\x0e\x32$.dlvc_api.WrappedMessage.MessageType\x12\x33\n\x10message_encoding\x18\x06 \x01(\x0b\x32\x19.dlvc_api.MessageEncoding\x12$\n\x08position\x18\x07 \x01(\x0b\x32\x12.dlvc_api.Position\x12\x30\n\x0c\x63reated_time\x18\x08 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12\x13\n\x0braw_message\x18\t \x01(\x0c\"l\n\x0bMessageType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x08\n\x04\x44IS7\x10\x02\x12\x07\n\x03\x43OT\x10\x03\x12\n\n\x06LINK16\x10\x04\x12\t\n\x05JREAP\x10\x05\x12\x16\n\x12INSTRUCTOR_COMMENT\x10\x06J\x04\x08\x01\x10\x02\"\x92\x02\n\x08Metadata\x12\x12\n\npartner_id\x18\x02 \x01(\t\x12\x17\n\x0fpartner_cert_id\x18\x03 \x01(\t\x12\x11\n\tsource_id\x18\x04 \x01(\t\x12\x13\n\x0b\x65xercise_id\x18\x05 \x01(\t\x12\x15\n\rexercise_name\x18\x06 \x01(\t\x12\x18\n\x10\x65ntity_state_pdu\x18\x07 \x01(\t\x12\x32\n\x0b\x66orce_color\x18\x08 \x01(\x0e\x32\x1d.dlvc_api.Metadata.ForceColor\"F\n\nForceColor\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x08\n\x04\x42LUE\x10\x01\x12\x07\n\x03RED\x10\x02\x12\t\n\x05WHITE\x10\x03\x12\t\n\x05GREEN\x10\x04J\x04\x08\x01\x10\x02\"^\n\x13UserDefinedMetadata\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\r\n\x05value\x18\x03 \x01(\t\x12\x12\n\nvalue_type\x18\x04 \x01(\t\x12\x11\n\tunit_type\x18\x05 \x01(\tJ\x04\x08\x01\x10\x02\"\xc7\x01\n\x0fMessageEncoding\x12=\n\rencoding_type\x18\x02 \x01(\x0e\x32&.dlvc_api.MessageEncoding.EncodingType\x12\x1c\n\x14\x63ustom_encoding_type\x18\x03 \x01(\t\"Q\n\x0c\x45ncodingType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\n\n\x06\x43USTOM\x10\x01\x12\x08\n\x04TEXT\x10\x02\x12\x08\n\x04JSON\x10\x03\x12\x07\n\x03XML\x10\x04\x12\x07\n\x03\x43SV\x10\x05J\x04\x08\x01\x10\x02\"\x93\x04\n\x08Position\x12\x10\n\x08latitude\x18\x02 \x01(\x02\x12\x11\n\tlongitude\x18\x03 \x01(\x02\x12\r\n\x05pitch\x18\x04 \x01(\x02\x12\x0b\n\x03yaw\x18\x05 \x01(\x02\x12\x0c\n\x04roll\x18\x06 \x01(\x02\x12\x15\n\rradius_meters\x18\x07 \x01(\x02\x12\x19\n\x11resolution_meters\x18\x08 \x01(\x02\x12%\n\x04tfom\x18\t \x01(\x0e\x32\x17.dlvc_api.Position.TFOM\"\xd8\x02\n\x04TFOM\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\x14\n\x10LTE_1_NANOSECOND\x10\x01\x12\x16\n\x12LTE_10_NANOSECONDS\x10\x02\x12\x17\n\x13LTE_100_NANOSECONDS\x10\x03\x12\x15\n\x11LTE_1_MICROSECOND\x10\x04\x12\x17\n\x13LTE_10_MICROSECONDS\x10\x05\x12\x18\n\x14LTE_100_MICROSECONDS\x10\x06\x12\x15\n\x11LTE_1_MILLISECOND\x10\x07\x12\x17\n\x13LTE_10_MILLISECONDS\x10\x08\x12\x18\n\x14LTE_100_MILLISECONDS\x10\t\x12\x10\n\x0cLTE_1_SECOND\x10\n\x12\x12\n\x0eLTE_10_SECONDS\x10\x0b\x12\x13\n\x0fLTE_100_SECONDS\x10\x0c\x12\x14\n\x10LTE_1000_SECONDS\x10\r\x12\x13\n\x0fGT_1000_SECONDS\x10\x0eJ\x04\x08\x01\x10\x02\"u\n\x13PositionBoundingBox\x12\x14\n\x0cmin_latitude\x18\x02 \x01(\x02\x12\x14\n\x0cmax_latitude\x18\x03 \x01(\x02\x12\x15\n\rmin_longitude\x18\x04 \x01(\x02\x12\x15\n\rmax_longitude\x18\x05 \x01(\x02J\x04\x08\x01\x10\x02*\xa5\x01\n\x14MessageRetrievalType\x12\x0f\n\x0bUNSPECIFIED\x10\x00\x12\t\n\x05INDEX\x10\x01\x12\x08\n\x04TIME\x10\x02\x12\x10\n\x0cMESSAGE_TYPE\x10\x03\x12\x11\n\rENCODING_TYPE\x10\x04\x12\x0c\n\x08METADATA\x10\x05\x12\x19\n\x15USER_DEFINED_METADATA\x10\x06\x12\x19\n\x15POSITION_BOUNDING_BOX\x10\x07*\xc4\x01\n\x14ReturnedMetadataType\x12\x16\n\x12RETURN_UNSPECIFIED\x10\x00\x12\x0f\n\x0bRETURN_NONE\x10\x01\x12\x0e\n\nRETURN_ALL\x10\x02\x12\x0f\n\x0bRETURN_TIME\x10\x03\x12\x16\n\x12RETURN_SOURCE_TYPE\x10\x04\x12\x13\n\x0fRETURN_METADATA\x10\x05\x12 \n\x1cRETURN_USER_DEFINED_METADATA\x10\x06\x12\x13\n\x0fRETURN_POSITION\x10\x07\x62\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,])
 
@@ -67,8 +67,8 @@ _MESSAGERETRIEVALTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4089,
-  serialized_end=4254,
+  serialized_start=4120,
+  serialized_end=4285,
 )
 _sym_db.RegisterEnumDescriptor(_MESSAGERETRIEVALTYPE)
 
@@ -114,8 +114,8 @@ _RETURNEDMETADATATYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=4257,
-  serialized_end=4453,
+  serialized_start=4288,
+  serialized_end=4484,
 )
 _sym_db.RegisterEnumDescriptor(_RETURNEDMETADATATYPE)
 
@@ -175,8 +175,8 @@ _WRAPPEDMESSAGE_MESSAGETYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=2744,
-  serialized_end=2852,
+  serialized_start=2775,
+  serialized_end=2883,
 )
 _sym_db.RegisterEnumDescriptor(_WRAPPEDMESSAGE_MESSAGETYPE)
 
@@ -209,8 +209,8 @@ _METADATA_FORCECOLOR = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3059,
-  serialized_end=3129,
+  serialized_start=3090,
+  serialized_end=3160,
 )
 _sym_db.RegisterEnumDescriptor(_METADATA_FORCECOLOR)
 
@@ -247,8 +247,8 @@ _MESSAGEENCODING_ENCODINGTYPE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3346,
-  serialized_end=3427,
+  serialized_start=3377,
+  serialized_end=3458,
 )
 _sym_db.RegisterEnumDescriptor(_MESSAGEENCODING_ENCODINGTYPE)
 
@@ -321,8 +321,8 @@ _POSITION_TFOM = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   serialized_options=None,
-  serialized_start=3617,
-  serialized_end=3961,
+  serialized_start=3648,
+  serialized_end=3992,
 )
 _sym_db.RegisterEnumDescriptor(_POSITION_TFOM)
 
@@ -917,15 +917,22 @@ _SUMMARIZERESPONSE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='len_bytes', full_name='dlvc_api.SummarizeResponse.len_bytes', index=4,
-      number=6, type=3, cpp_type=2, label=1,
+      name='custom_encoding_types', full_name='dlvc_api.SummarizeResponse.custom_encoding_types', index=4,
+      number=6, type=9, cpp_type=9, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='len_bytes', full_name='dlvc_api.SummarizeResponse.len_bytes', index=5,
+      number=7, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
-      name='count', full_name='dlvc_api.SummarizeResponse.count', index=5,
-      number=7, type=3, cpp_type=2, label=1,
+      name='count', full_name='dlvc_api.SummarizeResponse.count', index=6,
+      number=8, type=3, cpp_type=2, label=1,
       has_default_value=False, default_value=0,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -943,7 +950,7 @@ _SUMMARIZERESPONSE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=1953,
-  serialized_end=2188,
+  serialized_end=2219,
 )
 
 
@@ -973,8 +980,8 @@ _LISTMETADATAVALUESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2190,
-  serialized_end=2236,
+  serialized_start=2221,
+  serialized_end=2267,
 )
 
 
@@ -1011,8 +1018,8 @@ _LISTMETADATAVALUESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2238,
-  serialized_end=2301,
+  serialized_start=2269,
+  serialized_end=2332,
 )
 
 
@@ -1035,8 +1042,8 @@ _LISTEXERCISESREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2303,
-  serialized_end=2331,
+  serialized_start=2334,
+  serialized_end=2362,
 )
 
 
@@ -1066,8 +1073,8 @@ _LISTEXERCISESRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2333,
-  serialized_end=2384,
+  serialized_start=2364,
+  serialized_end=2415,
 )
 
 
@@ -1147,8 +1154,8 @@ _WRAPPEDMESSAGE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2387,
-  serialized_end=2858,
+  serialized_start=2418,
+  serialized_end=2889,
 )
 
 
@@ -1221,8 +1228,8 @@ _METADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=2861,
-  serialized_end=3135,
+  serialized_start=2892,
+  serialized_end=3166,
 )
 
 
@@ -1273,8 +1280,8 @@ _USERDEFINEDMETADATA = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3137,
-  serialized_end=3231,
+  serialized_start=3168,
+  serialized_end=3262,
 )
 
 
@@ -1312,8 +1319,8 @@ _MESSAGEENCODING = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3234,
-  serialized_end=3433,
+  serialized_start=3265,
+  serialized_end=3464,
 )
 
 
@@ -1393,8 +1400,8 @@ _POSITION = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3436,
-  serialized_end=3967,
+  serialized_start=3467,
+  serialized_end=3998,
 )
 
 
@@ -1445,8 +1452,8 @@ _POSITIONBOUNDINGBOX = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=3969,
-  serialized_end=4086,
+  serialized_start=4000,
+  serialized_end=4117,
 )
 
 _PUSHRAWMESSAGEREQUEST.fields_by_name['message'].message_type = _WRAPPEDMESSAGE
