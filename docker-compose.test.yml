@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+
+  test-python:
+    image: ravenops/dlvc-ci:ubuntu19.04-go1.11.5-20190812T210754Z-eaf91f8
+    volumes:
+      - .:/github/workspace:Z,cached
+    command: pytest /github/workspace/pkgs/rvnpy/
+
+  test-go:
+    image: ravenops/dlvc-ci:ubuntu19.04-go1.11.5-20190812T210754Z-eaf91f8
+    volumes:
+      - .:/github/workspace:Z,cached
+    command: bash -c 'cd /github/workspace/pkgs/go && go test -mod=vendor -race ./...'
+
+  test-java:
+    image: ravenops/dlvc-ci:ubuntu19.04-go1.11.5-20190812T210754Z-eaf91f8
+    volumes:
+      - .:/github/workspace:Z,cached
+    command: bash -c 'cd /github/workspace/pkgs/java && ./gradlew test'

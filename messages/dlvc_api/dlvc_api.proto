@@ -1,0 +1,20 @@
+// Copyright (c) 2019, RavenOps Inc., All Rights Reserved
+
+syntax = "proto3";
+
+package dlvc_api;
+
+import "dlvc_api/dlvc.proto";
+
+service DLVCService {
+  rpc PushRawMessage (PushRawMessageRequest) returns (PushRawMessageResponse);
+  rpc PushRawMessages (PushRawMessagesRequest) returns (PushRawMessagesResponse);
+
+  rpc GetRawMessage (GetRawMessageRequest) returns (GetRawMessageResponse);
+  rpc GetRawMessages (GetRawMessagesRequest) returns (GetRawMessagesResponse);
+
+  rpc Summarize (SummarizeRequest) returns (SummarizeResponse);
+
+  rpc ListMetadataValues (ListMetadataValuesRequest) returns (ListMetadataValuesResponse);
+  rpc ListExercises (ListExercisesRequest) returns (ListExercisesResponse);
+}

@@ -1,0 +1,247 @@
+// Copyright (c) 2019, RavenOps Inc., All Rights Reserved
+
+syntax = "proto3";
+
+package dlvc_api;
+
+import "google/protobuf/timestamp.proto";
+
+message PushRawMessageRequest {
+  reserved 1;
+  WrappedMessage message = 2;
+}
+
+message PushRawMessageResponse {
+  reserved 1;
+  DuplicateDetails duplicate_details = 2;
+}
+
+message PushRawMessagesRequest {
+  reserved 1;
+  Metadata metadata = 2;
+  repeated UserDefinedMetadata user_metadata = 3;
+  repeated WrappedMessage messages = 4;
+}
+
+message PushRawMessagesResponse {
+  reserved 1;
+  DuplicateDetails duplicate_details = 2;
+}
+
+message DuplicateDetails {
+  reserved 1;
+  bool duplicates = 2;
+  repeated string idempotency_keys = 3;
+}
+
+enum MessageRetrievalType {
+  UNSPECIFIED = 0;
+  INDEX = 1;
+  TIME = 2;
+  MESSAGE_TYPE = 3;
+  ENCODING_TYPE = 4;
+  METADATA = 5;
+  USER_DEFINED_METADATA = 6;
+  POSITION_BOUNDING_BOX = 7;
+}
+
+enum ReturnedMetadataType {
+  RETURN_UNSPECIFIED = 0;
+  RETURN_NONE = 1;
+  RETURN_ALL = 2;
+  RETURN_TIME = 3;
+  RETURN_SOURCE_TYPE = 4;
+  RETURN_METADATA = 5;
+  RETURN_USER_DEFINED_METADATA = 6;
+  RETURN_POSITION = 7;
+}
+
+message GetRawMessageRequest {
+  reserved 1;
+  repeated MessageRetrievalType retrieval_types = 2;
+  repeated ReturnedMetadataType returned_metadata_types = 3;
+  Metadata metadata = 4;
+  repeated UserDefinedMetadata user_metadata = 5;
+  SourceType source_type = 6;
+  PositionBoundingBox bounding_box = 7;
+  TimeRange time_range = 8;
+  int64 next_index = 9;
+}
+
+message GetRawMessageResponse {
+  reserved 1;
+  WrappedMessage message = 2;
+  int64 next_index = 3;
+  int64 len_bytes = 4;
+}
+
+message GetRawMessagesRequest {
+  reserved 1;
+  repeated MessageRetrievalType retrieval_types = 2;
+  repeated ReturnedMetadataType returned_metadata_types = 3;
+  Metadata metadata = 4;
+  repeated UserDefinedMetadata user_metadata = 5;
+  SourceType source_type = 6;
+  PositionBoundingBox bounding_box = 7;
+  TimeRange time_range = 8;
+  int64 next_index = 9;
+  int64 limit = 10;
+  int64 len_bytes = 11;
+}
+
+message GetRawMessagesResponse {
+  reserved 1;
+  repeated WrappedMessage messages = 2;
+  int64 next_index = 3;
+  int64 len_bytes = 4;
+  int64 count = 5;
+}
+
+message SourceType {
+  reserved 1;
+  WrappedMessage.MessageType message_type = 2;
+  MessageEncoding.EncodingType encoding_type = 3;
+  string custom_encoding_type = 4;
+}
+
+message TimeRange {
+  reserved 1;
+  google.protobuf.Timestamp start_time = 2;
+  google.protobuf.Timestamp end_time = 3;
+}
+
+message SummarizeRequest {
+  reserved 1;
+}
+
+message SummarizeResponse {
+  reserved 1;
+  repeated string metadata_keys = 2;
+  repeated string user_metadata_keys = 3;
+  repeated WrappedMessage.MessageType message_types = 4;
+  repeated MessageEncoding.EncodingType encoding_types = 5;
+  int64 len_bytes = 6;
+  int64 count = 7;
+}
+
+message ListMetadataValuesRequest {
+  reserved 1;
+  string key = 2;
+}
+
+message ListMetadataValuesResponse {
+  reserved 1;
+  string key = 2;
+  repeated string values = 3;
+}
+
+message ListExercisesRequest {
+  reserved 1;
+}
+
+message ListExercisesResponse {
+  reserved 1;
+  repeated string exercise_ids = 3;
+}
+
+message WrappedMessage {
+  enum MessageType {
+    UNSPECIFIED = 0;
+    CUSTOM = 1;
+    DIS7 = 2;
+    COT = 3;
+    LINK16 = 4;
+    JREAP = 5;
+    INSTRUCTOR_COMMENT = 6;
+  }
+
+  reserved 1;
+  string idempotency_key = 2;
+  Metadata metadata = 3;
+  repeated UserDefinedMetadata user_metadata = 4;
+  MessageType message_type = 5;
+  MessageEncoding message_encoding = 6;
+  Position position = 7;
+  google.protobuf.Timestamp created_time = 8;
+  bytes raw_message = 9;
+}
+
+message Metadata {
+  enum ForceColor {
+    UNSPECIFIED = 0;
+    BLUE = 1;
+    RED = 2;
+    WHITE = 3;
+    GREEN = 4;
+  }
+
+  reserved 1;
+  string partner_id = 2;
+  string partner_cert_id = 3;
+  string source_id = 4;
+  string exercise_id = 5;
+  string exercise_name = 6;
+  string entity_state_pdu = 7;
+  ForceColor force_color = 8;
+}
+
+message UserDefinedMetadata {
+  reserved 1;
+  string key = 2;
+  string value = 3;
+  string value_type = 4;
+  string unit_type = 5;
+}
+
+message MessageEncoding {
+  enum EncodingType {
+    UNSPECIFIED = 0;
+    CUSTOM = 1;
+    TEXT = 2;
+    JSON = 3;
+    XML = 4;
+    CSV = 5;
+  }
+
+  reserved 1;
+  EncodingType encoding_type = 2;
+  string custom_encoding_type = 3;
+}
+
+message Position {
+  enum TFOM {
+    UNSPECIFIED = 0;
+    LTE_1_NANOSECOND = 1;
+    LTE_10_NANOSECONDS = 2;
+    LTE_100_NANOSECONDS = 3;
+    LTE_1_MICROSECOND = 4;
+    LTE_10_MICROSECONDS = 5;
+    LTE_100_MICROSECONDS = 6;
+    LTE_1_MILLISECOND = 7;
+    LTE_10_MILLISECONDS = 8;
+    LTE_100_MILLISECONDS = 9;
+    LTE_1_SECOND = 10;
+    LTE_10_SECONDS = 11;
+    LTE_100_SECONDS = 12;
+    LTE_1000_SECONDS = 13;
+    GT_1000_SECONDS = 14;
+  }
+
+  reserved 1;
+  float latitude = 2;
+  float longitude = 3;
+  float pitch = 4;
+  float yaw = 5;
+  float roll = 6;
+  float radius_meters = 7;
+  float resolution_meters = 8;
+  TFOM tfom = 9;
+}
+
+message PositionBoundingBox {
+  reserved 1;
+  float min_latitude = 2;
+  float max_latitude = 3;
+  float min_longitude = 4;
+  float max_longitude = 5;
+}

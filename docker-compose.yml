@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+
+  shell:
+    image: ravenops/dlvc-ci:ubuntu19.04-go1.11.5-20190812T210754Z-eaf91f8
+    volumes:
+      - .:/github/workspace:Z,cached
+    working_dir: /github/workspace
+    command: bash

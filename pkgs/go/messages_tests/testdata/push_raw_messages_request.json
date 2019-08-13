@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "partnerId": "test-partner-id",
+    "partnerCertId": "test-partner-cert-id",
+    "sourceId": "test-source-id",
+    "exerciseId": "test-exercise-id",
+    "exerciseName": "test-exercise-name",
+    "entityStatePdu": "test-entity-state-pdu",
+    "forceColor": "BLUE"
+  },
+  "userMetadata": [
+    {
+      "key": "test-key-1",
+      "value": "5000000",
+      "valueType": "INT",
+      "unitType": "BYTES"
+    }
+  ],
+  "messages": [
+    {
+      "idempotencyKey": "test-idempotency-key",
+      "metadata": {
+        "forceColor": "RED"
+      },
+      "userMetadata": [
+        {
+          "key": "test-key-2",
+          "value": "test-value-2",
+          "valueType": "STRING"
+        }
+      ],
+      "messageType": "INSTRUCTOR_COMMENT",
+      "messageEncoding": {
+        "encodingType": "TEXT"
+      },
+      "position": {
+        "latitude": 37.959316,
+        "longitude": -122.5258,
+        "pitch": 2,
+        "yaw": 170,
+        "roll": 1,
+        "radiusMeters": 4000,
+        "resolutionMeters": 1,
+        "tfom": "LTE_1_SECOND"
+      },
+      "createdTime": "2019-08-18T09:03:22.234123098Z",
+      "rawMessage": "dGVzdC1yYXctbWVzc2FnZQ=="
+    }
+  ]
+}
