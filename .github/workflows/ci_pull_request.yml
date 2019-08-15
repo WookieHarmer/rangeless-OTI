@@ -1,0 +1,19 @@
+on: pull_request
+name: CI
+jobs:
+  test-java:
+    runs-on: ubuntu-19.04
+    steps:
+    - uses: actions/checkout@master
+    - name: test-java
+      uses: docker://ravenops/dlvc-ci:ubuntu19.04-go1.11.5-20190812T210754Z-eaf91f8
+      with:
+        args: bash -c "cd /github/workspace/pkgs/java && ./gradlew test"
+    - name: test-python
+      uses: docker://ravenops/dlvc-ci:ubuntu19.04-go1.11.5-20190812T210754Z-eaf91f8
+      with:
+        args: pytest /github/workspace/pkgs/rvnpy/
+    - name: test-go
+      uses: docker://ravenops/dlvc-ci:ubuntu19.04-go1.11.5-20190812T210754Z-eaf91f8
+      with:
+        args: bash -c "cd /github/workspace/pkgs/go && go test -mod=vendor -race ./..."
