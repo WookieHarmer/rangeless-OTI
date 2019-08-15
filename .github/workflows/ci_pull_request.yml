@@ -1,19 +1,32 @@
-on: pull_request
 name: CI
+on:
+  pull_request:
+  push:
+    # Filter which push events trigger this workflow
+    branches:
+      - master # run workflow on any pushes to the master branch
 jobs:
-  test-java:
-    runs-on: ubuntu-19.04
+  ci-go:
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: test-java
-      uses: docker://ravenops/dlvc-ci:ubuntu19.04-go1.11.5-20190812T210754Z-eaf91f8
-      with:
-        args: bash -c "cd /github/workspace/pkgs/java && ./gradlew test"
-    - name: test-python
-      uses: docker://ravenops/dlvc-ci:ubuntu19.04-go1.11.5-20190812T210754Z-eaf91f8
-      with:
-        args: pytest /github/workspace/pkgs/rvnpy/
+    - uses: actions/checkout@v1
     - name: test-go
       uses: docker://ravenops/dlvc-ci:ubuntu19.04-go1.11.5-20190812T210754Z-eaf91f8
       with:
         args: bash -c "cd /github/workspace/pkgs/go && go test -mod=vendor -race ./..."
+  ci-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: test-python
+        uses: docker://ravenops/dlvc-ci:ubuntu19.04-go1.11.5-20190812T210754Z-eaf91f8
+        with:
+          args: pytest /github/workspace/pkgs/rvnpy/
+  ci-java:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: test-java
+        uses: docker://ravenops/dlvc-ci:ubuntu19.04-go1.11.5-20190812T210754Z-eaf91f8
+        with:
+          args: bash -c "cd /github/workspace/pkgs/java && ./gradlew test"
