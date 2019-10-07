@@ -22,13 +22,17 @@ message PushRawMessageRequest {
 
 `PushRawMessageResponse`:
 * `duplicate_details` - contains details pertaining to duplicate raw messages when present
+* `error_details` - contains details pertaining to push errors for individual messages
+
 ```
 message PushRawMessageResponse {
   DuplicateDetails  duplicate_details
+  ErrorDetails      error_details
 }
 ```
 
 ---
+
 #### `PushRawMessages`
 `PushRawMessages` - wraps and pushes a batch of raw messages. It is recommended to be used when a data source is producing a large number of smaller messages, or messages in bursts. Data sources generating a few messages at a time, or very large messages should use `PushRawMessage` instead
 ```
@@ -50,22 +54,13 @@ message PushRawMessagesRequest {
 
 The `PushRawMessageResponse` object:
 * `duplicate_details` - contains details pertaining to duplicate raw messages when present
+* `error_details` - contains details pertaining to push errors for individual messages
 
 ```
 message PushRawMessagesResponse {
   DuplicateDetails  duplicate_details
+  ErrorDetails      error_details
 }
 ```
 
 ---
-##### `DuplicateDetails`
-The duplicate details structure defines whether or not a `PushRawMessageResponse` or `PushRawMessagesResponse` contains one or more duplicate `idempotency_key`, and a list of those duplicate keys
-* `duplicates` - true when request contained one or more duplicate `idempotency_key`
-* `idempotency_keys` - list of duplicate keys
-
-```
-message DuplicateDetails {
-  bool             duplicates
-  repeated string  idempotency_keys
-}
-```
