@@ -49,7 +49,7 @@ struct TableStruct_dlvc_5fapi_2fdlvc_2eproto {
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::AuxillaryParseTableField aux[]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
-  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[23]
+  static const ::PROTOBUF_NAMESPACE_ID::internal::ParseTable schema[26]
     PROTOBUF_SECTION_VARIABLE(protodesc_cold);
   static const ::PROTOBUF_NAMESPACE_ID::internal::FieldMetadata field_metadata[];
   static const ::PROTOBUF_NAMESPACE_ID::internal::SerializationTable serialization_table[];
@@ -60,6 +60,15 @@ namespace dlvc_api {
 class DuplicateDetails;
 class DuplicateDetailsDefaultTypeInternal;
 extern DuplicateDetailsDefaultTypeInternal _DuplicateDetails_default_instance_;
+class ErrorDetails;
+class ErrorDetailsDefaultTypeInternal;
+extern ErrorDetailsDefaultTypeInternal _ErrorDetails_default_instance_;
+class ErrorDetailsError;
+class ErrorDetailsErrorDefaultTypeInternal;
+extern ErrorDetailsErrorDefaultTypeInternal _ErrorDetailsError_default_instance_;
+class ExerciseMetadata;
+class ExerciseMetadataDefaultTypeInternal;
+extern ExerciseMetadataDefaultTypeInternal _ExerciseMetadata_default_instance_;
 class GetRawMessageRequest;
 class GetRawMessageRequestDefaultTypeInternal;
 extern GetRawMessageRequestDefaultTypeInternal _GetRawMessageRequest_default_instance_;
@@ -129,6 +138,9 @@ extern WrappedMessageDefaultTypeInternal _WrappedMessage_default_instance_;
 }  // namespace dlvc_api
 PROTOBUF_NAMESPACE_OPEN
 template<> ::dlvc_api::DuplicateDetails* Arena::CreateMaybeMessage<::dlvc_api::DuplicateDetails>(Arena*);
+template<> ::dlvc_api::ErrorDetails* Arena::CreateMaybeMessage<::dlvc_api::ErrorDetails>(Arena*);
+template<> ::dlvc_api::ErrorDetailsError* Arena::CreateMaybeMessage<::dlvc_api::ErrorDetailsError>(Arena*);
+template<> ::dlvc_api::ExerciseMetadata* Arena::CreateMaybeMessage<::dlvc_api::ExerciseMetadata>(Arena*);
 template<> ::dlvc_api::GetRawMessageRequest* Arena::CreateMaybeMessage<::dlvc_api::GetRawMessageRequest>(Arena*);
 template<> ::dlvc_api::GetRawMessageResponse* Arena::CreateMaybeMessage<::dlvc_api::GetRawMessageResponse>(Arena*);
 template<> ::dlvc_api::GetRawMessagesRequest* Arena::CreateMaybeMessage<::dlvc_api::GetRawMessagesRequest>(Arena*);
@@ -590,12 +602,22 @@ class PushRawMessageResponse :
   ::dlvc_api::DuplicateDetails* mutable_duplicate_details();
   void set_allocated_duplicate_details(::dlvc_api::DuplicateDetails* duplicate_details);
 
+  // .dlvc_api.ErrorDetails error_details = 3;
+  bool has_error_details() const;
+  void clear_error_details();
+  static const int kErrorDetailsFieldNumber = 3;
+  const ::dlvc_api::ErrorDetails& error_details() const;
+  ::dlvc_api::ErrorDetails* release_error_details();
+  ::dlvc_api::ErrorDetails* mutable_error_details();
+  void set_allocated_error_details(::dlvc_api::ErrorDetails* error_details);
+
   // @@protoc_insertion_point(class_scope:dlvc_api.PushRawMessageResponse)
  private:
   class HasBitSetters;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::dlvc_api::DuplicateDetails* duplicate_details_;
+  ::dlvc_api::ErrorDetails* error_details_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_dlvc_5fapi_2fdlvc_2eproto;
 };
@@ -874,12 +896,22 @@ class PushRawMessagesResponse :
   ::dlvc_api::DuplicateDetails* mutable_duplicate_details();
   void set_allocated_duplicate_details(::dlvc_api::DuplicateDetails* duplicate_details);
 
+  // .dlvc_api.ErrorDetails error_details = 3;
+  bool has_error_details() const;
+  void clear_error_details();
+  static const int kErrorDetailsFieldNumber = 3;
+  const ::dlvc_api::ErrorDetails& error_details() const;
+  ::dlvc_api::ErrorDetails* release_error_details();
+  ::dlvc_api::ErrorDetails* mutable_error_details();
+  void set_allocated_error_details(::dlvc_api::ErrorDetails* error_details);
+
   // @@protoc_insertion_point(class_scope:dlvc_api.PushRawMessagesResponse)
  private:
   class HasBitSetters;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
   ::dlvc_api::DuplicateDetails* duplicate_details_;
+  ::dlvc_api::ErrorDetails* error_details_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_dlvc_5fapi_2fdlvc_2eproto;
 };
@@ -1030,6 +1062,302 @@ class DuplicateDetails :
 };
 // -------------------------------------------------------------------
 
+class ErrorDetails :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dlvc_api.ErrorDetails) */ {
+ public:
+  ErrorDetails();
+  virtual ~ErrorDetails();
+
+  ErrorDetails(const ErrorDetails& from);
+  ErrorDetails(ErrorDetails&& from) noexcept
+    : ErrorDetails() {
+    *this = ::std::move(from);
+  }
+
+  inline ErrorDetails& operator=(const ErrorDetails& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ErrorDetails& operator=(ErrorDetails&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const ErrorDetails& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const ErrorDetails* internal_default_instance() {
+    return reinterpret_cast<const ErrorDetails*>(
+               &_ErrorDetails_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  void Swap(ErrorDetails* other);
+  friend void swap(ErrorDetails& a, ErrorDetails& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ErrorDetails* New() const final {
+    return CreateMaybeMessage<ErrorDetails>(nullptr);
+  }
+
+  ErrorDetails* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ErrorDetails>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const ErrorDetails& from);
+  void MergeFrom(const ErrorDetails& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  #else
+  bool MergePartialFromCodedStream(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ErrorDetails* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dlvc_api.ErrorDetails";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dlvc_5fapi_2fdlvc_2eproto);
+    return ::descriptor_table_dlvc_5fapi_2fdlvc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated string idempotency_keys = 2;
+  int idempotency_keys_size() const;
+  void clear_idempotency_keys();
+  static const int kIdempotencyKeysFieldNumber = 2;
+  const std::string& idempotency_keys(int index) const;
+  std::string* mutable_idempotency_keys(int index);
+  void set_idempotency_keys(int index, const std::string& value);
+  void set_idempotency_keys(int index, std::string&& value);
+  void set_idempotency_keys(int index, const char* value);
+  void set_idempotency_keys(int index, const char* value, size_t size);
+  std::string* add_idempotency_keys();
+  void add_idempotency_keys(const std::string& value);
+  void add_idempotency_keys(std::string&& value);
+  void add_idempotency_keys(const char* value);
+  void add_idempotency_keys(const char* value, size_t size);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& idempotency_keys() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_idempotency_keys();
+
+  // repeated .dlvc_api.ErrorDetailsError errors = 3;
+  int errors_size() const;
+  void clear_errors();
+  static const int kErrorsFieldNumber = 3;
+  ::dlvc_api::ErrorDetailsError* mutable_errors(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dlvc_api::ErrorDetailsError >*
+      mutable_errors();
+  const ::dlvc_api::ErrorDetailsError& errors(int index) const;
+  ::dlvc_api::ErrorDetailsError* add_errors();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dlvc_api::ErrorDetailsError >&
+      errors() const;
+
+  // @@protoc_insertion_point(class_scope:dlvc_api.ErrorDetails)
+ private:
+  class HasBitSetters;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> idempotency_keys_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dlvc_api::ErrorDetailsError > errors_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dlvc_5fapi_2fdlvc_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ErrorDetailsError :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dlvc_api.ErrorDetailsError) */ {
+ public:
+  ErrorDetailsError();
+  virtual ~ErrorDetailsError();
+
+  ErrorDetailsError(const ErrorDetailsError& from);
+  ErrorDetailsError(ErrorDetailsError&& from) noexcept
+    : ErrorDetailsError() {
+    *this = ::std::move(from);
+  }
+
+  inline ErrorDetailsError& operator=(const ErrorDetailsError& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ErrorDetailsError& operator=(ErrorDetailsError&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const ErrorDetailsError& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const ErrorDetailsError* internal_default_instance() {
+    return reinterpret_cast<const ErrorDetailsError*>(
+               &_ErrorDetailsError_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    6;
+
+  void Swap(ErrorDetailsError* other);
+  friend void swap(ErrorDetailsError& a, ErrorDetailsError& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ErrorDetailsError* New() const final {
+    return CreateMaybeMessage<ErrorDetailsError>(nullptr);
+  }
+
+  ErrorDetailsError* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ErrorDetailsError>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const ErrorDetailsError& from);
+  void MergeFrom(const ErrorDetailsError& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  #else
+  bool MergePartialFromCodedStream(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ErrorDetailsError* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dlvc_api.ErrorDetailsError";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dlvc_5fapi_2fdlvc_2eproto);
+    return ::descriptor_table_dlvc_5fapi_2fdlvc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string idempotency_key = 2;
+  void clear_idempotency_key();
+  static const int kIdempotencyKeyFieldNumber = 2;
+  const std::string& idempotency_key() const;
+  void set_idempotency_key(const std::string& value);
+  void set_idempotency_key(std::string&& value);
+  void set_idempotency_key(const char* value);
+  void set_idempotency_key(const char* value, size_t size);
+  std::string* mutable_idempotency_key();
+  std::string* release_idempotency_key();
+  void set_allocated_idempotency_key(std::string* idempotency_key);
+
+  // string error_message = 3;
+  void clear_error_message();
+  static const int kErrorMessageFieldNumber = 3;
+  const std::string& error_message() const;
+  void set_error_message(const std::string& value);
+  void set_error_message(std::string&& value);
+  void set_error_message(const char* value);
+  void set_error_message(const char* value, size_t size);
+  std::string* mutable_error_message();
+  std::string* release_error_message();
+  void set_allocated_error_message(std::string* error_message);
+
+  // @@protoc_insertion_point(class_scope:dlvc_api.ErrorDetailsError)
+ private:
+  class HasBitSetters;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr idempotency_key_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr error_message_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dlvc_5fapi_2fdlvc_2eproto;
+};
+// -------------------------------------------------------------------
+
 class GetRawMessageRequest :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dlvc_api.GetRawMessageRequest) */ {
  public:
@@ -1072,7 +1400,7 @@ class GetRawMessageRequest :
                &_GetRawMessageRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    7;
 
   void Swap(GetRawMessageRequest* other);
   friend void swap(GetRawMessageRequest& a, GetRawMessageRequest& b) {
@@ -1275,7 +1603,7 @@ class GetRawMessageResponse :
                &_GetRawMessageResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    8;
 
   void Swap(GetRawMessageResponse* other);
   friend void swap(GetRawMessageResponse& a, GetRawMessageResponse& b) {
@@ -1418,7 +1746,7 @@ class GetRawMessagesRequest :
                &_GetRawMessagesRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    9;
 
   void Swap(GetRawMessagesRequest* other);
   friend void swap(GetRawMessagesRequest& a, GetRawMessagesRequest& b) {
@@ -1635,7 +1963,7 @@ class GetRawMessagesResponse :
                &_GetRawMessagesResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    10;
 
   void Swap(GetRawMessagesResponse* other);
   friend void swap(GetRawMessagesResponse& a, GetRawMessagesResponse& b) {
@@ -1788,7 +2116,7 @@ class SourceType :
                &_SourceType_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    11;
 
   void Swap(SourceType* other);
   friend void swap(SourceType& a, SourceType& b) {
@@ -1934,7 +2262,7 @@ class TimeRange :
                &_TimeRange_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    12;
 
   void Swap(TimeRange* other);
   friend void swap(TimeRange& a, TimeRange& b) {
@@ -2073,7 +2401,7 @@ class SummarizeRequest :
                &_SummarizeRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    13;
 
   void Swap(SummarizeRequest* other);
   friend void swap(SummarizeRequest& a, SummarizeRequest& b) {
@@ -2192,7 +2520,7 @@ class SummarizeResponse :
                &_SummarizeResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    14;
 
   void Swap(SummarizeResponse* other);
   friend void swap(SummarizeResponse& a, SummarizeResponse& b) {
@@ -2333,15 +2661,33 @@ class SummarizeResponse :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& custom_encoding_types() const;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_custom_encoding_types();
 
-  // int64 len_bytes = 7;
+  // .google.protobuf.Timestamp start_time = 7;
+  bool has_start_time() const;
+  void clear_start_time();
+  static const int kStartTimeFieldNumber = 7;
+  const PROTOBUF_NAMESPACE_ID::Timestamp& start_time() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* release_start_time();
+  PROTOBUF_NAMESPACE_ID::Timestamp* mutable_start_time();
+  void set_allocated_start_time(PROTOBUF_NAMESPACE_ID::Timestamp* start_time);
+
+  // .google.protobuf.Timestamp end_time = 8;
+  bool has_end_time() const;
+  void clear_end_time();
+  static const int kEndTimeFieldNumber = 8;
+  const PROTOBUF_NAMESPACE_ID::Timestamp& end_time() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* release_end_time();
+  PROTOBUF_NAMESPACE_ID::Timestamp* mutable_end_time();
+  void set_allocated_end_time(PROTOBUF_NAMESPACE_ID::Timestamp* end_time);
+
+  // int64 len_bytes = 9;
   void clear_len_bytes();
-  static const int kLenBytesFieldNumber = 7;
+  static const int kLenBytesFieldNumber = 9;
   ::PROTOBUF_NAMESPACE_ID::int64 len_bytes() const;
   void set_len_bytes(::PROTOBUF_NAMESPACE_ID::int64 value);
 
-  // int64 count = 8;
+  // int64 count = 10;
   void clear_count();
-  static const int kCountFieldNumber = 8;
+  static const int kCountFieldNumber = 10;
   ::PROTOBUF_NAMESPACE_ID::int64 count() const;
   void set_count(::PROTOBUF_NAMESPACE_ID::int64 value);
 
@@ -2357,6 +2703,8 @@ class SummarizeResponse :
   ::PROTOBUF_NAMESPACE_ID::RepeatedField<int> encoding_types_;
   mutable std::atomic<int> _encoding_types_cached_byte_size_;
   ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> custom_encoding_types_;
+  PROTOBUF_NAMESPACE_ID::Timestamp* start_time_;
+  PROTOBUF_NAMESPACE_ID::Timestamp* end_time_;
   ::PROTOBUF_NAMESPACE_ID::int64 len_bytes_;
   ::PROTOBUF_NAMESPACE_ID::int64 count_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
@@ -2406,7 +2754,7 @@ class ListMetadataValuesRequest :
                &_ListMetadataValuesRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    15;
 
   void Swap(ListMetadataValuesRequest* other);
   friend void swap(ListMetadataValuesRequest& a, ListMetadataValuesRequest& b) {
@@ -2538,7 +2886,7 @@ class ListMetadataValuesResponse :
                &_ListMetadataValuesResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    16;
 
   void Swap(ListMetadataValuesResponse* other);
   friend void swap(ListMetadataValuesResponse& a, ListMetadataValuesResponse& b) {
@@ -2689,7 +3037,7 @@ class ListExercisesRequest :
                &_ListExercisesRequest_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    17;
 
   void Swap(ListExercisesRequest* other);
   friend void swap(ListExercisesRequest& a, ListExercisesRequest& b) {
@@ -2808,7 +3156,7 @@ class ListExercisesResponse :
                &_ListExercisesResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    18;
 
   void Swap(ListExercisesResponse* other);
   friend void swap(ListExercisesResponse& a, ListExercisesResponse& b) {
@@ -2875,30 +3223,209 @@ class ListExercisesResponse :
 
   // accessors -------------------------------------------------------
 
-  // repeated string exercise_ids = 3;
-  int exercise_ids_size() const;
-  void clear_exercise_ids();
-  static const int kExerciseIdsFieldNumber = 3;
-  const std::string& exercise_ids(int index) const;
-  std::string* mutable_exercise_ids(int index);
-  void set_exercise_ids(int index, const std::string& value);
-  void set_exercise_ids(int index, std::string&& value);
-  void set_exercise_ids(int index, const char* value);
-  void set_exercise_ids(int index, const char* value, size_t size);
-  std::string* add_exercise_ids();
-  void add_exercise_ids(const std::string& value);
-  void add_exercise_ids(std::string&& value);
-  void add_exercise_ids(const char* value);
-  void add_exercise_ids(const char* value, size_t size);
-  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>& exercise_ids() const;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>* mutable_exercise_ids();
+  // repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;
+  int exercise_metadata_size() const;
+  void clear_exercise_metadata();
+  static const int kExerciseMetadataFieldNumber = 2;
+  ::dlvc_api::ExerciseMetadata* mutable_exercise_metadata(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dlvc_api::ExerciseMetadata >*
+      mutable_exercise_metadata();
+  const ::dlvc_api::ExerciseMetadata& exercise_metadata(int index) const;
+  ::dlvc_api::ExerciseMetadata* add_exercise_metadata();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dlvc_api::ExerciseMetadata >&
+      exercise_metadata() const;
 
   // @@protoc_insertion_point(class_scope:dlvc_api.ListExercisesResponse)
  private:
   class HasBitSetters;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string> exercise_ids_;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dlvc_api::ExerciseMetadata > exercise_metadata_;
+  mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  friend struct ::TableStruct_dlvc_5fapi_2fdlvc_2eproto;
+};
+// -------------------------------------------------------------------
+
+class ExerciseMetadata :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:dlvc_api.ExerciseMetadata) */ {
+ public:
+  ExerciseMetadata();
+  virtual ~ExerciseMetadata();
+
+  ExerciseMetadata(const ExerciseMetadata& from);
+  ExerciseMetadata(ExerciseMetadata&& from) noexcept
+    : ExerciseMetadata() {
+    *this = ::std::move(from);
+  }
+
+  inline ExerciseMetadata& operator=(const ExerciseMetadata& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline ExerciseMetadata& operator=(ExerciseMetadata&& from) noexcept {
+    if (GetArenaNoVirtual() == from.GetArenaNoVirtual()) {
+      if (this != &from) InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return GetMetadataStatic().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return GetMetadataStatic().reflection;
+  }
+  static const ExerciseMetadata& default_instance();
+
+  static void InitAsDefaultInstance();  // FOR INTERNAL USE ONLY
+  static inline const ExerciseMetadata* internal_default_instance() {
+    return reinterpret_cast<const ExerciseMetadata*>(
+               &_ExerciseMetadata_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    19;
+
+  void Swap(ExerciseMetadata* other);
+  friend void swap(ExerciseMetadata& a, ExerciseMetadata& b) {
+    a.Swap(&b);
+  }
+
+  // implements Message ----------------------------------------------
+
+  inline ExerciseMetadata* New() const final {
+    return CreateMaybeMessage<ExerciseMetadata>(nullptr);
+  }
+
+  ExerciseMetadata* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<ExerciseMetadata>(arena);
+  }
+  void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
+  void CopyFrom(const ExerciseMetadata& from);
+  void MergeFrom(const ExerciseMetadata& from);
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  #if GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  #else
+  bool MergePartialFromCodedStream(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedInputStream* input) final;
+  #endif  // GOOGLE_PROTOBUF_ENABLE_EXPERIMENTAL_PARSER
+  void SerializeWithCachedSizes(
+      ::PROTOBUF_NAMESPACE_ID::io::CodedOutputStream* output) const final;
+  ::PROTOBUF_NAMESPACE_ID::uint8* InternalSerializeWithCachedSizesToArray(
+      ::PROTOBUF_NAMESPACE_ID::uint8* target) const final;
+  int GetCachedSize() const final { return _cached_size_.Get(); }
+
+  private:
+  inline void SharedCtor();
+  inline void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(ExerciseMetadata* other);
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "dlvc_api.ExerciseMetadata";
+  }
+  private:
+  inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
+    return nullptr;
+  }
+  inline void* MaybeArenaPtr() const {
+    return nullptr;
+  }
+  public:
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+  private:
+  static ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadataStatic() {
+    ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&::descriptor_table_dlvc_5fapi_2fdlvc_2eproto);
+    return ::descriptor_table_dlvc_5fapi_2fdlvc_2eproto.file_level_metadata[kIndexInFileMessages];
+  }
+
+  public:
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // string id = 2;
+  void clear_id();
+  static const int kIdFieldNumber = 2;
+  const std::string& id() const;
+  void set_id(const std::string& value);
+  void set_id(std::string&& value);
+  void set_id(const char* value);
+  void set_id(const char* value, size_t size);
+  std::string* mutable_id();
+  std::string* release_id();
+  void set_allocated_id(std::string* id);
+
+  // string name = 3;
+  void clear_name();
+  static const int kNameFieldNumber = 3;
+  const std::string& name() const;
+  void set_name(const std::string& value);
+  void set_name(std::string&& value);
+  void set_name(const char* value);
+  void set_name(const char* value, size_t size);
+  std::string* mutable_name();
+  std::string* release_name();
+  void set_allocated_name(std::string* name);
+
+  // string description = 4;
+  void clear_description();
+  static const int kDescriptionFieldNumber = 4;
+  const std::string& description() const;
+  void set_description(const std::string& value);
+  void set_description(std::string&& value);
+  void set_description(const char* value);
+  void set_description(const char* value, size_t size);
+  std::string* mutable_description();
+  std::string* release_description();
+  void set_allocated_description(std::string* description);
+
+  // .google.protobuf.Timestamp start_time = 6;
+  bool has_start_time() const;
+  void clear_start_time();
+  static const int kStartTimeFieldNumber = 6;
+  const PROTOBUF_NAMESPACE_ID::Timestamp& start_time() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* release_start_time();
+  PROTOBUF_NAMESPACE_ID::Timestamp* mutable_start_time();
+  void set_allocated_start_time(PROTOBUF_NAMESPACE_ID::Timestamp* start_time);
+
+  // .google.protobuf.Timestamp end_time = 7;
+  bool has_end_time() const;
+  void clear_end_time();
+  static const int kEndTimeFieldNumber = 7;
+  const PROTOBUF_NAMESPACE_ID::Timestamp& end_time() const;
+  PROTOBUF_NAMESPACE_ID::Timestamp* release_end_time();
+  PROTOBUF_NAMESPACE_ID::Timestamp* mutable_end_time();
+  void set_allocated_end_time(PROTOBUF_NAMESPACE_ID::Timestamp* end_time);
+
+  // bool is_live = 5;
+  void clear_is_live();
+  static const int kIsLiveFieldNumber = 5;
+  bool is_live() const;
+  void set_is_live(bool value);
+
+  // @@protoc_insertion_point(class_scope:dlvc_api.ExerciseMetadata)
+ private:
+  class HasBitSetters;
+
+  ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr id_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr description_;
+  PROTOBUF_NAMESPACE_ID::Timestamp* start_time_;
+  PROTOBUF_NAMESPACE_ID::Timestamp* end_time_;
+  bool is_live_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_dlvc_5fapi_2fdlvc_2eproto;
 };
@@ -2946,7 +3473,7 @@ class WrappedMessage :
                &_WrappedMessage_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    20;
 
   void Swap(WrappedMessage* other);
   friend void swap(WrappedMessage& a, WrappedMessage& b) {
@@ -3191,7 +3718,7 @@ class Metadata :
                &_Metadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    21;
 
   void Swap(Metadata* other);
   friend void swap(Metadata& a, Metadata& b) {
@@ -3431,7 +3958,7 @@ class UserDefinedMetadata :
                &_UserDefinedMetadata_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    22;
 
   void Swap(UserDefinedMetadata* other);
   friend void swap(UserDefinedMetadata& a, UserDefinedMetadata& b) {
@@ -3602,7 +4129,7 @@ class MessageEncoding :
                &_MessageEncoding_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    23;
 
   void Swap(MessageEncoding* other);
   friend void swap(MessageEncoding& a, MessageEncoding& b) {
@@ -3779,7 +4306,7 @@ class Position :
                &_Position_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    24;
 
   void Swap(Position* other);
   friend void swap(Position& a, Position& b) {
@@ -4010,7 +4537,7 @@ class PositionBoundingBox :
                &_PositionBoundingBox_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    25;
 
   void Swap(PositionBoundingBox* other);
   friend void swap(PositionBoundingBox& a, PositionBoundingBox& b) {
@@ -4230,6 +4757,57 @@ inline void PushRawMessageResponse::set_allocated_duplicate_details(::dlvc_api::
   // @@protoc_insertion_point(field_set_allocated:dlvc_api.PushRawMessageResponse.duplicate_details)
 }
 
+// .dlvc_api.ErrorDetails error_details = 3;
+inline bool PushRawMessageResponse::has_error_details() const {
+  return this != internal_default_instance() && error_details_ != nullptr;
+}
+inline void PushRawMessageResponse::clear_error_details() {
+  if (GetArenaNoVirtual() == nullptr && error_details_ != nullptr) {
+    delete error_details_;
+  }
+  error_details_ = nullptr;
+}
+inline const ::dlvc_api::ErrorDetails& PushRawMessageResponse::error_details() const {
+  const ::dlvc_api::ErrorDetails* p = error_details_;
+  // @@protoc_insertion_point(field_get:dlvc_api.PushRawMessageResponse.error_details)
+  return p != nullptr ? *p : *reinterpret_cast<const ::dlvc_api::ErrorDetails*>(
+      &::dlvc_api::_ErrorDetails_default_instance_);
+}
+inline ::dlvc_api::ErrorDetails* PushRawMessageResponse::release_error_details() {
+  // @@protoc_insertion_point(field_release:dlvc_api.PushRawMessageResponse.error_details)
+  
+  ::dlvc_api::ErrorDetails* temp = error_details_;
+  error_details_ = nullptr;
+  return temp;
+}
+inline ::dlvc_api::ErrorDetails* PushRawMessageResponse::mutable_error_details() {
+  
+  if (error_details_ == nullptr) {
+    auto* p = CreateMaybeMessage<::dlvc_api::ErrorDetails>(GetArenaNoVirtual());
+    error_details_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:dlvc_api.PushRawMessageResponse.error_details)
+  return error_details_;
+}
+inline void PushRawMessageResponse::set_allocated_error_details(::dlvc_api::ErrorDetails* error_details) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete error_details_;
+  }
+  if (error_details) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      error_details = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, error_details, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  error_details_ = error_details;
+  // @@protoc_insertion_point(field_set_allocated:dlvc_api.PushRawMessageResponse.error_details)
+}
+
 // -------------------------------------------------------------------
 
 // PushRawMessagesRequest
@@ -4400,6 +4978,57 @@ inline void PushRawMessagesResponse::set_allocated_duplicate_details(::dlvc_api:
   // @@protoc_insertion_point(field_set_allocated:dlvc_api.PushRawMessagesResponse.duplicate_details)
 }
 
+// .dlvc_api.ErrorDetails error_details = 3;
+inline bool PushRawMessagesResponse::has_error_details() const {
+  return this != internal_default_instance() && error_details_ != nullptr;
+}
+inline void PushRawMessagesResponse::clear_error_details() {
+  if (GetArenaNoVirtual() == nullptr && error_details_ != nullptr) {
+    delete error_details_;
+  }
+  error_details_ = nullptr;
+}
+inline const ::dlvc_api::ErrorDetails& PushRawMessagesResponse::error_details() const {
+  const ::dlvc_api::ErrorDetails* p = error_details_;
+  // @@protoc_insertion_point(field_get:dlvc_api.PushRawMessagesResponse.error_details)
+  return p != nullptr ? *p : *reinterpret_cast<const ::dlvc_api::ErrorDetails*>(
+      &::dlvc_api::_ErrorDetails_default_instance_);
+}
+inline ::dlvc_api::ErrorDetails* PushRawMessagesResponse::release_error_details() {
+  // @@protoc_insertion_point(field_release:dlvc_api.PushRawMessagesResponse.error_details)
+  
+  ::dlvc_api::ErrorDetails* temp = error_details_;
+  error_details_ = nullptr;
+  return temp;
+}
+inline ::dlvc_api::ErrorDetails* PushRawMessagesResponse::mutable_error_details() {
+  
+  if (error_details_ == nullptr) {
+    auto* p = CreateMaybeMessage<::dlvc_api::ErrorDetails>(GetArenaNoVirtual());
+    error_details_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:dlvc_api.PushRawMessagesResponse.error_details)
+  return error_details_;
+}
+inline void PushRawMessagesResponse::set_allocated_error_details(::dlvc_api::ErrorDetails* error_details) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete error_details_;
+  }
+  if (error_details) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena = nullptr;
+    if (message_arena != submessage_arena) {
+      error_details = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, error_details, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  error_details_ = error_details;
+  // @@protoc_insertion_point(field_set_allocated:dlvc_api.PushRawMessagesResponse.error_details)
+}
+
 // -------------------------------------------------------------------
 
 // DuplicateDetails
@@ -4481,6 +5110,211 @@ inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
 DuplicateDetails::mutable_idempotency_keys() {
   // @@protoc_insertion_point(field_mutable_list:dlvc_api.DuplicateDetails.idempotency_keys)
   return &idempotency_keys_;
+}
+
+// -------------------------------------------------------------------
+
+// ErrorDetails
+
+// repeated string idempotency_keys = 2;
+inline int ErrorDetails::idempotency_keys_size() const {
+  return idempotency_keys_.size();
+}
+inline void ErrorDetails::clear_idempotency_keys() {
+  idempotency_keys_.Clear();
+}
+inline const std::string& ErrorDetails::idempotency_keys(int index) const {
+  // @@protoc_insertion_point(field_get:dlvc_api.ErrorDetails.idempotency_keys)
+  return idempotency_keys_.Get(index);
+}
+inline std::string* ErrorDetails::mutable_idempotency_keys(int index) {
+  // @@protoc_insertion_point(field_mutable:dlvc_api.ErrorDetails.idempotency_keys)
+  return idempotency_keys_.Mutable(index);
+}
+inline void ErrorDetails::set_idempotency_keys(int index, const std::string& value) {
+  // @@protoc_insertion_point(field_set:dlvc_api.ErrorDetails.idempotency_keys)
+  idempotency_keys_.Mutable(index)->assign(value);
+}
+inline void ErrorDetails::set_idempotency_keys(int index, std::string&& value) {
+  // @@protoc_insertion_point(field_set:dlvc_api.ErrorDetails.idempotency_keys)
+  idempotency_keys_.Mutable(index)->assign(std::move(value));
+}
+inline void ErrorDetails::set_idempotency_keys(int index, const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  idempotency_keys_.Mutable(index)->assign(value);
+  // @@protoc_insertion_point(field_set_char:dlvc_api.ErrorDetails.idempotency_keys)
+}
+inline void ErrorDetails::set_idempotency_keys(int index, const char* value, size_t size) {
+  idempotency_keys_.Mutable(index)->assign(
+    reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:dlvc_api.ErrorDetails.idempotency_keys)
+}
+inline std::string* ErrorDetails::add_idempotency_keys() {
+  // @@protoc_insertion_point(field_add_mutable:dlvc_api.ErrorDetails.idempotency_keys)
+  return idempotency_keys_.Add();
+}
+inline void ErrorDetails::add_idempotency_keys(const std::string& value) {
+  idempotency_keys_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add:dlvc_api.ErrorDetails.idempotency_keys)
+}
+inline void ErrorDetails::add_idempotency_keys(std::string&& value) {
+  idempotency_keys_.Add(std::move(value));
+  // @@protoc_insertion_point(field_add:dlvc_api.ErrorDetails.idempotency_keys)
+}
+inline void ErrorDetails::add_idempotency_keys(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  idempotency_keys_.Add()->assign(value);
+  // @@protoc_insertion_point(field_add_char:dlvc_api.ErrorDetails.idempotency_keys)
+}
+inline void ErrorDetails::add_idempotency_keys(const char* value, size_t size) {
+  idempotency_keys_.Add()->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_add_pointer:dlvc_api.ErrorDetails.idempotency_keys)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
+ErrorDetails::idempotency_keys() const {
+  // @@protoc_insertion_point(field_list:dlvc_api.ErrorDetails.idempotency_keys)
+  return idempotency_keys_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
+ErrorDetails::mutable_idempotency_keys() {
+  // @@protoc_insertion_point(field_mutable_list:dlvc_api.ErrorDetails.idempotency_keys)
+  return &idempotency_keys_;
+}
+
+// repeated .dlvc_api.ErrorDetailsError errors = 3;
+inline int ErrorDetails::errors_size() const {
+  return errors_.size();
+}
+inline void ErrorDetails::clear_errors() {
+  errors_.Clear();
+}
+inline ::dlvc_api::ErrorDetailsError* ErrorDetails::mutable_errors(int index) {
+  // @@protoc_insertion_point(field_mutable:dlvc_api.ErrorDetails.errors)
+  return errors_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dlvc_api::ErrorDetailsError >*
+ErrorDetails::mutable_errors() {
+  // @@protoc_insertion_point(field_mutable_list:dlvc_api.ErrorDetails.errors)
+  return &errors_;
+}
+inline const ::dlvc_api::ErrorDetailsError& ErrorDetails::errors(int index) const {
+  // @@protoc_insertion_point(field_get:dlvc_api.ErrorDetails.errors)
+  return errors_.Get(index);
+}
+inline ::dlvc_api::ErrorDetailsError* ErrorDetails::add_errors() {
+  // @@protoc_insertion_point(field_add:dlvc_api.ErrorDetails.errors)
+  return errors_.Add();
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dlvc_api::ErrorDetailsError >&
+ErrorDetails::errors() const {
+  // @@protoc_insertion_point(field_list:dlvc_api.ErrorDetails.errors)
+  return errors_;
+}
+
+// -------------------------------------------------------------------
+
+// ErrorDetailsError
+
+// string idempotency_key = 2;
+inline void ErrorDetailsError::clear_idempotency_key() {
+  idempotency_key_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& ErrorDetailsError::idempotency_key() const {
+  // @@protoc_insertion_point(field_get:dlvc_api.ErrorDetailsError.idempotency_key)
+  return idempotency_key_.GetNoArena();
+}
+inline void ErrorDetailsError::set_idempotency_key(const std::string& value) {
+  
+  idempotency_key_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:dlvc_api.ErrorDetailsError.idempotency_key)
+}
+inline void ErrorDetailsError::set_idempotency_key(std::string&& value) {
+  
+  idempotency_key_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:dlvc_api.ErrorDetailsError.idempotency_key)
+}
+inline void ErrorDetailsError::set_idempotency_key(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  idempotency_key_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:dlvc_api.ErrorDetailsError.idempotency_key)
+}
+inline void ErrorDetailsError::set_idempotency_key(const char* value, size_t size) {
+  
+  idempotency_key_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:dlvc_api.ErrorDetailsError.idempotency_key)
+}
+inline std::string* ErrorDetailsError::mutable_idempotency_key() {
+  
+  // @@protoc_insertion_point(field_mutable:dlvc_api.ErrorDetailsError.idempotency_key)
+  return idempotency_key_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* ErrorDetailsError::release_idempotency_key() {
+  // @@protoc_insertion_point(field_release:dlvc_api.ErrorDetailsError.idempotency_key)
+  
+  return idempotency_key_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void ErrorDetailsError::set_allocated_idempotency_key(std::string* idempotency_key) {
+  if (idempotency_key != nullptr) {
+    
+  } else {
+    
+  }
+  idempotency_key_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), idempotency_key);
+  // @@protoc_insertion_point(field_set_allocated:dlvc_api.ErrorDetailsError.idempotency_key)
+}
+
+// string error_message = 3;
+inline void ErrorDetailsError::clear_error_message() {
+  error_message_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& ErrorDetailsError::error_message() const {
+  // @@protoc_insertion_point(field_get:dlvc_api.ErrorDetailsError.error_message)
+  return error_message_.GetNoArena();
+}
+inline void ErrorDetailsError::set_error_message(const std::string& value) {
+  
+  error_message_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:dlvc_api.ErrorDetailsError.error_message)
+}
+inline void ErrorDetailsError::set_error_message(std::string&& value) {
+  
+  error_message_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:dlvc_api.ErrorDetailsError.error_message)
+}
+inline void ErrorDetailsError::set_error_message(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  error_message_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:dlvc_api.ErrorDetailsError.error_message)
+}
+inline void ErrorDetailsError::set_error_message(const char* value, size_t size) {
+  
+  error_message_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:dlvc_api.ErrorDetailsError.error_message)
+}
+inline std::string* ErrorDetailsError::mutable_error_message() {
+  
+  // @@protoc_insertion_point(field_mutable:dlvc_api.ErrorDetailsError.error_message)
+  return error_message_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* ErrorDetailsError::release_error_message() {
+  // @@protoc_insertion_point(field_release:dlvc_api.ErrorDetailsError.error_message)
+  
+  return error_message_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void ErrorDetailsError::set_allocated_error_message(std::string* error_message) {
+  if (error_message != nullptr) {
+    
+  } else {
+    
+  }
+  error_message_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), error_message);
+  // @@protoc_insertion_point(field_set_allocated:dlvc_api.ErrorDetailsError.error_message)
 }
 
 // -------------------------------------------------------------------
@@ -5736,7 +6570,99 @@ SummarizeResponse::mutable_custom_encoding_types() {
   return &custom_encoding_types_;
 }
 
-// int64 len_bytes = 7;
+// .google.protobuf.Timestamp start_time = 7;
+inline bool SummarizeResponse::has_start_time() const {
+  return this != internal_default_instance() && start_time_ != nullptr;
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& SummarizeResponse::start_time() const {
+  const PROTOBUF_NAMESPACE_ID::Timestamp* p = start_time_;
+  // @@protoc_insertion_point(field_get:dlvc_api.SummarizeResponse.start_time)
+  return p != nullptr ? *p : *reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Timestamp*>(
+      &PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* SummarizeResponse::release_start_time() {
+  // @@protoc_insertion_point(field_release:dlvc_api.SummarizeResponse.start_time)
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = start_time_;
+  start_time_ = nullptr;
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* SummarizeResponse::mutable_start_time() {
+  
+  if (start_time_ == nullptr) {
+    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Timestamp>(GetArenaNoVirtual());
+    start_time_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:dlvc_api.SummarizeResponse.start_time)
+  return start_time_;
+}
+inline void SummarizeResponse::set_allocated_start_time(PROTOBUF_NAMESPACE_ID::Timestamp* start_time) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(start_time_);
+  }
+  if (start_time) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(start_time)->GetArena();
+    if (message_arena != submessage_arena) {
+      start_time = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, start_time, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  start_time_ = start_time;
+  // @@protoc_insertion_point(field_set_allocated:dlvc_api.SummarizeResponse.start_time)
+}
+
+// .google.protobuf.Timestamp end_time = 8;
+inline bool SummarizeResponse::has_end_time() const {
+  return this != internal_default_instance() && end_time_ != nullptr;
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& SummarizeResponse::end_time() const {
+  const PROTOBUF_NAMESPACE_ID::Timestamp* p = end_time_;
+  // @@protoc_insertion_point(field_get:dlvc_api.SummarizeResponse.end_time)
+  return p != nullptr ? *p : *reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Timestamp*>(
+      &PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* SummarizeResponse::release_end_time() {
+  // @@protoc_insertion_point(field_release:dlvc_api.SummarizeResponse.end_time)
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = end_time_;
+  end_time_ = nullptr;
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* SummarizeResponse::mutable_end_time() {
+  
+  if (end_time_ == nullptr) {
+    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Timestamp>(GetArenaNoVirtual());
+    end_time_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:dlvc_api.SummarizeResponse.end_time)
+  return end_time_;
+}
+inline void SummarizeResponse::set_allocated_end_time(PROTOBUF_NAMESPACE_ID::Timestamp* end_time) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(end_time_);
+  }
+  if (end_time) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(end_time)->GetArena();
+    if (message_arena != submessage_arena) {
+      end_time = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, end_time, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  end_time_ = end_time;
+  // @@protoc_insertion_point(field_set_allocated:dlvc_api.SummarizeResponse.end_time)
+}
+
+// int64 len_bytes = 9;
 inline void SummarizeResponse::clear_len_bytes() {
   len_bytes_ = PROTOBUF_LONGLONG(0);
 }
@@ -5750,7 +6676,7 @@ inline void SummarizeResponse::set_len_bytes(::PROTOBUF_NAMESPACE_ID::int64 valu
   // @@protoc_insertion_point(field_set:dlvc_api.SummarizeResponse.len_bytes)
 }
 
-// int64 count = 8;
+// int64 count = 10;
 inline void SummarizeResponse::clear_count() {
   count_ = PROTOBUF_LONGLONG(0);
 }
@@ -5947,69 +6873,297 @@ ListMetadataValuesResponse::mutable_values() {
 
 // ListExercisesResponse
 
-// repeated string exercise_ids = 3;
-inline int ListExercisesResponse::exercise_ids_size() const {
-  return exercise_ids_.size();
+// repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;
+inline int ListExercisesResponse::exercise_metadata_size() const {
+  return exercise_metadata_.size();
 }
-inline void ListExercisesResponse::clear_exercise_ids() {
-  exercise_ids_.Clear();
+inline void ListExercisesResponse::clear_exercise_metadata() {
+  exercise_metadata_.Clear();
 }
-inline const std::string& ListExercisesResponse::exercise_ids(int index) const {
-  // @@protoc_insertion_point(field_get:dlvc_api.ListExercisesResponse.exercise_ids)
-  return exercise_ids_.Get(index);
+inline ::dlvc_api::ExerciseMetadata* ListExercisesResponse::mutable_exercise_metadata(int index) {
+  // @@protoc_insertion_point(field_mutable:dlvc_api.ListExercisesResponse.exercise_metadata)
+  return exercise_metadata_.Mutable(index);
 }
-inline std::string* ListExercisesResponse::mutable_exercise_ids(int index) {
-  // @@protoc_insertion_point(field_mutable:dlvc_api.ListExercisesResponse.exercise_ids)
-  return exercise_ids_.Mutable(index);
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dlvc_api::ExerciseMetadata >*
+ListExercisesResponse::mutable_exercise_metadata() {
+  // @@protoc_insertion_point(field_mutable_list:dlvc_api.ListExercisesResponse.exercise_metadata)
+  return &exercise_metadata_;
 }
-inline void ListExercisesResponse::set_exercise_ids(int index, const std::string& value) {
-  // @@protoc_insertion_point(field_set:dlvc_api.ListExercisesResponse.exercise_ids)
-  exercise_ids_.Mutable(index)->assign(value);
+inline const ::dlvc_api::ExerciseMetadata& ListExercisesResponse::exercise_metadata(int index) const {
+  // @@protoc_insertion_point(field_get:dlvc_api.ListExercisesResponse.exercise_metadata)
+  return exercise_metadata_.Get(index);
 }
-inline void ListExercisesResponse::set_exercise_ids(int index, std::string&& value) {
-  // @@protoc_insertion_point(field_set:dlvc_api.ListExercisesResponse.exercise_ids)
-  exercise_ids_.Mutable(index)->assign(std::move(value));
+inline ::dlvc_api::ExerciseMetadata* ListExercisesResponse::add_exercise_metadata() {
+  // @@protoc_insertion_point(field_add:dlvc_api.ListExercisesResponse.exercise_metadata)
+  return exercise_metadata_.Add();
 }
-inline void ListExercisesResponse::set_exercise_ids(int index, const char* value) {
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::dlvc_api::ExerciseMetadata >&
+ListExercisesResponse::exercise_metadata() const {
+  // @@protoc_insertion_point(field_list:dlvc_api.ListExercisesResponse.exercise_metadata)
+  return exercise_metadata_;
+}
+
+// -------------------------------------------------------------------
+
+// ExerciseMetadata
+
+// string id = 2;
+inline void ExerciseMetadata::clear_id() {
+  id_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& ExerciseMetadata::id() const {
+  // @@protoc_insertion_point(field_get:dlvc_api.ExerciseMetadata.id)
+  return id_.GetNoArena();
+}
+inline void ExerciseMetadata::set_id(const std::string& value) {
+  
+  id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:dlvc_api.ExerciseMetadata.id)
+}
+inline void ExerciseMetadata::set_id(std::string&& value) {
+  
+  id_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:dlvc_api.ExerciseMetadata.id)
+}
+inline void ExerciseMetadata::set_id(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
-  exercise_ids_.Mutable(index)->assign(value);
-  // @@protoc_insertion_point(field_set_char:dlvc_api.ListExercisesResponse.exercise_ids)
+  
+  id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:dlvc_api.ExerciseMetadata.id)
 }
-inline void ListExercisesResponse::set_exercise_ids(int index, const char* value, size_t size) {
-  exercise_ids_.Mutable(index)->assign(
-    reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:dlvc_api.ListExercisesResponse.exercise_ids)
+inline void ExerciseMetadata::set_id(const char* value, size_t size) {
+  
+  id_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:dlvc_api.ExerciseMetadata.id)
 }
-inline std::string* ListExercisesResponse::add_exercise_ids() {
-  // @@protoc_insertion_point(field_add_mutable:dlvc_api.ListExercisesResponse.exercise_ids)
-  return exercise_ids_.Add();
+inline std::string* ExerciseMetadata::mutable_id() {
+  
+  // @@protoc_insertion_point(field_mutable:dlvc_api.ExerciseMetadata.id)
+  return id_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline void ListExercisesResponse::add_exercise_ids(const std::string& value) {
-  exercise_ids_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add:dlvc_api.ListExercisesResponse.exercise_ids)
+inline std::string* ExerciseMetadata::release_id() {
+  // @@protoc_insertion_point(field_release:dlvc_api.ExerciseMetadata.id)
+  
+  return id_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline void ListExercisesResponse::add_exercise_ids(std::string&& value) {
-  exercise_ids_.Add(std::move(value));
-  // @@protoc_insertion_point(field_add:dlvc_api.ListExercisesResponse.exercise_ids)
+inline void ExerciseMetadata::set_allocated_id(std::string* id) {
+  if (id != nullptr) {
+    
+  } else {
+    
+  }
+  id_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), id);
+  // @@protoc_insertion_point(field_set_allocated:dlvc_api.ExerciseMetadata.id)
 }
-inline void ListExercisesResponse::add_exercise_ids(const char* value) {
+
+// string name = 3;
+inline void ExerciseMetadata::clear_name() {
+  name_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& ExerciseMetadata::name() const {
+  // @@protoc_insertion_point(field_get:dlvc_api.ExerciseMetadata.name)
+  return name_.GetNoArena();
+}
+inline void ExerciseMetadata::set_name(const std::string& value) {
+  
+  name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:dlvc_api.ExerciseMetadata.name)
+}
+inline void ExerciseMetadata::set_name(std::string&& value) {
+  
+  name_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:dlvc_api.ExerciseMetadata.name)
+}
+inline void ExerciseMetadata::set_name(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
-  exercise_ids_.Add()->assign(value);
-  // @@protoc_insertion_point(field_add_char:dlvc_api.ListExercisesResponse.exercise_ids)
+  
+  name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:dlvc_api.ExerciseMetadata.name)
 }
-inline void ListExercisesResponse::add_exercise_ids(const char* value, size_t size) {
-  exercise_ids_.Add()->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_add_pointer:dlvc_api.ListExercisesResponse.exercise_ids)
+inline void ExerciseMetadata::set_name(const char* value, size_t size) {
+  
+  name_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:dlvc_api.ExerciseMetadata.name)
 }
-inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>&
-ListExercisesResponse::exercise_ids() const {
-  // @@protoc_insertion_point(field_list:dlvc_api.ListExercisesResponse.exercise_ids)
-  return exercise_ids_;
+inline std::string* ExerciseMetadata::mutable_name() {
+  
+  // @@protoc_insertion_point(field_mutable:dlvc_api.ExerciseMetadata.name)
+  return name_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
-inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField<std::string>*
-ListExercisesResponse::mutable_exercise_ids() {
-  // @@protoc_insertion_point(field_mutable_list:dlvc_api.ListExercisesResponse.exercise_ids)
-  return &exercise_ids_;
+inline std::string* ExerciseMetadata::release_name() {
+  // @@protoc_insertion_point(field_release:dlvc_api.ExerciseMetadata.name)
+  
+  return name_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void ExerciseMetadata::set_allocated_name(std::string* name) {
+  if (name != nullptr) {
+    
+  } else {
+    
+  }
+  name_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name);
+  // @@protoc_insertion_point(field_set_allocated:dlvc_api.ExerciseMetadata.name)
+}
+
+// string description = 4;
+inline void ExerciseMetadata::clear_description() {
+  description_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline const std::string& ExerciseMetadata::description() const {
+  // @@protoc_insertion_point(field_get:dlvc_api.ExerciseMetadata.description)
+  return description_.GetNoArena();
+}
+inline void ExerciseMetadata::set_description(const std::string& value) {
+  
+  description_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:dlvc_api.ExerciseMetadata.description)
+}
+inline void ExerciseMetadata::set_description(std::string&& value) {
+  
+  description_.SetNoArena(
+    &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
+  // @@protoc_insertion_point(field_set_rvalue:dlvc_api.ExerciseMetadata.description)
+}
+inline void ExerciseMetadata::set_description(const char* value) {
+  GOOGLE_DCHECK(value != nullptr);
+  
+  description_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:dlvc_api.ExerciseMetadata.description)
+}
+inline void ExerciseMetadata::set_description(const char* value, size_t size) {
+  
+  description_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:dlvc_api.ExerciseMetadata.description)
+}
+inline std::string* ExerciseMetadata::mutable_description() {
+  
+  // @@protoc_insertion_point(field_mutable:dlvc_api.ExerciseMetadata.description)
+  return description_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline std::string* ExerciseMetadata::release_description() {
+  // @@protoc_insertion_point(field_release:dlvc_api.ExerciseMetadata.description)
+  
+  return description_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+inline void ExerciseMetadata::set_allocated_description(std::string* description) {
+  if (description != nullptr) {
+    
+  } else {
+    
+  }
+  description_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), description);
+  // @@protoc_insertion_point(field_set_allocated:dlvc_api.ExerciseMetadata.description)
+}
+
+// bool is_live = 5;
+inline void ExerciseMetadata::clear_is_live() {
+  is_live_ = false;
+}
+inline bool ExerciseMetadata::is_live() const {
+  // @@protoc_insertion_point(field_get:dlvc_api.ExerciseMetadata.is_live)
+  return is_live_;
+}
+inline void ExerciseMetadata::set_is_live(bool value) {
+  
+  is_live_ = value;
+  // @@protoc_insertion_point(field_set:dlvc_api.ExerciseMetadata.is_live)
+}
+
+// .google.protobuf.Timestamp start_time = 6;
+inline bool ExerciseMetadata::has_start_time() const {
+  return this != internal_default_instance() && start_time_ != nullptr;
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& ExerciseMetadata::start_time() const {
+  const PROTOBUF_NAMESPACE_ID::Timestamp* p = start_time_;
+  // @@protoc_insertion_point(field_get:dlvc_api.ExerciseMetadata.start_time)
+  return p != nullptr ? *p : *reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Timestamp*>(
+      &PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* ExerciseMetadata::release_start_time() {
+  // @@protoc_insertion_point(field_release:dlvc_api.ExerciseMetadata.start_time)
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = start_time_;
+  start_time_ = nullptr;
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* ExerciseMetadata::mutable_start_time() {
+  
+  if (start_time_ == nullptr) {
+    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Timestamp>(GetArenaNoVirtual());
+    start_time_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:dlvc_api.ExerciseMetadata.start_time)
+  return start_time_;
+}
+inline void ExerciseMetadata::set_allocated_start_time(PROTOBUF_NAMESPACE_ID::Timestamp* start_time) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(start_time_);
+  }
+  if (start_time) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(start_time)->GetArena();
+    if (message_arena != submessage_arena) {
+      start_time = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, start_time, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  start_time_ = start_time;
+  // @@protoc_insertion_point(field_set_allocated:dlvc_api.ExerciseMetadata.start_time)
+}
+
+// .google.protobuf.Timestamp end_time = 7;
+inline bool ExerciseMetadata::has_end_time() const {
+  return this != internal_default_instance() && end_time_ != nullptr;
+}
+inline const PROTOBUF_NAMESPACE_ID::Timestamp& ExerciseMetadata::end_time() const {
+  const PROTOBUF_NAMESPACE_ID::Timestamp* p = end_time_;
+  // @@protoc_insertion_point(field_get:dlvc_api.ExerciseMetadata.end_time)
+  return p != nullptr ? *p : *reinterpret_cast<const PROTOBUF_NAMESPACE_ID::Timestamp*>(
+      &PROTOBUF_NAMESPACE_ID::_Timestamp_default_instance_);
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* ExerciseMetadata::release_end_time() {
+  // @@protoc_insertion_point(field_release:dlvc_api.ExerciseMetadata.end_time)
+  
+  PROTOBUF_NAMESPACE_ID::Timestamp* temp = end_time_;
+  end_time_ = nullptr;
+  return temp;
+}
+inline PROTOBUF_NAMESPACE_ID::Timestamp* ExerciseMetadata::mutable_end_time() {
+  
+  if (end_time_ == nullptr) {
+    auto* p = CreateMaybeMessage<PROTOBUF_NAMESPACE_ID::Timestamp>(GetArenaNoVirtual());
+    end_time_ = p;
+  }
+  // @@protoc_insertion_point(field_mutable:dlvc_api.ExerciseMetadata.end_time)
+  return end_time_;
+}
+inline void ExerciseMetadata::set_allocated_end_time(PROTOBUF_NAMESPACE_ID::Timestamp* end_time) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(end_time_);
+  }
+  if (end_time) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+      reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(end_time)->GetArena();
+    if (message_arena != submessage_arena) {
+      end_time = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, end_time, submessage_arena);
+    }
+    
+  } else {
+    
+  }
+  end_time_ = end_time;
+  // @@protoc_insertion_point(field_set_allocated:dlvc_api.ExerciseMetadata.end_time)
 }
 
 // -------------------------------------------------------------------
@@ -7141,6 +8295,12 @@ inline void PositionBoundingBox::set_max_longitude(float value) {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------
