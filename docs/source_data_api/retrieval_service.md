@@ -5,6 +5,7 @@ The Retrieval service provides functions to retrieve indexed raw message data fr
 (2) `GetRawMessages` - retrieve a batch of messages
 
 ---
+
 #### `GetRawMessage`
 `GetRawMessage` - retrieves single raw message that complies with the provided filters. It is recommended to be used when retrieving messages that are expected to be very large, or when retrieving messages infrequently. In most cases `GetRawMessages` will be the more efficient choice
 
@@ -21,6 +22,7 @@ rpc GetRawMessage (GetRawMessageRequest) returns (GetRawMessageResponse)
     * `ENCODING_TYPE` - filters messages by supplied `SourceType`.`encoding_type` or `SourceType`.`custom_encoding_type`
     * `METADATA` - filters messages by supplied `metadata`
     * `USER_DEFINED_METADATA` - filters messages by supplied `user_metadata`
+    * `POSITION_BOUNDING_BOX` - filter messages by the supplied bounding box
 * `returned_metadata_types` - contains a list of `ReturnedMetadataType` enum constants indicating what metadata should be returned. (NOTE: `next_index`, `created_time`, and `raw_message` will be returned by default unless `RETURN_NONE` is set)
     * `UNSPECIFIED` - default value; return only default fields
     * `RETURN_NONE` - return only `raw_message`
@@ -33,6 +35,7 @@ rpc GetRawMessage (GetRawMessageRequest) returns (GetRawMessageResponse)
 * `metadata` - structured metadata included with every message
 * `user_metadata` - optional list of custom key/value labels
 * `source_type` - contains the `message_type` along with `encoding_type` / `custom_encoding_type`
+* `bounding_box` - return messages within provided `PositionBoundingBox`
 * `time_range` - contains an `RFC3339` formatted `start_time` and `end_time` Timestamp with nanosecond resolution
 * `next_index` - the `next_index` received by `GetRawMessageResponse` or `GetRawMessageResponses` (default: 0)
 
@@ -94,6 +97,7 @@ message GetRawMessageResponse {
 ```
 
 ---
+
 #### `GetRawMessages`
 `GetRawMessages` - retrieves a batch of messages that comply with the provided filters. It is recommended choice in most cases. In situations where messages known to be very large are being retrieved, or messages are being retrieved infrequently `GetRawMessage` should be used instead
 
@@ -110,6 +114,7 @@ rpc GetRawMessages (GetRawMessagesRequest) returns (GetRawMessagesResponse)
     * `ENCODING_TYPE` - filters messages by supplied `SourceType`.`encoding_type` or `SourceType`.`custom_encoding_type`
     * `METADATA` - filters messages by supplied `metadata`
     * `USER_DEFINED_METADATA` - filters messages by supplied `user_metadata`
+    * `POSITION_BOUNDING_BOX` - filter messages by the supplied bounding box
 * `returned_metadata_types` - contains a list of `ReturnedMetadataType` enum constants indicating what metadata should be returned. (NOTE: `next_index`, `created_time`, and `raw_message` will be returned by default unless `RETURN_NONE` is set)
     * `UNSPECIFIED` - default value; return only default fields
     * `RETURN_NONE` - return only `raw_message`
@@ -122,6 +127,7 @@ rpc GetRawMessages (GetRawMessagesRequest) returns (GetRawMessagesResponse)
 * `metadata` - structured metadata included with every message
 * `user_metadata` - optional list of custom key/value labels
 * `source_type` - contains the `message_type` along with `encoding_type` / `custom_encoding_type`
+* `bounding_box` - return messages within provided `PositionBoundingBox`
 * `time_range` - contains an `RFC3339` formatted `start_time` and `end_time` Timestamp with nanosecond resolution
 * `next_index` - the `next_index` received by `GetRawMessageResponse` or `GetRawMessageResponses` (default: 0)
 * `count` - upper bound of messages to return
@@ -191,6 +197,108 @@ message GetRawMessagesResponse {
   int64                    next_index
   int64                    len_bytes
   int64                    count
+}
+```
+
+---
+
+#### `Summarize`
+`Summarize` - returns a summary of all the data stored on the current node
+
+```
+rpc Summarize (SummarizeRequest) returns (SummarizeResponse)
+```
+
+`SummarizeRequest`:
+
+
+```
+message SummarizeRequest {
+}
+```
+
+---
+
+`SummarizeResponse`:
+* `metadata_keys` - list of `Metadata` keys
+* `user_metadata_keys` - list of `UserDefinedMetadata` keys
+* `messages_types` - list of messages types
+* `encoding_types` - list of encoding types
+* `custom_encoding_types` - list of custom encoding types
+* `start_time` - time of earliest message stored
+* `end_time` - time of oldest message stored
+* `len_bytes` - total bytes for all messages stored
+* `count` - totakl number of messages stored
+
+```
+message SummarizeResponse {
+  repeated string                        metadata_keys
+  repeated string                        user_metadata_keys
+  repeated WrappedMessage.MessageType    message_types
+  repeated MessageEncoding.EncodingType  encoding_types
+  repeated string                        custom_encoding_types
+  google.protobuf.Timestamp              start_time
+  google.protobuf.Timestamp              end_time
+  int64                                  len_bytes
+  int64                                  count
+}
+```
+
+---
+
+#### `ListMetadataValues`
+`ListMetadataValues` - returns a list of `Metadata` values for a given key
+
+```
+rpc ListMetadataValues (ListMetadataValuesRequest) returns (ListMetadataValuesResponse)
+```
+
+`ListMetadataValuesRequest`:
+* `key` - the key to look up `Metadata` values for
+
+```
+message ListMetadataValuesRequest {
+  string  key
+}
+```
+
+---
+
+`ListMetadataValuesResponse`:
+* `key` - the `key` provided in the `ListMetadataValuesRequest`
+* `values` - list of values for the given `key`
+
+```
+message ListMetadataValuesResponse {
+  string           key
+  repeated string  values
+}
+```
+
+---
+
+#### `ListExercises`
+`ListExercises` - returns a list `ExerciseMetadata` describing exercises the node is aware of
+
+```
+rpc ListExercises (ListExercisesRequest) returns (ListExercisesResponse)
+```
+
+`ListExercisesRequest`:
+
+```
+message ListExercisesRequest {
+}
+```
+
+---
+
+`ListExercisesResponse`:
+* `exercise_metadata` - list of `ExerciseMetadata`
+
+```
+message ListExercisesResponse {
+  repeated ExerciseMetadata  exercise_metadata
 }
 ```
 
