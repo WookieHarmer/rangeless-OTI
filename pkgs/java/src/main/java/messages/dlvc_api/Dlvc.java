@@ -946,6 +946,19 @@ public final class Dlvc {
      * <code>.dlvc_api.DuplicateDetails duplicate_details = 2;</code>
      */
     dlvc_api.Dlvc.DuplicateDetailsOrBuilder getDuplicateDetailsOrBuilder();
+
+    /**
+     * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+     */
+    boolean hasErrorDetails();
+    /**
+     * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+     */
+    dlvc_api.Dlvc.ErrorDetails getErrorDetails();
+    /**
+     * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+     */
+    dlvc_api.Dlvc.ErrorDetailsOrBuilder getErrorDetailsOrBuilder();
   }
   /**
    * Protobuf type {@code dlvc_api.PushRawMessageResponse}
@@ -1005,6 +1018,19 @@ public final class Dlvc {
 
               break;
             }
+            case 26: {
+              dlvc_api.Dlvc.ErrorDetails.Builder subBuilder = null;
+              if (errorDetails_ != null) {
+                subBuilder = errorDetails_.toBuilder();
+              }
+              errorDetails_ = input.readMessage(dlvc_api.Dlvc.ErrorDetails.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(errorDetails_);
+                errorDetails_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -1058,6 +1084,27 @@ public final class Dlvc {
       return getDuplicateDetails();
     }
 
+    public static final int ERROR_DETAILS_FIELD_NUMBER = 3;
+    private dlvc_api.Dlvc.ErrorDetails errorDetails_;
+    /**
+     * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+     */
+    public boolean hasErrorDetails() {
+      return errorDetails_ != null;
+    }
+    /**
+     * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+     */
+    public dlvc_api.Dlvc.ErrorDetails getErrorDetails() {
+      return errorDetails_ == null ? dlvc_api.Dlvc.ErrorDetails.getDefaultInstance() : errorDetails_;
+    }
+    /**
+     * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+     */
+    public dlvc_api.Dlvc.ErrorDetailsOrBuilder getErrorDetailsOrBuilder() {
+      return getErrorDetails();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1075,6 +1122,9 @@ public final class Dlvc {
       if (duplicateDetails_ != null) {
         output.writeMessage(2, getDuplicateDetails());
       }
+      if (errorDetails_ != null) {
+        output.writeMessage(3, getErrorDetails());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1087,6 +1137,10 @@ public final class Dlvc {
       if (duplicateDetails_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getDuplicateDetails());
+      }
+      if (errorDetails_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getErrorDetails());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1108,6 +1162,11 @@ public final class Dlvc {
         if (!getDuplicateDetails()
             .equals(other.getDuplicateDetails())) return false;
       }
+      if (hasErrorDetails() != other.hasErrorDetails()) return false;
+      if (hasErrorDetails()) {
+        if (!getErrorDetails()
+            .equals(other.getErrorDetails())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1122,6 +1181,10 @@ public final class Dlvc {
       if (hasDuplicateDetails()) {
         hash = (37 * hash) + DUPLICATE_DETAILS_FIELD_NUMBER;
         hash = (53 * hash) + getDuplicateDetails().hashCode();
+      }
+      if (hasErrorDetails()) {
+        hash = (37 * hash) + ERROR_DETAILS_FIELD_NUMBER;
+        hash = (53 * hash) + getErrorDetails().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1262,6 +1325,12 @@ public final class Dlvc {
           duplicateDetails_ = null;
           duplicateDetailsBuilder_ = null;
         }
+        if (errorDetailsBuilder_ == null) {
+          errorDetails_ = null;
+        } else {
+          errorDetails_ = null;
+          errorDetailsBuilder_ = null;
+        }
         return this;
       }
 
@@ -1292,6 +1361,11 @@ public final class Dlvc {
           result.duplicateDetails_ = duplicateDetails_;
         } else {
           result.duplicateDetails_ = duplicateDetailsBuilder_.build();
+        }
+        if (errorDetailsBuilder_ == null) {
+          result.errorDetails_ = errorDetails_;
+        } else {
+          result.errorDetails_ = errorDetailsBuilder_.build();
         }
         onBuilt();
         return result;
@@ -1343,6 +1417,9 @@ public final class Dlvc {
         if (other == dlvc_api.Dlvc.PushRawMessageResponse.getDefaultInstance()) return this;
         if (other.hasDuplicateDetails()) {
           mergeDuplicateDetails(other.getDuplicateDetails());
+        }
+        if (other.hasErrorDetails()) {
+          mergeErrorDetails(other.getErrorDetails());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1488,6 +1565,123 @@ public final class Dlvc {
           duplicateDetails_ = null;
         }
         return duplicateDetailsBuilder_;
+      }
+
+      private dlvc_api.Dlvc.ErrorDetails errorDetails_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          dlvc_api.Dlvc.ErrorDetails, dlvc_api.Dlvc.ErrorDetails.Builder, dlvc_api.Dlvc.ErrorDetailsOrBuilder> errorDetailsBuilder_;
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public boolean hasErrorDetails() {
+        return errorDetailsBuilder_ != null || errorDetails_ != null;
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public dlvc_api.Dlvc.ErrorDetails getErrorDetails() {
+        if (errorDetailsBuilder_ == null) {
+          return errorDetails_ == null ? dlvc_api.Dlvc.ErrorDetails.getDefaultInstance() : errorDetails_;
+        } else {
+          return errorDetailsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public Builder setErrorDetails(dlvc_api.Dlvc.ErrorDetails value) {
+        if (errorDetailsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          errorDetails_ = value;
+          onChanged();
+        } else {
+          errorDetailsBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public Builder setErrorDetails(
+          dlvc_api.Dlvc.ErrorDetails.Builder builderForValue) {
+        if (errorDetailsBuilder_ == null) {
+          errorDetails_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorDetailsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public Builder mergeErrorDetails(dlvc_api.Dlvc.ErrorDetails value) {
+        if (errorDetailsBuilder_ == null) {
+          if (errorDetails_ != null) {
+            errorDetails_ =
+              dlvc_api.Dlvc.ErrorDetails.newBuilder(errorDetails_).mergeFrom(value).buildPartial();
+          } else {
+            errorDetails_ = value;
+          }
+          onChanged();
+        } else {
+          errorDetailsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public Builder clearErrorDetails() {
+        if (errorDetailsBuilder_ == null) {
+          errorDetails_ = null;
+          onChanged();
+        } else {
+          errorDetails_ = null;
+          errorDetailsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public dlvc_api.Dlvc.ErrorDetails.Builder getErrorDetailsBuilder() {
+        
+        onChanged();
+        return getErrorDetailsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public dlvc_api.Dlvc.ErrorDetailsOrBuilder getErrorDetailsOrBuilder() {
+        if (errorDetailsBuilder_ != null) {
+          return errorDetailsBuilder_.getMessageOrBuilder();
+        } else {
+          return errorDetails_ == null ?
+              dlvc_api.Dlvc.ErrorDetails.getDefaultInstance() : errorDetails_;
+        }
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          dlvc_api.Dlvc.ErrorDetails, dlvc_api.Dlvc.ErrorDetails.Builder, dlvc_api.Dlvc.ErrorDetailsOrBuilder> 
+          getErrorDetailsFieldBuilder() {
+        if (errorDetailsBuilder_ == null) {
+          errorDetailsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              dlvc_api.Dlvc.ErrorDetails, dlvc_api.Dlvc.ErrorDetails.Builder, dlvc_api.Dlvc.ErrorDetailsOrBuilder>(
+                  getErrorDetails(),
+                  getParentForChildren(),
+                  isClean());
+          errorDetails_ = null;
+        }
+        return errorDetailsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -2907,6 +3101,19 @@ public final class Dlvc {
      * <code>.dlvc_api.DuplicateDetails duplicate_details = 2;</code>
      */
     dlvc_api.Dlvc.DuplicateDetailsOrBuilder getDuplicateDetailsOrBuilder();
+
+    /**
+     * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+     */
+    boolean hasErrorDetails();
+    /**
+     * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+     */
+    dlvc_api.Dlvc.ErrorDetails getErrorDetails();
+    /**
+     * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+     */
+    dlvc_api.Dlvc.ErrorDetailsOrBuilder getErrorDetailsOrBuilder();
   }
   /**
    * Protobuf type {@code dlvc_api.PushRawMessagesResponse}
@@ -2966,6 +3173,19 @@ public final class Dlvc {
 
               break;
             }
+            case 26: {
+              dlvc_api.Dlvc.ErrorDetails.Builder subBuilder = null;
+              if (errorDetails_ != null) {
+                subBuilder = errorDetails_.toBuilder();
+              }
+              errorDetails_ = input.readMessage(dlvc_api.Dlvc.ErrorDetails.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(errorDetails_);
+                errorDetails_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
             default: {
               if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -3019,6 +3239,27 @@ public final class Dlvc {
       return getDuplicateDetails();
     }
 
+    public static final int ERROR_DETAILS_FIELD_NUMBER = 3;
+    private dlvc_api.Dlvc.ErrorDetails errorDetails_;
+    /**
+     * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+     */
+    public boolean hasErrorDetails() {
+      return errorDetails_ != null;
+    }
+    /**
+     * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+     */
+    public dlvc_api.Dlvc.ErrorDetails getErrorDetails() {
+      return errorDetails_ == null ? dlvc_api.Dlvc.ErrorDetails.getDefaultInstance() : errorDetails_;
+    }
+    /**
+     * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+     */
+    public dlvc_api.Dlvc.ErrorDetailsOrBuilder getErrorDetailsOrBuilder() {
+      return getErrorDetails();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -3036,6 +3277,9 @@ public final class Dlvc {
       if (duplicateDetails_ != null) {
         output.writeMessage(2, getDuplicateDetails());
       }
+      if (errorDetails_ != null) {
+        output.writeMessage(3, getErrorDetails());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -3048,6 +3292,10 @@ public final class Dlvc {
       if (duplicateDetails_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, getDuplicateDetails());
+      }
+      if (errorDetails_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, getErrorDetails());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3069,6 +3317,11 @@ public final class Dlvc {
         if (!getDuplicateDetails()
             .equals(other.getDuplicateDetails())) return false;
       }
+      if (hasErrorDetails() != other.hasErrorDetails()) return false;
+      if (hasErrorDetails()) {
+        if (!getErrorDetails()
+            .equals(other.getErrorDetails())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -3083,6 +3336,10 @@ public final class Dlvc {
       if (hasDuplicateDetails()) {
         hash = (37 * hash) + DUPLICATE_DETAILS_FIELD_NUMBER;
         hash = (53 * hash) + getDuplicateDetails().hashCode();
+      }
+      if (hasErrorDetails()) {
+        hash = (37 * hash) + ERROR_DETAILS_FIELD_NUMBER;
+        hash = (53 * hash) + getErrorDetails().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -3223,6 +3480,12 @@ public final class Dlvc {
           duplicateDetails_ = null;
           duplicateDetailsBuilder_ = null;
         }
+        if (errorDetailsBuilder_ == null) {
+          errorDetails_ = null;
+        } else {
+          errorDetails_ = null;
+          errorDetailsBuilder_ = null;
+        }
         return this;
       }
 
@@ -3253,6 +3516,11 @@ public final class Dlvc {
           result.duplicateDetails_ = duplicateDetails_;
         } else {
           result.duplicateDetails_ = duplicateDetailsBuilder_.build();
+        }
+        if (errorDetailsBuilder_ == null) {
+          result.errorDetails_ = errorDetails_;
+        } else {
+          result.errorDetails_ = errorDetailsBuilder_.build();
         }
         onBuilt();
         return result;
@@ -3304,6 +3572,9 @@ public final class Dlvc {
         if (other == dlvc_api.Dlvc.PushRawMessagesResponse.getDefaultInstance()) return this;
         if (other.hasDuplicateDetails()) {
           mergeDuplicateDetails(other.getDuplicateDetails());
+        }
+        if (other.hasErrorDetails()) {
+          mergeErrorDetails(other.getErrorDetails());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3449,6 +3720,123 @@ public final class Dlvc {
           duplicateDetails_ = null;
         }
         return duplicateDetailsBuilder_;
+      }
+
+      private dlvc_api.Dlvc.ErrorDetails errorDetails_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          dlvc_api.Dlvc.ErrorDetails, dlvc_api.Dlvc.ErrorDetails.Builder, dlvc_api.Dlvc.ErrorDetailsOrBuilder> errorDetailsBuilder_;
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public boolean hasErrorDetails() {
+        return errorDetailsBuilder_ != null || errorDetails_ != null;
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public dlvc_api.Dlvc.ErrorDetails getErrorDetails() {
+        if (errorDetailsBuilder_ == null) {
+          return errorDetails_ == null ? dlvc_api.Dlvc.ErrorDetails.getDefaultInstance() : errorDetails_;
+        } else {
+          return errorDetailsBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public Builder setErrorDetails(dlvc_api.Dlvc.ErrorDetails value) {
+        if (errorDetailsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          errorDetails_ = value;
+          onChanged();
+        } else {
+          errorDetailsBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public Builder setErrorDetails(
+          dlvc_api.Dlvc.ErrorDetails.Builder builderForValue) {
+        if (errorDetailsBuilder_ == null) {
+          errorDetails_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorDetailsBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public Builder mergeErrorDetails(dlvc_api.Dlvc.ErrorDetails value) {
+        if (errorDetailsBuilder_ == null) {
+          if (errorDetails_ != null) {
+            errorDetails_ =
+              dlvc_api.Dlvc.ErrorDetails.newBuilder(errorDetails_).mergeFrom(value).buildPartial();
+          } else {
+            errorDetails_ = value;
+          }
+          onChanged();
+        } else {
+          errorDetailsBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public Builder clearErrorDetails() {
+        if (errorDetailsBuilder_ == null) {
+          errorDetails_ = null;
+          onChanged();
+        } else {
+          errorDetails_ = null;
+          errorDetailsBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public dlvc_api.Dlvc.ErrorDetails.Builder getErrorDetailsBuilder() {
+        
+        onChanged();
+        return getErrorDetailsFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      public dlvc_api.Dlvc.ErrorDetailsOrBuilder getErrorDetailsOrBuilder() {
+        if (errorDetailsBuilder_ != null) {
+          return errorDetailsBuilder_.getMessageOrBuilder();
+        } else {
+          return errorDetails_ == null ?
+              dlvc_api.Dlvc.ErrorDetails.getDefaultInstance() : errorDetails_;
+        }
+      }
+      /**
+       * <code>.dlvc_api.ErrorDetails error_details = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          dlvc_api.Dlvc.ErrorDetails, dlvc_api.Dlvc.ErrorDetails.Builder, dlvc_api.Dlvc.ErrorDetailsOrBuilder> 
+          getErrorDetailsFieldBuilder() {
+        if (errorDetailsBuilder_ == null) {
+          errorDetailsBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              dlvc_api.Dlvc.ErrorDetails, dlvc_api.Dlvc.ErrorDetails.Builder, dlvc_api.Dlvc.ErrorDetailsOrBuilder>(
+                  getErrorDetails(),
+                  getParentForChildren(),
+                  isClean());
+          errorDetails_ = null;
+        }
+        return errorDetailsBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -4171,6 +4559,1675 @@ public final class Dlvc {
 
     @java.lang.Override
     public dlvc_api.Dlvc.DuplicateDetails getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ErrorDetailsOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:dlvc_api.ErrorDetails)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated string idempotency_keys = 2;</code>
+     */
+    java.util.List<java.lang.String>
+        getIdempotencyKeysList();
+    /**
+     * <code>repeated string idempotency_keys = 2;</code>
+     */
+    int getIdempotencyKeysCount();
+    /**
+     * <code>repeated string idempotency_keys = 2;</code>
+     */
+    java.lang.String getIdempotencyKeys(int index);
+    /**
+     * <code>repeated string idempotency_keys = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdempotencyKeysBytes(int index);
+
+    /**
+     * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+     */
+    java.util.List<dlvc_api.Dlvc.ErrorDetailsError> 
+        getErrorsList();
+    /**
+     * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+     */
+    dlvc_api.Dlvc.ErrorDetailsError getErrors(int index);
+    /**
+     * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+     */
+    int getErrorsCount();
+    /**
+     * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+     */
+    java.util.List<? extends dlvc_api.Dlvc.ErrorDetailsErrorOrBuilder> 
+        getErrorsOrBuilderList();
+    /**
+     * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+     */
+    dlvc_api.Dlvc.ErrorDetailsErrorOrBuilder getErrorsOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code dlvc_api.ErrorDetails}
+   */
+  public  static final class ErrorDetails extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:dlvc_api.ErrorDetails)
+      ErrorDetailsOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ErrorDetails.newBuilder() to construct.
+    private ErrorDetails(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ErrorDetails() {
+      idempotencyKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      errors_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ErrorDetails();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ErrorDetails(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                idempotencyKeys_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              idempotencyKeys_.add(s);
+              break;
+            }
+            case 26: {
+              if (!((mutable_bitField0_ & 0x00000002) != 0)) {
+                errors_ = new java.util.ArrayList<dlvc_api.Dlvc.ErrorDetailsError>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              errors_.add(
+                  input.readMessage(dlvc_api.Dlvc.ErrorDetailsError.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          idempotencyKeys_ = idempotencyKeys_.getUnmodifiableView();
+        }
+        if (((mutable_bitField0_ & 0x00000002) != 0)) {
+          errors_ = java.util.Collections.unmodifiableList(errors_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return dlvc_api.Dlvc.internal_static_dlvc_api_ErrorDetails_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return dlvc_api.Dlvc.internal_static_dlvc_api_ErrorDetails_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              dlvc_api.Dlvc.ErrorDetails.class, dlvc_api.Dlvc.ErrorDetails.Builder.class);
+    }
+
+    public static final int IDEMPOTENCY_KEYS_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList idempotencyKeys_;
+    /**
+     * <code>repeated string idempotency_keys = 2;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getIdempotencyKeysList() {
+      return idempotencyKeys_;
+    }
+    /**
+     * <code>repeated string idempotency_keys = 2;</code>
+     */
+    public int getIdempotencyKeysCount() {
+      return idempotencyKeys_.size();
+    }
+    /**
+     * <code>repeated string idempotency_keys = 2;</code>
+     */
+    public java.lang.String getIdempotencyKeys(int index) {
+      return idempotencyKeys_.get(index);
+    }
+    /**
+     * <code>repeated string idempotency_keys = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdempotencyKeysBytes(int index) {
+      return idempotencyKeys_.getByteString(index);
+    }
+
+    public static final int ERRORS_FIELD_NUMBER = 3;
+    private java.util.List<dlvc_api.Dlvc.ErrorDetailsError> errors_;
+    /**
+     * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+     */
+    public java.util.List<dlvc_api.Dlvc.ErrorDetailsError> getErrorsList() {
+      return errors_;
+    }
+    /**
+     * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+     */
+    public java.util.List<? extends dlvc_api.Dlvc.ErrorDetailsErrorOrBuilder> 
+        getErrorsOrBuilderList() {
+      return errors_;
+    }
+    /**
+     * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+     */
+    public int getErrorsCount() {
+      return errors_.size();
+    }
+    /**
+     * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+     */
+    public dlvc_api.Dlvc.ErrorDetailsError getErrors(int index) {
+      return errors_.get(index);
+    }
+    /**
+     * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+     */
+    public dlvc_api.Dlvc.ErrorDetailsErrorOrBuilder getErrorsOrBuilder(
+        int index) {
+      return errors_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < idempotencyKeys_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, idempotencyKeys_.getRaw(i));
+      }
+      for (int i = 0; i < errors_.size(); i++) {
+        output.writeMessage(3, errors_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      {
+        int dataSize = 0;
+        for (int i = 0; i < idempotencyKeys_.size(); i++) {
+          dataSize += computeStringSizeNoTag(idempotencyKeys_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getIdempotencyKeysList().size();
+      }
+      for (int i = 0; i < errors_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, errors_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof dlvc_api.Dlvc.ErrorDetails)) {
+        return super.equals(obj);
+      }
+      dlvc_api.Dlvc.ErrorDetails other = (dlvc_api.Dlvc.ErrorDetails) obj;
+
+      if (!getIdempotencyKeysList()
+          .equals(other.getIdempotencyKeysList())) return false;
+      if (!getErrorsList()
+          .equals(other.getErrorsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getIdempotencyKeysCount() > 0) {
+        hash = (37 * hash) + IDEMPOTENCY_KEYS_FIELD_NUMBER;
+        hash = (53 * hash) + getIdempotencyKeysList().hashCode();
+      }
+      if (getErrorsCount() > 0) {
+        hash = (37 * hash) + ERRORS_FIELD_NUMBER;
+        hash = (53 * hash) + getErrorsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static dlvc_api.Dlvc.ErrorDetails parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dlvc_api.Dlvc.ErrorDetails parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dlvc_api.Dlvc.ErrorDetails parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dlvc_api.Dlvc.ErrorDetails parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dlvc_api.Dlvc.ErrorDetails parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dlvc_api.Dlvc.ErrorDetails parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dlvc_api.Dlvc.ErrorDetails parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dlvc_api.Dlvc.ErrorDetails parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dlvc_api.Dlvc.ErrorDetails parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static dlvc_api.Dlvc.ErrorDetails parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dlvc_api.Dlvc.ErrorDetails parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dlvc_api.Dlvc.ErrorDetails parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(dlvc_api.Dlvc.ErrorDetails prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code dlvc_api.ErrorDetails}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:dlvc_api.ErrorDetails)
+        dlvc_api.Dlvc.ErrorDetailsOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return dlvc_api.Dlvc.internal_static_dlvc_api_ErrorDetails_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return dlvc_api.Dlvc.internal_static_dlvc_api_ErrorDetails_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                dlvc_api.Dlvc.ErrorDetails.class, dlvc_api.Dlvc.ErrorDetails.Builder.class);
+      }
+
+      // Construct using dlvc_api.Dlvc.ErrorDetails.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getErrorsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        idempotencyKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        if (errorsBuilder_ == null) {
+          errors_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          errorsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return dlvc_api.Dlvc.internal_static_dlvc_api_ErrorDetails_descriptor;
+      }
+
+      @java.lang.Override
+      public dlvc_api.Dlvc.ErrorDetails getDefaultInstanceForType() {
+        return dlvc_api.Dlvc.ErrorDetails.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public dlvc_api.Dlvc.ErrorDetails build() {
+        dlvc_api.Dlvc.ErrorDetails result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public dlvc_api.Dlvc.ErrorDetails buildPartial() {
+        dlvc_api.Dlvc.ErrorDetails result = new dlvc_api.Dlvc.ErrorDetails(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          idempotencyKeys_ = idempotencyKeys_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.idempotencyKeys_ = idempotencyKeys_;
+        if (errorsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) != 0)) {
+            errors_ = java.util.Collections.unmodifiableList(errors_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.errors_ = errors_;
+        } else {
+          result.errors_ = errorsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof dlvc_api.Dlvc.ErrorDetails) {
+          return mergeFrom((dlvc_api.Dlvc.ErrorDetails)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(dlvc_api.Dlvc.ErrorDetails other) {
+        if (other == dlvc_api.Dlvc.ErrorDetails.getDefaultInstance()) return this;
+        if (!other.idempotencyKeys_.isEmpty()) {
+          if (idempotencyKeys_.isEmpty()) {
+            idempotencyKeys_ = other.idempotencyKeys_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureIdempotencyKeysIsMutable();
+            idempotencyKeys_.addAll(other.idempotencyKeys_);
+          }
+          onChanged();
+        }
+        if (errorsBuilder_ == null) {
+          if (!other.errors_.isEmpty()) {
+            if (errors_.isEmpty()) {
+              errors_ = other.errors_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureErrorsIsMutable();
+              errors_.addAll(other.errors_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.errors_.isEmpty()) {
+            if (errorsBuilder_.isEmpty()) {
+              errorsBuilder_.dispose();
+              errorsBuilder_ = null;
+              errors_ = other.errors_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              errorsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getErrorsFieldBuilder() : null;
+            } else {
+              errorsBuilder_.addAllMessages(other.errors_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        dlvc_api.Dlvc.ErrorDetails parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (dlvc_api.Dlvc.ErrorDetails) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private com.google.protobuf.LazyStringList idempotencyKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureIdempotencyKeysIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          idempotencyKeys_ = new com.google.protobuf.LazyStringArrayList(idempotencyKeys_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+      /**
+       * <code>repeated string idempotency_keys = 2;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getIdempotencyKeysList() {
+        return idempotencyKeys_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string idempotency_keys = 2;</code>
+       */
+      public int getIdempotencyKeysCount() {
+        return idempotencyKeys_.size();
+      }
+      /**
+       * <code>repeated string idempotency_keys = 2;</code>
+       */
+      public java.lang.String getIdempotencyKeys(int index) {
+        return idempotencyKeys_.get(index);
+      }
+      /**
+       * <code>repeated string idempotency_keys = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdempotencyKeysBytes(int index) {
+        return idempotencyKeys_.getByteString(index);
+      }
+      /**
+       * <code>repeated string idempotency_keys = 2;</code>
+       */
+      public Builder setIdempotencyKeys(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureIdempotencyKeysIsMutable();
+        idempotencyKeys_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string idempotency_keys = 2;</code>
+       */
+      public Builder addIdempotencyKeys(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureIdempotencyKeysIsMutable();
+        idempotencyKeys_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string idempotency_keys = 2;</code>
+       */
+      public Builder addAllIdempotencyKeys(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureIdempotencyKeysIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, idempotencyKeys_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string idempotency_keys = 2;</code>
+       */
+      public Builder clearIdempotencyKeys() {
+        idempotencyKeys_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string idempotency_keys = 2;</code>
+       */
+      public Builder addIdempotencyKeysBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureIdempotencyKeysIsMutable();
+        idempotencyKeys_.add(value);
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<dlvc_api.Dlvc.ErrorDetailsError> errors_ =
+        java.util.Collections.emptyList();
+      private void ensureErrorsIsMutable() {
+        if (!((bitField0_ & 0x00000002) != 0)) {
+          errors_ = new java.util.ArrayList<dlvc_api.Dlvc.ErrorDetailsError>(errors_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          dlvc_api.Dlvc.ErrorDetailsError, dlvc_api.Dlvc.ErrorDetailsError.Builder, dlvc_api.Dlvc.ErrorDetailsErrorOrBuilder> errorsBuilder_;
+
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public java.util.List<dlvc_api.Dlvc.ErrorDetailsError> getErrorsList() {
+        if (errorsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(errors_);
+        } else {
+          return errorsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public int getErrorsCount() {
+        if (errorsBuilder_ == null) {
+          return errors_.size();
+        } else {
+          return errorsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public dlvc_api.Dlvc.ErrorDetailsError getErrors(int index) {
+        if (errorsBuilder_ == null) {
+          return errors_.get(index);
+        } else {
+          return errorsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public Builder setErrors(
+          int index, dlvc_api.Dlvc.ErrorDetailsError value) {
+        if (errorsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureErrorsIsMutable();
+          errors_.set(index, value);
+          onChanged();
+        } else {
+          errorsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public Builder setErrors(
+          int index, dlvc_api.Dlvc.ErrorDetailsError.Builder builderForValue) {
+        if (errorsBuilder_ == null) {
+          ensureErrorsIsMutable();
+          errors_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          errorsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public Builder addErrors(dlvc_api.Dlvc.ErrorDetailsError value) {
+        if (errorsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureErrorsIsMutable();
+          errors_.add(value);
+          onChanged();
+        } else {
+          errorsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public Builder addErrors(
+          int index, dlvc_api.Dlvc.ErrorDetailsError value) {
+        if (errorsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureErrorsIsMutable();
+          errors_.add(index, value);
+          onChanged();
+        } else {
+          errorsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public Builder addErrors(
+          dlvc_api.Dlvc.ErrorDetailsError.Builder builderForValue) {
+        if (errorsBuilder_ == null) {
+          ensureErrorsIsMutable();
+          errors_.add(builderForValue.build());
+          onChanged();
+        } else {
+          errorsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public Builder addErrors(
+          int index, dlvc_api.Dlvc.ErrorDetailsError.Builder builderForValue) {
+        if (errorsBuilder_ == null) {
+          ensureErrorsIsMutable();
+          errors_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          errorsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public Builder addAllErrors(
+          java.lang.Iterable<? extends dlvc_api.Dlvc.ErrorDetailsError> values) {
+        if (errorsBuilder_ == null) {
+          ensureErrorsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, errors_);
+          onChanged();
+        } else {
+          errorsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public Builder clearErrors() {
+        if (errorsBuilder_ == null) {
+          errors_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          errorsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public Builder removeErrors(int index) {
+        if (errorsBuilder_ == null) {
+          ensureErrorsIsMutable();
+          errors_.remove(index);
+          onChanged();
+        } else {
+          errorsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public dlvc_api.Dlvc.ErrorDetailsError.Builder getErrorsBuilder(
+          int index) {
+        return getErrorsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public dlvc_api.Dlvc.ErrorDetailsErrorOrBuilder getErrorsOrBuilder(
+          int index) {
+        if (errorsBuilder_ == null) {
+          return errors_.get(index);  } else {
+          return errorsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public java.util.List<? extends dlvc_api.Dlvc.ErrorDetailsErrorOrBuilder> 
+           getErrorsOrBuilderList() {
+        if (errorsBuilder_ != null) {
+          return errorsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(errors_);
+        }
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public dlvc_api.Dlvc.ErrorDetailsError.Builder addErrorsBuilder() {
+        return getErrorsFieldBuilder().addBuilder(
+            dlvc_api.Dlvc.ErrorDetailsError.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public dlvc_api.Dlvc.ErrorDetailsError.Builder addErrorsBuilder(
+          int index) {
+        return getErrorsFieldBuilder().addBuilder(
+            index, dlvc_api.Dlvc.ErrorDetailsError.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .dlvc_api.ErrorDetailsError errors = 3;</code>
+       */
+      public java.util.List<dlvc_api.Dlvc.ErrorDetailsError.Builder> 
+           getErrorsBuilderList() {
+        return getErrorsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          dlvc_api.Dlvc.ErrorDetailsError, dlvc_api.Dlvc.ErrorDetailsError.Builder, dlvc_api.Dlvc.ErrorDetailsErrorOrBuilder> 
+          getErrorsFieldBuilder() {
+        if (errorsBuilder_ == null) {
+          errorsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              dlvc_api.Dlvc.ErrorDetailsError, dlvc_api.Dlvc.ErrorDetailsError.Builder, dlvc_api.Dlvc.ErrorDetailsErrorOrBuilder>(
+                  errors_,
+                  ((bitField0_ & 0x00000002) != 0),
+                  getParentForChildren(),
+                  isClean());
+          errors_ = null;
+        }
+        return errorsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:dlvc_api.ErrorDetails)
+    }
+
+    // @@protoc_insertion_point(class_scope:dlvc_api.ErrorDetails)
+    private static final dlvc_api.Dlvc.ErrorDetails DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new dlvc_api.Dlvc.ErrorDetails();
+    }
+
+    public static dlvc_api.Dlvc.ErrorDetails getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ErrorDetails>
+        PARSER = new com.google.protobuf.AbstractParser<ErrorDetails>() {
+      @java.lang.Override
+      public ErrorDetails parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ErrorDetails(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ErrorDetails> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ErrorDetails> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public dlvc_api.Dlvc.ErrorDetails getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ErrorDetailsErrorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:dlvc_api.ErrorDetailsError)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string idempotency_key = 2;</code>
+     */
+    java.lang.String getIdempotencyKey();
+    /**
+     * <code>string idempotency_key = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdempotencyKeyBytes();
+
+    /**
+     * <code>string error_message = 3;</code>
+     */
+    java.lang.String getErrorMessage();
+    /**
+     * <code>string error_message = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getErrorMessageBytes();
+  }
+  /**
+   * Protobuf type {@code dlvc_api.ErrorDetailsError}
+   */
+  public  static final class ErrorDetailsError extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:dlvc_api.ErrorDetailsError)
+      ErrorDetailsErrorOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ErrorDetailsError.newBuilder() to construct.
+    private ErrorDetailsError(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ErrorDetailsError() {
+      idempotencyKey_ = "";
+      errorMessage_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ErrorDetailsError();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ErrorDetailsError(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              idempotencyKey_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              errorMessage_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return dlvc_api.Dlvc.internal_static_dlvc_api_ErrorDetailsError_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return dlvc_api.Dlvc.internal_static_dlvc_api_ErrorDetailsError_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              dlvc_api.Dlvc.ErrorDetailsError.class, dlvc_api.Dlvc.ErrorDetailsError.Builder.class);
+    }
+
+    public static final int IDEMPOTENCY_KEY_FIELD_NUMBER = 2;
+    private volatile java.lang.Object idempotencyKey_;
+    /**
+     * <code>string idempotency_key = 2;</code>
+     */
+    public java.lang.String getIdempotencyKey() {
+      java.lang.Object ref = idempotencyKey_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        idempotencyKey_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string idempotency_key = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdempotencyKeyBytes() {
+      java.lang.Object ref = idempotencyKey_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        idempotencyKey_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ERROR_MESSAGE_FIELD_NUMBER = 3;
+    private volatile java.lang.Object errorMessage_;
+    /**
+     * <code>string error_message = 3;</code>
+     */
+    public java.lang.String getErrorMessage() {
+      java.lang.Object ref = errorMessage_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        errorMessage_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string error_message = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getErrorMessageBytes() {
+      java.lang.Object ref = errorMessage_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        errorMessage_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdempotencyKeyBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, idempotencyKey_);
+      }
+      if (!getErrorMessageBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, errorMessage_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdempotencyKeyBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, idempotencyKey_);
+      }
+      if (!getErrorMessageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, errorMessage_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof dlvc_api.Dlvc.ErrorDetailsError)) {
+        return super.equals(obj);
+      }
+      dlvc_api.Dlvc.ErrorDetailsError other = (dlvc_api.Dlvc.ErrorDetailsError) obj;
+
+      if (!getIdempotencyKey()
+          .equals(other.getIdempotencyKey())) return false;
+      if (!getErrorMessage()
+          .equals(other.getErrorMessage())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + IDEMPOTENCY_KEY_FIELD_NUMBER;
+      hash = (53 * hash) + getIdempotencyKey().hashCode();
+      hash = (37 * hash) + ERROR_MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getErrorMessage().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static dlvc_api.Dlvc.ErrorDetailsError parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dlvc_api.Dlvc.ErrorDetailsError parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dlvc_api.Dlvc.ErrorDetailsError parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dlvc_api.Dlvc.ErrorDetailsError parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dlvc_api.Dlvc.ErrorDetailsError parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dlvc_api.Dlvc.ErrorDetailsError parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dlvc_api.Dlvc.ErrorDetailsError parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dlvc_api.Dlvc.ErrorDetailsError parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dlvc_api.Dlvc.ErrorDetailsError parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static dlvc_api.Dlvc.ErrorDetailsError parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dlvc_api.Dlvc.ErrorDetailsError parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dlvc_api.Dlvc.ErrorDetailsError parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(dlvc_api.Dlvc.ErrorDetailsError prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code dlvc_api.ErrorDetailsError}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:dlvc_api.ErrorDetailsError)
+        dlvc_api.Dlvc.ErrorDetailsErrorOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return dlvc_api.Dlvc.internal_static_dlvc_api_ErrorDetailsError_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return dlvc_api.Dlvc.internal_static_dlvc_api_ErrorDetailsError_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                dlvc_api.Dlvc.ErrorDetailsError.class, dlvc_api.Dlvc.ErrorDetailsError.Builder.class);
+      }
+
+      // Construct using dlvc_api.Dlvc.ErrorDetailsError.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        idempotencyKey_ = "";
+
+        errorMessage_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return dlvc_api.Dlvc.internal_static_dlvc_api_ErrorDetailsError_descriptor;
+      }
+
+      @java.lang.Override
+      public dlvc_api.Dlvc.ErrorDetailsError getDefaultInstanceForType() {
+        return dlvc_api.Dlvc.ErrorDetailsError.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public dlvc_api.Dlvc.ErrorDetailsError build() {
+        dlvc_api.Dlvc.ErrorDetailsError result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public dlvc_api.Dlvc.ErrorDetailsError buildPartial() {
+        dlvc_api.Dlvc.ErrorDetailsError result = new dlvc_api.Dlvc.ErrorDetailsError(this);
+        result.idempotencyKey_ = idempotencyKey_;
+        result.errorMessage_ = errorMessage_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof dlvc_api.Dlvc.ErrorDetailsError) {
+          return mergeFrom((dlvc_api.Dlvc.ErrorDetailsError)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(dlvc_api.Dlvc.ErrorDetailsError other) {
+        if (other == dlvc_api.Dlvc.ErrorDetailsError.getDefaultInstance()) return this;
+        if (!other.getIdempotencyKey().isEmpty()) {
+          idempotencyKey_ = other.idempotencyKey_;
+          onChanged();
+        }
+        if (!other.getErrorMessage().isEmpty()) {
+          errorMessage_ = other.errorMessage_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        dlvc_api.Dlvc.ErrorDetailsError parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (dlvc_api.Dlvc.ErrorDetailsError) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object idempotencyKey_ = "";
+      /**
+       * <code>string idempotency_key = 2;</code>
+       */
+      public java.lang.String getIdempotencyKey() {
+        java.lang.Object ref = idempotencyKey_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          idempotencyKey_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string idempotency_key = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdempotencyKeyBytes() {
+        java.lang.Object ref = idempotencyKey_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          idempotencyKey_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string idempotency_key = 2;</code>
+       */
+      public Builder setIdempotencyKey(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        idempotencyKey_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string idempotency_key = 2;</code>
+       */
+      public Builder clearIdempotencyKey() {
+        
+        idempotencyKey_ = getDefaultInstance().getIdempotencyKey();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string idempotency_key = 2;</code>
+       */
+      public Builder setIdempotencyKeyBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        idempotencyKey_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object errorMessage_ = "";
+      /**
+       * <code>string error_message = 3;</code>
+       */
+      public java.lang.String getErrorMessage() {
+        java.lang.Object ref = errorMessage_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          errorMessage_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string error_message = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getErrorMessageBytes() {
+        java.lang.Object ref = errorMessage_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          errorMessage_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string error_message = 3;</code>
+       */
+      public Builder setErrorMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        errorMessage_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string error_message = 3;</code>
+       */
+      public Builder clearErrorMessage() {
+        
+        errorMessage_ = getDefaultInstance().getErrorMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string error_message = 3;</code>
+       */
+      public Builder setErrorMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        errorMessage_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:dlvc_api.ErrorDetailsError)
+    }
+
+    // @@protoc_insertion_point(class_scope:dlvc_api.ErrorDetailsError)
+    private static final dlvc_api.Dlvc.ErrorDetailsError DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new dlvc_api.Dlvc.ErrorDetailsError();
+    }
+
+    public static dlvc_api.Dlvc.ErrorDetailsError getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ErrorDetailsError>
+        PARSER = new com.google.protobuf.AbstractParser<ErrorDetailsError>() {
+      @java.lang.Override
+      public ErrorDetailsError parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ErrorDetailsError(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ErrorDetailsError> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ErrorDetailsError> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public dlvc_api.Dlvc.ErrorDetailsError getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -12362,12 +14419,38 @@ public final class Dlvc {
         getCustomEncodingTypesBytes(int index);
 
     /**
-     * <code>int64 len_bytes = 7;</code>
+     * <code>.google.protobuf.Timestamp start_time = 7;</code>
+     */
+    boolean hasStartTime();
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 7;</code>
+     */
+    com.google.protobuf.Timestamp getStartTime();
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 7;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder();
+
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 8;</code>
+     */
+    boolean hasEndTime();
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 8;</code>
+     */
+    com.google.protobuf.Timestamp getEndTime();
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 8;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder();
+
+    /**
+     * <code>int64 len_bytes = 9;</code>
      */
     long getLenBytes();
 
     /**
-     * <code>int64 count = 8;</code>
+     * <code>int64 count = 10;</code>
      */
     long getCount();
   }
@@ -12495,12 +14578,38 @@ public final class Dlvc {
               customEncodingTypes_.add(s);
               break;
             }
-            case 56: {
+            case 58: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (startTime_ != null) {
+                subBuilder = startTime_.toBuilder();
+              }
+              startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(startTime_);
+                startTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 66: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (endTime_ != null) {
+                subBuilder = endTime_.toBuilder();
+              }
+              endTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(endTime_);
+                endTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 72: {
 
               lenBytes_ = input.readInt64();
               break;
             }
-            case 64: {
+            case 80: {
 
               count_ = input.readInt64();
               break;
@@ -12731,19 +14840,61 @@ public final class Dlvc {
       return customEncodingTypes_.getByteString(index);
     }
 
-    public static final int LEN_BYTES_FIELD_NUMBER = 7;
+    public static final int START_TIME_FIELD_NUMBER = 7;
+    private com.google.protobuf.Timestamp startTime_;
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 7;</code>
+     */
+    public boolean hasStartTime() {
+      return startTime_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 7;</code>
+     */
+    public com.google.protobuf.Timestamp getStartTime() {
+      return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 7;</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
+      return getStartTime();
+    }
+
+    public static final int END_TIME_FIELD_NUMBER = 8;
+    private com.google.protobuf.Timestamp endTime_;
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 8;</code>
+     */
+    public boolean hasEndTime() {
+      return endTime_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 8;</code>
+     */
+    public com.google.protobuf.Timestamp getEndTime() {
+      return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 8;</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
+      return getEndTime();
+    }
+
+    public static final int LEN_BYTES_FIELD_NUMBER = 9;
     private long lenBytes_;
     /**
-     * <code>int64 len_bytes = 7;</code>
+     * <code>int64 len_bytes = 9;</code>
      */
     public long getLenBytes() {
       return lenBytes_;
     }
 
-    public static final int COUNT_FIELD_NUMBER = 8;
+    public static final int COUNT_FIELD_NUMBER = 10;
     private long count_;
     /**
-     * <code>int64 count = 8;</code>
+     * <code>int64 count = 10;</code>
      */
     public long getCount() {
       return count_;
@@ -12787,11 +14938,17 @@ public final class Dlvc {
       for (int i = 0; i < customEncodingTypes_.size(); i++) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, customEncodingTypes_.getRaw(i));
       }
+      if (startTime_ != null) {
+        output.writeMessage(7, getStartTime());
+      }
+      if (endTime_ != null) {
+        output.writeMessage(8, getEndTime());
+      }
       if (lenBytes_ != 0L) {
-        output.writeInt64(7, lenBytes_);
+        output.writeInt64(9, lenBytes_);
       }
       if (count_ != 0L) {
-        output.writeInt64(8, count_);
+        output.writeInt64(10, count_);
       }
       unknownFields.writeTo(output);
     }
@@ -12850,13 +15007,21 @@ public final class Dlvc {
         size += dataSize;
         size += 1 * getCustomEncodingTypesList().size();
       }
+      if (startTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getStartTime());
+      }
+      if (endTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(8, getEndTime());
+      }
       if (lenBytes_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(7, lenBytes_);
+          .computeInt64Size(9, lenBytes_);
       }
       if (count_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(8, count_);
+          .computeInt64Size(10, count_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -12881,6 +15046,16 @@ public final class Dlvc {
       if (!encodingTypes_.equals(other.encodingTypes_)) return false;
       if (!getCustomEncodingTypesList()
           .equals(other.getCustomEncodingTypesList())) return false;
+      if (hasStartTime() != other.hasStartTime()) return false;
+      if (hasStartTime()) {
+        if (!getStartTime()
+            .equals(other.getStartTime())) return false;
+      }
+      if (hasEndTime() != other.hasEndTime()) return false;
+      if (hasEndTime()) {
+        if (!getEndTime()
+            .equals(other.getEndTime())) return false;
+      }
       if (getLenBytes()
           != other.getLenBytes()) return false;
       if (getCount()
@@ -12915,6 +15090,14 @@ public final class Dlvc {
       if (getCustomEncodingTypesCount() > 0) {
         hash = (37 * hash) + CUSTOM_ENCODING_TYPES_FIELD_NUMBER;
         hash = (53 * hash) + getCustomEncodingTypesList().hashCode();
+      }
+      if (hasStartTime()) {
+        hash = (37 * hash) + START_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getStartTime().hashCode();
+      }
+      if (hasEndTime()) {
+        hash = (37 * hash) + END_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getEndTime().hashCode();
       }
       hash = (37 * hash) + LEN_BYTES_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -13065,6 +15248,18 @@ public final class Dlvc {
         bitField0_ = (bitField0_ & ~0x00000008);
         customEncodingTypes_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000010);
+        if (startTimeBuilder_ == null) {
+          startTime_ = null;
+        } else {
+          startTime_ = null;
+          startTimeBuilder_ = null;
+        }
+        if (endTimeBuilder_ == null) {
+          endTime_ = null;
+        } else {
+          endTime_ = null;
+          endTimeBuilder_ = null;
+        }
         lenBytes_ = 0L;
 
         count_ = 0L;
@@ -13121,6 +15316,16 @@ public final class Dlvc {
           bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.customEncodingTypes_ = customEncodingTypes_;
+        if (startTimeBuilder_ == null) {
+          result.startTime_ = startTime_;
+        } else {
+          result.startTime_ = startTimeBuilder_.build();
+        }
+        if (endTimeBuilder_ == null) {
+          result.endTime_ = endTime_;
+        } else {
+          result.endTime_ = endTimeBuilder_.build();
+        }
         result.lenBytes_ = lenBytes_;
         result.count_ = count_;
         onBuilt();
@@ -13220,6 +15425,12 @@ public final class Dlvc {
             customEncodingTypes_.addAll(other.customEncodingTypes_);
           }
           onChanged();
+        }
+        if (other.hasStartTime()) {
+          mergeStartTime(other.getStartTime());
+        }
+        if (other.hasEndTime()) {
+          mergeEndTime(other.getEndTime());
         }
         if (other.getLenBytes() != 0L) {
           setLenBytes(other.getLenBytes());
@@ -13775,15 +15986,249 @@ public final class Dlvc {
         return this;
       }
 
+      private com.google.protobuf.Timestamp startTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> startTimeBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 7;</code>
+       */
+      public boolean hasStartTime() {
+        return startTimeBuilder_ != null || startTime_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 7;</code>
+       */
+      public com.google.protobuf.Timestamp getStartTime() {
+        if (startTimeBuilder_ == null) {
+          return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
+        } else {
+          return startTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 7;</code>
+       */
+      public Builder setStartTime(com.google.protobuf.Timestamp value) {
+        if (startTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          startTime_ = value;
+          onChanged();
+        } else {
+          startTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 7;</code>
+       */
+      public Builder setStartTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (startTimeBuilder_ == null) {
+          startTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          startTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 7;</code>
+       */
+      public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
+        if (startTimeBuilder_ == null) {
+          if (startTime_ != null) {
+            startTime_ =
+              com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+          } else {
+            startTime_ = value;
+          }
+          onChanged();
+        } else {
+          startTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 7;</code>
+       */
+      public Builder clearStartTime() {
+        if (startTimeBuilder_ == null) {
+          startTime_ = null;
+          onChanged();
+        } else {
+          startTime_ = null;
+          startTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 7;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
+        
+        onChanged();
+        return getStartTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 7;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
+        if (startTimeBuilder_ != null) {
+          return startTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return startTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getStartTimeFieldBuilder() {
+        if (startTimeBuilder_ == null) {
+          startTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getStartTime(),
+                  getParentForChildren(),
+                  isClean());
+          startTime_ = null;
+        }
+        return startTimeBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp endTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> endTimeBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 8;</code>
+       */
+      public boolean hasEndTime() {
+        return endTimeBuilder_ != null || endTime_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 8;</code>
+       */
+      public com.google.protobuf.Timestamp getEndTime() {
+        if (endTimeBuilder_ == null) {
+          return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
+        } else {
+          return endTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 8;</code>
+       */
+      public Builder setEndTime(com.google.protobuf.Timestamp value) {
+        if (endTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          endTime_ = value;
+          onChanged();
+        } else {
+          endTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 8;</code>
+       */
+      public Builder setEndTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (endTimeBuilder_ == null) {
+          endTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          endTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 8;</code>
+       */
+      public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
+        if (endTimeBuilder_ == null) {
+          if (endTime_ != null) {
+            endTime_ =
+              com.google.protobuf.Timestamp.newBuilder(endTime_).mergeFrom(value).buildPartial();
+          } else {
+            endTime_ = value;
+          }
+          onChanged();
+        } else {
+          endTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 8;</code>
+       */
+      public Builder clearEndTime() {
+        if (endTimeBuilder_ == null) {
+          endTime_ = null;
+          onChanged();
+        } else {
+          endTime_ = null;
+          endTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 8;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
+        
+        onChanged();
+        return getEndTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 8;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
+        if (endTimeBuilder_ != null) {
+          return endTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return endTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 8;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getEndTimeFieldBuilder() {
+        if (endTimeBuilder_ == null) {
+          endTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getEndTime(),
+                  getParentForChildren(),
+                  isClean());
+          endTime_ = null;
+        }
+        return endTimeBuilder_;
+      }
+
       private long lenBytes_ ;
       /**
-       * <code>int64 len_bytes = 7;</code>
+       * <code>int64 len_bytes = 9;</code>
        */
       public long getLenBytes() {
         return lenBytes_;
       }
       /**
-       * <code>int64 len_bytes = 7;</code>
+       * <code>int64 len_bytes = 9;</code>
        */
       public Builder setLenBytes(long value) {
         
@@ -13792,7 +16237,7 @@ public final class Dlvc {
         return this;
       }
       /**
-       * <code>int64 len_bytes = 7;</code>
+       * <code>int64 len_bytes = 9;</code>
        */
       public Builder clearLenBytes() {
         
@@ -13803,13 +16248,13 @@ public final class Dlvc {
 
       private long count_ ;
       /**
-       * <code>int64 count = 8;</code>
+       * <code>int64 count = 10;</code>
        */
       public long getCount() {
         return count_;
       }
       /**
-       * <code>int64 count = 8;</code>
+       * <code>int64 count = 10;</code>
        */
       public Builder setCount(long value) {
         
@@ -13818,7 +16263,7 @@ public final class Dlvc {
         return this;
       }
       /**
-       * <code>int64 count = 8;</code>
+       * <code>int64 count = 10;</code>
        */
       public Builder clearCount() {
         
@@ -15604,23 +18049,28 @@ public final class Dlvc {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated string exercise_ids = 3;</code>
+     * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
      */
-    java.util.List<java.lang.String>
-        getExerciseIdsList();
+    java.util.List<dlvc_api.Dlvc.ExerciseMetadata> 
+        getExerciseMetadataList();
     /**
-     * <code>repeated string exercise_ids = 3;</code>
+     * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
      */
-    int getExerciseIdsCount();
+    dlvc_api.Dlvc.ExerciseMetadata getExerciseMetadata(int index);
     /**
-     * <code>repeated string exercise_ids = 3;</code>
+     * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
      */
-    java.lang.String getExerciseIds(int index);
+    int getExerciseMetadataCount();
     /**
-     * <code>repeated string exercise_ids = 3;</code>
+     * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
      */
-    com.google.protobuf.ByteString
-        getExerciseIdsBytes(int index);
+    java.util.List<? extends dlvc_api.Dlvc.ExerciseMetadataOrBuilder> 
+        getExerciseMetadataOrBuilderList();
+    /**
+     * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
+     */
+    dlvc_api.Dlvc.ExerciseMetadataOrBuilder getExerciseMetadataOrBuilder(
+        int index);
   }
   /**
    * Protobuf type {@code dlvc_api.ListExercisesResponse}
@@ -15635,7 +18085,7 @@ public final class Dlvc {
       super(builder);
     }
     private ListExercisesResponse() {
-      exerciseIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      exerciseMetadata_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -15669,13 +18119,13 @@ public final class Dlvc {
             case 0:
               done = true;
               break;
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 18: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                exerciseIds_ = new com.google.protobuf.LazyStringArrayList();
+                exerciseMetadata_ = new java.util.ArrayList<dlvc_api.Dlvc.ExerciseMetadata>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              exerciseIds_.add(s);
+              exerciseMetadata_.add(
+                  input.readMessage(dlvc_api.Dlvc.ExerciseMetadata.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -15694,7 +18144,7 @@ public final class Dlvc {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          exerciseIds_ = exerciseIds_.getUnmodifiableView();
+          exerciseMetadata_ = java.util.Collections.unmodifiableList(exerciseMetadata_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -15713,33 +18163,39 @@ public final class Dlvc {
               dlvc_api.Dlvc.ListExercisesResponse.class, dlvc_api.Dlvc.ListExercisesResponse.Builder.class);
     }
 
-    public static final int EXERCISE_IDS_FIELD_NUMBER = 3;
-    private com.google.protobuf.LazyStringList exerciseIds_;
+    public static final int EXERCISE_METADATA_FIELD_NUMBER = 2;
+    private java.util.List<dlvc_api.Dlvc.ExerciseMetadata> exerciseMetadata_;
     /**
-     * <code>repeated string exercise_ids = 3;</code>
+     * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
      */
-    public com.google.protobuf.ProtocolStringList
-        getExerciseIdsList() {
-      return exerciseIds_;
+    public java.util.List<dlvc_api.Dlvc.ExerciseMetadata> getExerciseMetadataList() {
+      return exerciseMetadata_;
     }
     /**
-     * <code>repeated string exercise_ids = 3;</code>
+     * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
      */
-    public int getExerciseIdsCount() {
-      return exerciseIds_.size();
+    public java.util.List<? extends dlvc_api.Dlvc.ExerciseMetadataOrBuilder> 
+        getExerciseMetadataOrBuilderList() {
+      return exerciseMetadata_;
     }
     /**
-     * <code>repeated string exercise_ids = 3;</code>
+     * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
      */
-    public java.lang.String getExerciseIds(int index) {
-      return exerciseIds_.get(index);
+    public int getExerciseMetadataCount() {
+      return exerciseMetadata_.size();
     }
     /**
-     * <code>repeated string exercise_ids = 3;</code>
+     * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
      */
-    public com.google.protobuf.ByteString
-        getExerciseIdsBytes(int index) {
-      return exerciseIds_.getByteString(index);
+    public dlvc_api.Dlvc.ExerciseMetadata getExerciseMetadata(int index) {
+      return exerciseMetadata_.get(index);
+    }
+    /**
+     * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
+     */
+    public dlvc_api.Dlvc.ExerciseMetadataOrBuilder getExerciseMetadataOrBuilder(
+        int index) {
+      return exerciseMetadata_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -15756,8 +18212,8 @@ public final class Dlvc {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      for (int i = 0; i < exerciseIds_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, exerciseIds_.getRaw(i));
+      for (int i = 0; i < exerciseMetadata_.size(); i++) {
+        output.writeMessage(2, exerciseMetadata_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -15768,13 +18224,9 @@ public final class Dlvc {
       if (size != -1) return size;
 
       size = 0;
-      {
-        int dataSize = 0;
-        for (int i = 0; i < exerciseIds_.size(); i++) {
-          dataSize += computeStringSizeNoTag(exerciseIds_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getExerciseIdsList().size();
+      for (int i = 0; i < exerciseMetadata_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, exerciseMetadata_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -15791,8 +18243,8 @@ public final class Dlvc {
       }
       dlvc_api.Dlvc.ListExercisesResponse other = (dlvc_api.Dlvc.ListExercisesResponse) obj;
 
-      if (!getExerciseIdsList()
-          .equals(other.getExerciseIdsList())) return false;
+      if (!getExerciseMetadataList()
+          .equals(other.getExerciseMetadataList())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -15804,9 +18256,9 @@ public final class Dlvc {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (getExerciseIdsCount() > 0) {
-        hash = (37 * hash) + EXERCISE_IDS_FIELD_NUMBER;
-        hash = (53 * hash) + getExerciseIdsList().hashCode();
+      if (getExerciseMetadataCount() > 0) {
+        hash = (37 * hash) + EXERCISE_METADATA_FIELD_NUMBER;
+        hash = (53 * hash) + getExerciseMetadataList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -15936,13 +18388,18 @@ public final class Dlvc {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getExerciseMetadataFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        exerciseIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        if (exerciseMetadataBuilder_ == null) {
+          exerciseMetadata_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          exerciseMetadataBuilder_.clear();
+        }
         return this;
       }
 
@@ -15970,11 +18427,15 @@ public final class Dlvc {
       public dlvc_api.Dlvc.ListExercisesResponse buildPartial() {
         dlvc_api.Dlvc.ListExercisesResponse result = new dlvc_api.Dlvc.ListExercisesResponse(this);
         int from_bitField0_ = bitField0_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          exerciseIds_ = exerciseIds_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
+        if (exerciseMetadataBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            exerciseMetadata_ = java.util.Collections.unmodifiableList(exerciseMetadata_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.exerciseMetadata_ = exerciseMetadata_;
+        } else {
+          result.exerciseMetadata_ = exerciseMetadataBuilder_.build();
         }
-        result.exerciseIds_ = exerciseIds_;
         onBuilt();
         return result;
       }
@@ -16023,15 +18484,31 @@ public final class Dlvc {
 
       public Builder mergeFrom(dlvc_api.Dlvc.ListExercisesResponse other) {
         if (other == dlvc_api.Dlvc.ListExercisesResponse.getDefaultInstance()) return this;
-        if (!other.exerciseIds_.isEmpty()) {
-          if (exerciseIds_.isEmpty()) {
-            exerciseIds_ = other.exerciseIds_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureExerciseIdsIsMutable();
-            exerciseIds_.addAll(other.exerciseIds_);
+        if (exerciseMetadataBuilder_ == null) {
+          if (!other.exerciseMetadata_.isEmpty()) {
+            if (exerciseMetadata_.isEmpty()) {
+              exerciseMetadata_ = other.exerciseMetadata_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureExerciseMetadataIsMutable();
+              exerciseMetadata_.addAll(other.exerciseMetadata_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.exerciseMetadata_.isEmpty()) {
+            if (exerciseMetadataBuilder_.isEmpty()) {
+              exerciseMetadataBuilder_.dispose();
+              exerciseMetadataBuilder_ = null;
+              exerciseMetadata_ = other.exerciseMetadata_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              exerciseMetadataBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getExerciseMetadataFieldBuilder() : null;
+            } else {
+              exerciseMetadataBuilder_.addAllMessages(other.exerciseMetadata_);
+            }
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -16063,98 +18540,244 @@ public final class Dlvc {
       }
       private int bitField0_;
 
-      private com.google.protobuf.LazyStringList exerciseIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureExerciseIdsIsMutable() {
+      private java.util.List<dlvc_api.Dlvc.ExerciseMetadata> exerciseMetadata_ =
+        java.util.Collections.emptyList();
+      private void ensureExerciseMetadataIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          exerciseIds_ = new com.google.protobuf.LazyStringArrayList(exerciseIds_);
+          exerciseMetadata_ = new java.util.ArrayList<dlvc_api.Dlvc.ExerciseMetadata>(exerciseMetadata_);
           bitField0_ |= 0x00000001;
          }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          dlvc_api.Dlvc.ExerciseMetadata, dlvc_api.Dlvc.ExerciseMetadata.Builder, dlvc_api.Dlvc.ExerciseMetadataOrBuilder> exerciseMetadataBuilder_;
+
       /**
-       * <code>repeated string exercise_ids = 3;</code>
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
        */
-      public com.google.protobuf.ProtocolStringList
-          getExerciseIdsList() {
-        return exerciseIds_.getUnmodifiableView();
+      public java.util.List<dlvc_api.Dlvc.ExerciseMetadata> getExerciseMetadataList() {
+        if (exerciseMetadataBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(exerciseMetadata_);
+        } else {
+          return exerciseMetadataBuilder_.getMessageList();
+        }
       }
       /**
-       * <code>repeated string exercise_ids = 3;</code>
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
        */
-      public int getExerciseIdsCount() {
-        return exerciseIds_.size();
+      public int getExerciseMetadataCount() {
+        if (exerciseMetadataBuilder_ == null) {
+          return exerciseMetadata_.size();
+        } else {
+          return exerciseMetadataBuilder_.getCount();
+        }
       }
       /**
-       * <code>repeated string exercise_ids = 3;</code>
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
        */
-      public java.lang.String getExerciseIds(int index) {
-        return exerciseIds_.get(index);
+      public dlvc_api.Dlvc.ExerciseMetadata getExerciseMetadata(int index) {
+        if (exerciseMetadataBuilder_ == null) {
+          return exerciseMetadata_.get(index);
+        } else {
+          return exerciseMetadataBuilder_.getMessage(index);
+        }
       }
       /**
-       * <code>repeated string exercise_ids = 3;</code>
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
        */
-      public com.google.protobuf.ByteString
-          getExerciseIdsBytes(int index) {
-        return exerciseIds_.getByteString(index);
-      }
-      /**
-       * <code>repeated string exercise_ids = 3;</code>
-       */
-      public Builder setExerciseIds(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExerciseIdsIsMutable();
-        exerciseIds_.set(index, value);
-        onChanged();
+      public Builder setExerciseMetadata(
+          int index, dlvc_api.Dlvc.ExerciseMetadata value) {
+        if (exerciseMetadataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureExerciseMetadataIsMutable();
+          exerciseMetadata_.set(index, value);
+          onChanged();
+        } else {
+          exerciseMetadataBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>repeated string exercise_ids = 3;</code>
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
        */
-      public Builder addExerciseIds(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureExerciseIdsIsMutable();
-        exerciseIds_.add(value);
-        onChanged();
+      public Builder setExerciseMetadata(
+          int index, dlvc_api.Dlvc.ExerciseMetadata.Builder builderForValue) {
+        if (exerciseMetadataBuilder_ == null) {
+          ensureExerciseMetadataIsMutable();
+          exerciseMetadata_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          exerciseMetadataBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
-       * <code>repeated string exercise_ids = 3;</code>
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
        */
-      public Builder addAllExerciseIds(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureExerciseIdsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, exerciseIds_);
-        onChanged();
+      public Builder addExerciseMetadata(dlvc_api.Dlvc.ExerciseMetadata value) {
+        if (exerciseMetadataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureExerciseMetadataIsMutable();
+          exerciseMetadata_.add(value);
+          onChanged();
+        } else {
+          exerciseMetadataBuilder_.addMessage(value);
+        }
         return this;
       }
       /**
-       * <code>repeated string exercise_ids = 3;</code>
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
        */
-      public Builder clearExerciseIds() {
-        exerciseIds_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
+      public Builder addExerciseMetadata(
+          int index, dlvc_api.Dlvc.ExerciseMetadata value) {
+        if (exerciseMetadataBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureExerciseMetadataIsMutable();
+          exerciseMetadata_.add(index, value);
+          onChanged();
+        } else {
+          exerciseMetadataBuilder_.addMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>repeated string exercise_ids = 3;</code>
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
        */
-      public Builder addExerciseIdsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureExerciseIdsIsMutable();
-        exerciseIds_.add(value);
-        onChanged();
+      public Builder addExerciseMetadata(
+          dlvc_api.Dlvc.ExerciseMetadata.Builder builderForValue) {
+        if (exerciseMetadataBuilder_ == null) {
+          ensureExerciseMetadataIsMutable();
+          exerciseMetadata_.add(builderForValue.build());
+          onChanged();
+        } else {
+          exerciseMetadataBuilder_.addMessage(builderForValue.build());
+        }
         return this;
+      }
+      /**
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
+       */
+      public Builder addExerciseMetadata(
+          int index, dlvc_api.Dlvc.ExerciseMetadata.Builder builderForValue) {
+        if (exerciseMetadataBuilder_ == null) {
+          ensureExerciseMetadataIsMutable();
+          exerciseMetadata_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          exerciseMetadataBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
+       */
+      public Builder addAllExerciseMetadata(
+          java.lang.Iterable<? extends dlvc_api.Dlvc.ExerciseMetadata> values) {
+        if (exerciseMetadataBuilder_ == null) {
+          ensureExerciseMetadataIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, exerciseMetadata_);
+          onChanged();
+        } else {
+          exerciseMetadataBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
+       */
+      public Builder clearExerciseMetadata() {
+        if (exerciseMetadataBuilder_ == null) {
+          exerciseMetadata_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          exerciseMetadataBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
+       */
+      public Builder removeExerciseMetadata(int index) {
+        if (exerciseMetadataBuilder_ == null) {
+          ensureExerciseMetadataIsMutable();
+          exerciseMetadata_.remove(index);
+          onChanged();
+        } else {
+          exerciseMetadataBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
+       */
+      public dlvc_api.Dlvc.ExerciseMetadata.Builder getExerciseMetadataBuilder(
+          int index) {
+        return getExerciseMetadataFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
+       */
+      public dlvc_api.Dlvc.ExerciseMetadataOrBuilder getExerciseMetadataOrBuilder(
+          int index) {
+        if (exerciseMetadataBuilder_ == null) {
+          return exerciseMetadata_.get(index);  } else {
+          return exerciseMetadataBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
+       */
+      public java.util.List<? extends dlvc_api.Dlvc.ExerciseMetadataOrBuilder> 
+           getExerciseMetadataOrBuilderList() {
+        if (exerciseMetadataBuilder_ != null) {
+          return exerciseMetadataBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(exerciseMetadata_);
+        }
+      }
+      /**
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
+       */
+      public dlvc_api.Dlvc.ExerciseMetadata.Builder addExerciseMetadataBuilder() {
+        return getExerciseMetadataFieldBuilder().addBuilder(
+            dlvc_api.Dlvc.ExerciseMetadata.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
+       */
+      public dlvc_api.Dlvc.ExerciseMetadata.Builder addExerciseMetadataBuilder(
+          int index) {
+        return getExerciseMetadataFieldBuilder().addBuilder(
+            index, dlvc_api.Dlvc.ExerciseMetadata.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .dlvc_api.ExerciseMetadata exercise_metadata = 2;</code>
+       */
+      public java.util.List<dlvc_api.Dlvc.ExerciseMetadata.Builder> 
+           getExerciseMetadataBuilderList() {
+        return getExerciseMetadataFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          dlvc_api.Dlvc.ExerciseMetadata, dlvc_api.Dlvc.ExerciseMetadata.Builder, dlvc_api.Dlvc.ExerciseMetadataOrBuilder> 
+          getExerciseMetadataFieldBuilder() {
+        if (exerciseMetadataBuilder_ == null) {
+          exerciseMetadataBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              dlvc_api.Dlvc.ExerciseMetadata, dlvc_api.Dlvc.ExerciseMetadata.Builder, dlvc_api.Dlvc.ExerciseMetadataOrBuilder>(
+                  exerciseMetadata_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          exerciseMetadata_ = null;
+        }
+        return exerciseMetadataBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -16204,6 +18827,1286 @@ public final class Dlvc {
 
     @java.lang.Override
     public dlvc_api.Dlvc.ListExercisesResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ExerciseMetadataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:dlvc_api.ExerciseMetadata)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string id = 2;</code>
+     */
+    java.lang.String getId();
+    /**
+     * <code>string id = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getIdBytes();
+
+    /**
+     * <code>string name = 3;</code>
+     */
+    java.lang.String getName();
+    /**
+     * <code>string name = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getNameBytes();
+
+    /**
+     * <code>string description = 4;</code>
+     */
+    java.lang.String getDescription();
+    /**
+     * <code>string description = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getDescriptionBytes();
+
+    /**
+     * <code>bool is_live = 5;</code>
+     */
+    boolean getIsLive();
+
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 6;</code>
+     */
+    boolean hasStartTime();
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 6;</code>
+     */
+    com.google.protobuf.Timestamp getStartTime();
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 6;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder();
+
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 7;</code>
+     */
+    boolean hasEndTime();
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 7;</code>
+     */
+    com.google.protobuf.Timestamp getEndTime();
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 7;</code>
+     */
+    com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder();
+  }
+  /**
+   * Protobuf type {@code dlvc_api.ExerciseMetadata}
+   */
+  public  static final class ExerciseMetadata extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:dlvc_api.ExerciseMetadata)
+      ExerciseMetadataOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use ExerciseMetadata.newBuilder() to construct.
+    private ExerciseMetadata(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private ExerciseMetadata() {
+      id_ = "";
+      name_ = "";
+      description_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new ExerciseMetadata();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private ExerciseMetadata(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              id_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              name_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              description_ = s;
+              break;
+            }
+            case 40: {
+
+              isLive_ = input.readBool();
+              break;
+            }
+            case 50: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (startTime_ != null) {
+                subBuilder = startTime_.toBuilder();
+              }
+              startTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(startTime_);
+                startTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 58: {
+              com.google.protobuf.Timestamp.Builder subBuilder = null;
+              if (endTime_ != null) {
+                subBuilder = endTime_.toBuilder();
+              }
+              endTime_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(endTime_);
+                endTime_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return dlvc_api.Dlvc.internal_static_dlvc_api_ExerciseMetadata_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return dlvc_api.Dlvc.internal_static_dlvc_api_ExerciseMetadata_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              dlvc_api.Dlvc.ExerciseMetadata.class, dlvc_api.Dlvc.ExerciseMetadata.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object id_;
+    /**
+     * <code>string id = 2;</code>
+     */
+    public java.lang.String getId() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        id_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string id = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIdBytes() {
+      java.lang.Object ref = id_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        id_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NAME_FIELD_NUMBER = 3;
+    private volatile java.lang.Object name_;
+    /**
+     * <code>string name = 3;</code>
+     */
+    public java.lang.String getName() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        name_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string name = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getNameBytes() {
+      java.lang.Object ref = name_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        name_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int DESCRIPTION_FIELD_NUMBER = 4;
+    private volatile java.lang.Object description_;
+    /**
+     * <code>string description = 4;</code>
+     */
+    public java.lang.String getDescription() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        description_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string description = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getDescriptionBytes() {
+      java.lang.Object ref = description_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        description_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int IS_LIVE_FIELD_NUMBER = 5;
+    private boolean isLive_;
+    /**
+     * <code>bool is_live = 5;</code>
+     */
+    public boolean getIsLive() {
+      return isLive_;
+    }
+
+    public static final int START_TIME_FIELD_NUMBER = 6;
+    private com.google.protobuf.Timestamp startTime_;
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 6;</code>
+     */
+    public boolean hasStartTime() {
+      return startTime_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 6;</code>
+     */
+    public com.google.protobuf.Timestamp getStartTime() {
+      return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp start_time = 6;</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
+      return getStartTime();
+    }
+
+    public static final int END_TIME_FIELD_NUMBER = 7;
+    private com.google.protobuf.Timestamp endTime_;
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 7;</code>
+     */
+    public boolean hasEndTime() {
+      return endTime_ != null;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 7;</code>
+     */
+    public com.google.protobuf.Timestamp getEndTime() {
+      return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
+    }
+    /**
+     * <code>.google.protobuf.Timestamp end_time = 7;</code>
+     */
+    public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
+      return getEndTime();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getIdBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, id_);
+      }
+      if (!getNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, name_);
+      }
+      if (!getDescriptionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, description_);
+      }
+      if (isLive_ != false) {
+        output.writeBool(5, isLive_);
+      }
+      if (startTime_ != null) {
+        output.writeMessage(6, getStartTime());
+      }
+      if (endTime_ != null) {
+        output.writeMessage(7, getEndTime());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getIdBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, id_);
+      }
+      if (!getNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, name_);
+      }
+      if (!getDescriptionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, description_);
+      }
+      if (isLive_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, isLive_);
+      }
+      if (startTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getStartTime());
+      }
+      if (endTime_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(7, getEndTime());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof dlvc_api.Dlvc.ExerciseMetadata)) {
+        return super.equals(obj);
+      }
+      dlvc_api.Dlvc.ExerciseMetadata other = (dlvc_api.Dlvc.ExerciseMetadata) obj;
+
+      if (!getId()
+          .equals(other.getId())) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!getDescription()
+          .equals(other.getDescription())) return false;
+      if (getIsLive()
+          != other.getIsLive()) return false;
+      if (hasStartTime() != other.hasStartTime()) return false;
+      if (hasStartTime()) {
+        if (!getStartTime()
+            .equals(other.getStartTime())) return false;
+      }
+      if (hasEndTime() != other.hasEndTime()) return false;
+      if (hasEndTime()) {
+        if (!getEndTime()
+            .equals(other.getEndTime())) return false;
+      }
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId().hashCode();
+      hash = (37 * hash) + NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getName().hashCode();
+      hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
+      hash = (53 * hash) + getDescription().hashCode();
+      hash = (37 * hash) + IS_LIVE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsLive());
+      if (hasStartTime()) {
+        hash = (37 * hash) + START_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getStartTime().hashCode();
+      }
+      if (hasEndTime()) {
+        hash = (37 * hash) + END_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getEndTime().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static dlvc_api.Dlvc.ExerciseMetadata parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dlvc_api.Dlvc.ExerciseMetadata parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dlvc_api.Dlvc.ExerciseMetadata parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dlvc_api.Dlvc.ExerciseMetadata parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dlvc_api.Dlvc.ExerciseMetadata parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static dlvc_api.Dlvc.ExerciseMetadata parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static dlvc_api.Dlvc.ExerciseMetadata parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dlvc_api.Dlvc.ExerciseMetadata parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dlvc_api.Dlvc.ExerciseMetadata parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static dlvc_api.Dlvc.ExerciseMetadata parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static dlvc_api.Dlvc.ExerciseMetadata parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static dlvc_api.Dlvc.ExerciseMetadata parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(dlvc_api.Dlvc.ExerciseMetadata prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code dlvc_api.ExerciseMetadata}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:dlvc_api.ExerciseMetadata)
+        dlvc_api.Dlvc.ExerciseMetadataOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return dlvc_api.Dlvc.internal_static_dlvc_api_ExerciseMetadata_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return dlvc_api.Dlvc.internal_static_dlvc_api_ExerciseMetadata_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                dlvc_api.Dlvc.ExerciseMetadata.class, dlvc_api.Dlvc.ExerciseMetadata.Builder.class);
+      }
+
+      // Construct using dlvc_api.Dlvc.ExerciseMetadata.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        id_ = "";
+
+        name_ = "";
+
+        description_ = "";
+
+        isLive_ = false;
+
+        if (startTimeBuilder_ == null) {
+          startTime_ = null;
+        } else {
+          startTime_ = null;
+          startTimeBuilder_ = null;
+        }
+        if (endTimeBuilder_ == null) {
+          endTime_ = null;
+        } else {
+          endTime_ = null;
+          endTimeBuilder_ = null;
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return dlvc_api.Dlvc.internal_static_dlvc_api_ExerciseMetadata_descriptor;
+      }
+
+      @java.lang.Override
+      public dlvc_api.Dlvc.ExerciseMetadata getDefaultInstanceForType() {
+        return dlvc_api.Dlvc.ExerciseMetadata.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public dlvc_api.Dlvc.ExerciseMetadata build() {
+        dlvc_api.Dlvc.ExerciseMetadata result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public dlvc_api.Dlvc.ExerciseMetadata buildPartial() {
+        dlvc_api.Dlvc.ExerciseMetadata result = new dlvc_api.Dlvc.ExerciseMetadata(this);
+        result.id_ = id_;
+        result.name_ = name_;
+        result.description_ = description_;
+        result.isLive_ = isLive_;
+        if (startTimeBuilder_ == null) {
+          result.startTime_ = startTime_;
+        } else {
+          result.startTime_ = startTimeBuilder_.build();
+        }
+        if (endTimeBuilder_ == null) {
+          result.endTime_ = endTime_;
+        } else {
+          result.endTime_ = endTimeBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof dlvc_api.Dlvc.ExerciseMetadata) {
+          return mergeFrom((dlvc_api.Dlvc.ExerciseMetadata)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(dlvc_api.Dlvc.ExerciseMetadata other) {
+        if (other == dlvc_api.Dlvc.ExerciseMetadata.getDefaultInstance()) return this;
+        if (!other.getId().isEmpty()) {
+          id_ = other.id_;
+          onChanged();
+        }
+        if (!other.getName().isEmpty()) {
+          name_ = other.name_;
+          onChanged();
+        }
+        if (!other.getDescription().isEmpty()) {
+          description_ = other.description_;
+          onChanged();
+        }
+        if (other.getIsLive() != false) {
+          setIsLive(other.getIsLive());
+        }
+        if (other.hasStartTime()) {
+          mergeStartTime(other.getStartTime());
+        }
+        if (other.hasEndTime()) {
+          mergeEndTime(other.getEndTime());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        dlvc_api.Dlvc.ExerciseMetadata parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (dlvc_api.Dlvc.ExerciseMetadata) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object id_ = "";
+      /**
+       * <code>string id = 2;</code>
+       */
+      public java.lang.String getId() {
+        java.lang.Object ref = id_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          id_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string id = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIdBytes() {
+        java.lang.Object ref = id_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          id_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string id = 2;</code>
+       */
+      public Builder setId(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 2;</code>
+       */
+      public Builder clearId() {
+        
+        id_ = getDefaultInstance().getId();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string id = 2;</code>
+       */
+      public Builder setIdBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object name_ = "";
+      /**
+       * <code>string name = 3;</code>
+       */
+      public java.lang.String getName() {
+        java.lang.Object ref = name_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          name_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string name = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getNameBytes() {
+        java.lang.Object ref = name_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          name_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string name = 3;</code>
+       */
+      public Builder setName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        name_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 3;</code>
+       */
+      public Builder clearName() {
+        
+        name_ = getDefaultInstance().getName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string name = 3;</code>
+       */
+      public Builder setNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        name_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object description_ = "";
+      /**
+       * <code>string description = 4;</code>
+       */
+      public java.lang.String getDescription() {
+        java.lang.Object ref = description_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          description_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string description = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getDescriptionBytes() {
+        java.lang.Object ref = description_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          description_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string description = 4;</code>
+       */
+      public Builder setDescription(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        description_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 4;</code>
+       */
+      public Builder clearDescription() {
+        
+        description_ = getDefaultInstance().getDescription();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string description = 4;</code>
+       */
+      public Builder setDescriptionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        description_ = value;
+        onChanged();
+        return this;
+      }
+
+      private boolean isLive_ ;
+      /**
+       * <code>bool is_live = 5;</code>
+       */
+      public boolean getIsLive() {
+        return isLive_;
+      }
+      /**
+       * <code>bool is_live = 5;</code>
+       */
+      public Builder setIsLive(boolean value) {
+        
+        isLive_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool is_live = 5;</code>
+       */
+      public Builder clearIsLive() {
+        
+        isLive_ = false;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.Timestamp startTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> startTimeBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 6;</code>
+       */
+      public boolean hasStartTime() {
+        return startTimeBuilder_ != null || startTime_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 6;</code>
+       */
+      public com.google.protobuf.Timestamp getStartTime() {
+        if (startTimeBuilder_ == null) {
+          return startTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
+        } else {
+          return startTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 6;</code>
+       */
+      public Builder setStartTime(com.google.protobuf.Timestamp value) {
+        if (startTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          startTime_ = value;
+          onChanged();
+        } else {
+          startTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 6;</code>
+       */
+      public Builder setStartTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (startTimeBuilder_ == null) {
+          startTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          startTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 6;</code>
+       */
+      public Builder mergeStartTime(com.google.protobuf.Timestamp value) {
+        if (startTimeBuilder_ == null) {
+          if (startTime_ != null) {
+            startTime_ =
+              com.google.protobuf.Timestamp.newBuilder(startTime_).mergeFrom(value).buildPartial();
+          } else {
+            startTime_ = value;
+          }
+          onChanged();
+        } else {
+          startTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 6;</code>
+       */
+      public Builder clearStartTime() {
+        if (startTimeBuilder_ == null) {
+          startTime_ = null;
+          onChanged();
+        } else {
+          startTime_ = null;
+          startTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 6;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getStartTimeBuilder() {
+        
+        onChanged();
+        return getStartTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 6;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getStartTimeOrBuilder() {
+        if (startTimeBuilder_ != null) {
+          return startTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return startTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : startTime_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp start_time = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getStartTimeFieldBuilder() {
+        if (startTimeBuilder_ == null) {
+          startTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getStartTime(),
+                  getParentForChildren(),
+                  isClean());
+          startTime_ = null;
+        }
+        return startTimeBuilder_;
+      }
+
+      private com.google.protobuf.Timestamp endTime_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> endTimeBuilder_;
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 7;</code>
+       */
+      public boolean hasEndTime() {
+        return endTimeBuilder_ != null || endTime_ != null;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 7;</code>
+       */
+      public com.google.protobuf.Timestamp getEndTime() {
+        if (endTimeBuilder_ == null) {
+          return endTime_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
+        } else {
+          return endTimeBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 7;</code>
+       */
+      public Builder setEndTime(com.google.protobuf.Timestamp value) {
+        if (endTimeBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          endTime_ = value;
+          onChanged();
+        } else {
+          endTimeBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 7;</code>
+       */
+      public Builder setEndTime(
+          com.google.protobuf.Timestamp.Builder builderForValue) {
+        if (endTimeBuilder_ == null) {
+          endTime_ = builderForValue.build();
+          onChanged();
+        } else {
+          endTimeBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 7;</code>
+       */
+      public Builder mergeEndTime(com.google.protobuf.Timestamp value) {
+        if (endTimeBuilder_ == null) {
+          if (endTime_ != null) {
+            endTime_ =
+              com.google.protobuf.Timestamp.newBuilder(endTime_).mergeFrom(value).buildPartial();
+          } else {
+            endTime_ = value;
+          }
+          onChanged();
+        } else {
+          endTimeBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 7;</code>
+       */
+      public Builder clearEndTime() {
+        if (endTimeBuilder_ == null) {
+          endTime_ = null;
+          onChanged();
+        } else {
+          endTime_ = null;
+          endTimeBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 7;</code>
+       */
+      public com.google.protobuf.Timestamp.Builder getEndTimeBuilder() {
+        
+        onChanged();
+        return getEndTimeFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 7;</code>
+       */
+      public com.google.protobuf.TimestampOrBuilder getEndTimeOrBuilder() {
+        if (endTimeBuilder_ != null) {
+          return endTimeBuilder_.getMessageOrBuilder();
+        } else {
+          return endTime_ == null ?
+              com.google.protobuf.Timestamp.getDefaultInstance() : endTime_;
+        }
+      }
+      /**
+       * <code>.google.protobuf.Timestamp end_time = 7;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
+          getEndTimeFieldBuilder() {
+        if (endTimeBuilder_ == null) {
+          endTimeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
+                  getEndTime(),
+                  getParentForChildren(),
+                  isClean());
+          endTime_ = null;
+        }
+        return endTimeBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:dlvc_api.ExerciseMetadata)
+    }
+
+    // @@protoc_insertion_point(class_scope:dlvc_api.ExerciseMetadata)
+    private static final dlvc_api.Dlvc.ExerciseMetadata DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new dlvc_api.Dlvc.ExerciseMetadata();
+    }
+
+    public static dlvc_api.Dlvc.ExerciseMetadata getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<ExerciseMetadata>
+        PARSER = new com.google.protobuf.AbstractParser<ExerciseMetadata>() {
+      @java.lang.Override
+      public ExerciseMetadata parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new ExerciseMetadata(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<ExerciseMetadata> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<ExerciseMetadata> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public dlvc_api.Dlvc.ExerciseMetadata getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -23296,6 +27199,16 @@ public final class Dlvc {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dlvc_api_DuplicateDetails_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dlvc_api_ErrorDetails_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dlvc_api_ErrorDetails_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dlvc_api_ErrorDetailsError_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dlvc_api_ErrorDetailsError_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dlvc_api_GetRawMessageRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -23356,6 +27269,11 @@ public final class Dlvc {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_dlvc_api_ListExercisesResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_dlvc_api_ExerciseMetadata_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_dlvc_api_ExerciseMetadata_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_dlvc_api_WrappedMessage_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -23397,116 +27315,130 @@ public final class Dlvc {
       "\n\023dlvc_api/dlvc.proto\022\010dlvc_api\032\037google/" +
       "protobuf/timestamp.proto\"H\n\025PushRawMessa" +
       "geRequest\022)\n\007message\030\002 \001(\0132\030.dlvc_api.Wr" +
-      "appedMessageJ\004\010\001\020\002\"U\n\026PushRawMessageResp" +
-      "onse\0225\n\021duplicate_details\030\002 \001(\0132\032.dlvc_a" +
-      "pi.DuplicateDetailsJ\004\010\001\020\002\"\246\001\n\026PushRawMes" +
-      "sagesRequest\022$\n\010metadata\030\002 \001(\0132\022.dlvc_ap" +
-      "i.Metadata\0224\n\ruser_metadata\030\003 \003(\0132\035.dlvc" +
-      "_api.UserDefinedMetadata\022*\n\010messages\030\004 \003" +
-      "(\0132\030.dlvc_api.WrappedMessageJ\004\010\001\020\002\"V\n\027Pu" +
-      "shRawMessagesResponse\0225\n\021duplicate_detai" +
-      "ls\030\002 \001(\0132\032.dlvc_api.DuplicateDetailsJ\004\010\001" +
-      "\020\002\"F\n\020DuplicateDetails\022\022\n\nduplicates\030\002 \001" +
-      "(\010\022\030\n\020idempotency_keys\030\003 \003(\tJ\004\010\001\020\002\"\217\003\n\024G" +
-      "etRawMessageRequest\0227\n\017retrieval_types\030\002" +
-      " \003(\0162\036.dlvc_api.MessageRetrievalType\022?\n\027" +
-      "returned_metadata_types\030\003 \003(\0162\036.dlvc_api" +
-      ".ReturnedMetadataType\022$\n\010metadata\030\004 \001(\0132" +
-      "\022.dlvc_api.Metadata\0224\n\ruser_metadata\030\005 \003" +
-      "(\0132\035.dlvc_api.UserDefinedMetadata\022)\n\013sou" +
-      "rce_type\030\006 \001(\0132\024.dlvc_api.SourceType\0223\n\014" +
-      "bounding_box\030\007 \001(\0132\035.dlvc_api.PositionBo" +
-      "undingBox\022\'\n\ntime_range\030\010 \001(\0132\023.dlvc_api" +
-      ".TimeRange\022\022\n\nnext_index\030\t \001(\003J\004\010\001\020\002\"o\n\025" +
-      "GetRawMessageResponse\022)\n\007message\030\002 \001(\0132\030" +
-      ".dlvc_api.WrappedMessage\022\022\n\nnext_index\030\003" +
-      " \001(\003\022\021\n\tlen_bytes\030\004 \001(\003J\004\010\001\020\002\"\262\003\n\025GetRaw" +
-      "MessagesRequest\0227\n\017retrieval_types\030\002 \003(\016" +
-      "2\036.dlvc_api.MessageRetrievalType\022?\n\027retu" +
-      "rned_metadata_types\030\003 \003(\0162\036.dlvc_api.Ret" +
-      "urnedMetadataType\022$\n\010metadata\030\004 \001(\0132\022.dl" +
-      "vc_api.Metadata\0224\n\ruser_metadata\030\005 \003(\0132\035" +
-      ".dlvc_api.UserDefinedMetadata\022)\n\013source_" +
-      "type\030\006 \001(\0132\024.dlvc_api.SourceType\0223\n\014boun" +
-      "ding_box\030\007 \001(\0132\035.dlvc_api.PositionBoundi" +
-      "ngBox\022\'\n\ntime_range\030\010 \001(\0132\023.dlvc_api.Tim" +
-      "eRange\022\022\n\nnext_index\030\t \001(\003\022\r\n\005limit\030\n \001(" +
-      "\003\022\021\n\tlen_bytes\030\013 \001(\003J\004\010\001\020\002\"\200\001\n\026GetRawMes" +
-      "sagesResponse\022*\n\010messages\030\002 \003(\0132\030.dlvc_a" +
-      "pi.WrappedMessage\022\022\n\nnext_index\030\003 \001(\003\022\021\n" +
-      "\tlen_bytes\030\004 \001(\003\022\r\n\005count\030\005 \001(\003J\004\010\001\020\002\"\253\001" +
-      "\n\nSourceType\022:\n\014message_type\030\002 \001(\0162$.dlv" +
-      "c_api.WrappedMessage.MessageType\022=\n\renco" +
-      "ding_type\030\003 \001(\0162&.dlvc_api.MessageEncodi" +
-      "ng.EncodingType\022\034\n\024custom_encoding_type\030" +
-      "\004 \001(\tJ\004\010\001\020\002\"o\n\tTimeRange\022.\n\nstart_time\030\002" +
-      " \001(\0132\032.google.protobuf.Timestamp\022,\n\010end_" +
-      "time\030\003 \001(\0132\032.google.protobuf.TimestampJ\004" +
-      "\010\001\020\002\"\030\n\020SummarizeRequestJ\004\010\001\020\002\"\212\002\n\021Summa" +
-      "rizeResponse\022\025\n\rmetadata_keys\030\002 \003(\t\022\032\n\022u" +
-      "ser_metadata_keys\030\003 \003(\t\022;\n\rmessage_types" +
-      "\030\004 \003(\0162$.dlvc_api.WrappedMessage.Message" +
-      "Type\022>\n\016encoding_types\030\005 \003(\0162&.dlvc_api." +
-      "MessageEncoding.EncodingType\022\035\n\025custom_e" +
-      "ncoding_types\030\006 \003(\t\022\021\n\tlen_bytes\030\007 \001(\003\022\r" +
-      "\n\005count\030\010 \001(\003J\004\010\001\020\002\".\n\031ListMetadataValue" +
-      "sRequest\022\013\n\003key\030\002 \001(\tJ\004\010\001\020\002\"?\n\032ListMetad" +
-      "ataValuesResponse\022\013\n\003key\030\002 \001(\t\022\016\n\006values" +
-      "\030\003 \003(\tJ\004\010\001\020\002\"\034\n\024ListExercisesRequestJ\004\010\001" +
-      "\020\002\"3\n\025ListExercisesResponse\022\024\n\014exercise_" +
-      "ids\030\003 \003(\tJ\004\010\001\020\002\"\327\003\n\016WrappedMessage\022\027\n\017id" +
-      "empotency_key\030\002 \001(\t\022$\n\010metadata\030\003 \001(\0132\022." +
-      "dlvc_api.Metadata\0224\n\ruser_metadata\030\004 \003(\013" +
-      "2\035.dlvc_api.UserDefinedMetadata\022:\n\014messa" +
-      "ge_type\030\005 \001(\0162$.dlvc_api.WrappedMessage." +
-      "MessageType\0223\n\020message_encoding\030\006 \001(\0132\031." +
-      "dlvc_api.MessageEncoding\022$\n\010position\030\007 \001" +
-      "(\0132\022.dlvc_api.Position\0220\n\014created_time\030\010" +
-      " \001(\0132\032.google.protobuf.Timestamp\022\023\n\013raw_" +
-      "message\030\t \001(\014\"l\n\013MessageType\022\017\n\013UNSPECIF" +
-      "IED\020\000\022\n\n\006CUSTOM\020\001\022\010\n\004DIS7\020\002\022\007\n\003COT\020\003\022\n\n\006" +
-      "LINK16\020\004\022\t\n\005JREAP\020\005\022\026\n\022INSTRUCTOR_COMMEN" +
-      "T\020\006J\004\010\001\020\002\"\222\002\n\010Metadata\022\022\n\npartner_id\030\002 \001" +
-      "(\t\022\027\n\017partner_cert_id\030\003 \001(\t\022\021\n\tsource_id" +
-      "\030\004 \001(\t\022\023\n\013exercise_id\030\005 \001(\t\022\025\n\rexercise_" +
-      "name\030\006 \001(\t\022\030\n\020entity_state_pdu\030\007 \001(\t\0222\n\013" +
-      "force_color\030\010 \001(\0162\035.dlvc_api.Metadata.Fo" +
-      "rceColor\"F\n\nForceColor\022\017\n\013UNSPECIFIED\020\000\022" +
-      "\010\n\004BLUE\020\001\022\007\n\003RED\020\002\022\t\n\005WHITE\020\003\022\t\n\005GREEN\020\004" +
-      "J\004\010\001\020\002\"^\n\023UserDefinedMetadata\022\013\n\003key\030\002 \001" +
-      "(\t\022\r\n\005value\030\003 \001(\t\022\022\n\nvalue_type\030\004 \001(\t\022\021\n" +
-      "\tunit_type\030\005 \001(\tJ\004\010\001\020\002\"\307\001\n\017MessageEncodi" +
-      "ng\022=\n\rencoding_type\030\002 \001(\0162&.dlvc_api.Mes" +
-      "sageEncoding.EncodingType\022\034\n\024custom_enco" +
-      "ding_type\030\003 \001(\t\"Q\n\014EncodingType\022\017\n\013UNSPE" +
-      "CIFIED\020\000\022\n\n\006CUSTOM\020\001\022\010\n\004TEXT\020\002\022\010\n\004JSON\020\003" +
-      "\022\007\n\003XML\020\004\022\007\n\003CSV\020\005J\004\010\001\020\002\"\223\004\n\010Position\022\020\n" +
-      "\010latitude\030\002 \001(\002\022\021\n\tlongitude\030\003 \001(\002\022\r\n\005pi" +
-      "tch\030\004 \001(\002\022\013\n\003yaw\030\005 \001(\002\022\014\n\004roll\030\006 \001(\002\022\025\n\r" +
-      "radius_meters\030\007 \001(\002\022\031\n\021resolution_meters" +
-      "\030\010 \001(\002\022%\n\004tfom\030\t \001(\0162\027.dlvc_api.Position" +
-      ".TFOM\"\330\002\n\004TFOM\022\017\n\013UNSPECIFIED\020\000\022\024\n\020LTE_1" +
-      "_NANOSECOND\020\001\022\026\n\022LTE_10_NANOSECONDS\020\002\022\027\n" +
-      "\023LTE_100_NANOSECONDS\020\003\022\025\n\021LTE_1_MICROSEC" +
-      "OND\020\004\022\027\n\023LTE_10_MICROSECONDS\020\005\022\030\n\024LTE_10" +
-      "0_MICROSECONDS\020\006\022\025\n\021LTE_1_MILLISECOND\020\007\022" +
-      "\027\n\023LTE_10_MILLISECONDS\020\010\022\030\n\024LTE_100_MILL" +
-      "ISECONDS\020\t\022\020\n\014LTE_1_SECOND\020\n\022\022\n\016LTE_10_S" +
-      "ECONDS\020\013\022\023\n\017LTE_100_SECONDS\020\014\022\024\n\020LTE_100" +
-      "0_SECONDS\020\r\022\023\n\017GT_1000_SECONDS\020\016J\004\010\001\020\002\"u" +
-      "\n\023PositionBoundingBox\022\024\n\014min_latitude\030\002 " +
-      "\001(\002\022\024\n\014max_latitude\030\003 \001(\002\022\025\n\rmin_longitu" +
-      "de\030\004 \001(\002\022\025\n\rmax_longitude\030\005 \001(\002J\004\010\001\020\002*\245\001" +
-      "\n\024MessageRetrievalType\022\017\n\013UNSPECIFIED\020\000\022" +
-      "\t\n\005INDEX\020\001\022\010\n\004TIME\020\002\022\020\n\014MESSAGE_TYPE\020\003\022\021" +
-      "\n\rENCODING_TYPE\020\004\022\014\n\010METADATA\020\005\022\031\n\025USER_" +
-      "DEFINED_METADATA\020\006\022\031\n\025POSITION_BOUNDING_" +
-      "BOX\020\007*\304\001\n\024ReturnedMetadataType\022\026\n\022RETURN" +
-      "_UNSPECIFIED\020\000\022\017\n\013RETURN_NONE\020\001\022\016\n\nRETUR" +
-      "N_ALL\020\002\022\017\n\013RETURN_TIME\020\003\022\026\n\022RETURN_SOURC" +
-      "E_TYPE\020\004\022\023\n\017RETURN_METADATA\020\005\022 \n\034RETURN_" +
-      "USER_DEFINED_METADATA\020\006\022\023\n\017RETURN_POSITI" +
-      "ON\020\007b\006proto3"
+      "appedMessageJ\004\010\001\020\002\"\204\001\n\026PushRawMessageRes" +
+      "ponse\0225\n\021duplicate_details\030\002 \001(\0132\032.dlvc_" +
+      "api.DuplicateDetails\022-\n\rerror_details\030\003 " +
+      "\001(\0132\026.dlvc_api.ErrorDetailsJ\004\010\001\020\002\"\246\001\n\026Pu" +
+      "shRawMessagesRequest\022$\n\010metadata\030\002 \001(\0132\022" +
+      ".dlvc_api.Metadata\0224\n\ruser_metadata\030\003 \003(" +
+      "\0132\035.dlvc_api.UserDefinedMetadata\022*\n\010mess" +
+      "ages\030\004 \003(\0132\030.dlvc_api.WrappedMessageJ\004\010\001" +
+      "\020\002\"\205\001\n\027PushRawMessagesResponse\0225\n\021duplic" +
+      "ate_details\030\002 \001(\0132\032.dlvc_api.DuplicateDe" +
+      "tails\022-\n\rerror_details\030\003 \001(\0132\026.dlvc_api." +
+      "ErrorDetailsJ\004\010\001\020\002\"F\n\020DuplicateDetails\022\022" +
+      "\n\nduplicates\030\002 \001(\010\022\030\n\020idempotency_keys\030\003" +
+      " \003(\tJ\004\010\001\020\002\"[\n\014ErrorDetails\022\030\n\020idempotenc" +
+      "y_keys\030\002 \003(\t\022+\n\006errors\030\003 \003(\0132\033.dlvc_api." +
+      "ErrorDetailsErrorJ\004\010\001\020\002\"I\n\021ErrorDetailsE" +
+      "rror\022\027\n\017idempotency_key\030\002 \001(\t\022\025\n\rerror_m" +
+      "essage\030\003 \001(\tJ\004\010\001\020\002\"\217\003\n\024GetRawMessageRequ" +
+      "est\0227\n\017retrieval_types\030\002 \003(\0162\036.dlvc_api." +
+      "MessageRetrievalType\022?\n\027returned_metadat" +
+      "a_types\030\003 \003(\0162\036.dlvc_api.ReturnedMetadat" +
+      "aType\022$\n\010metadata\030\004 \001(\0132\022.dlvc_api.Metad" +
+      "ata\0224\n\ruser_metadata\030\005 \003(\0132\035.dlvc_api.Us" +
+      "erDefinedMetadata\022)\n\013source_type\030\006 \001(\0132\024" +
+      ".dlvc_api.SourceType\0223\n\014bounding_box\030\007 \001" +
+      "(\0132\035.dlvc_api.PositionBoundingBox\022\'\n\ntim" +
+      "e_range\030\010 \001(\0132\023.dlvc_api.TimeRange\022\022\n\nne" +
+      "xt_index\030\t \001(\003J\004\010\001\020\002\"o\n\025GetRawMessageRes" +
+      "ponse\022)\n\007message\030\002 \001(\0132\030.dlvc_api.Wrappe" +
+      "dMessage\022\022\n\nnext_index\030\003 \001(\003\022\021\n\tlen_byte" +
+      "s\030\004 \001(\003J\004\010\001\020\002\"\262\003\n\025GetRawMessagesRequest\022" +
+      "7\n\017retrieval_types\030\002 \003(\0162\036.dlvc_api.Mess" +
+      "ageRetrievalType\022?\n\027returned_metadata_ty" +
+      "pes\030\003 \003(\0162\036.dlvc_api.ReturnedMetadataTyp" +
+      "e\022$\n\010metadata\030\004 \001(\0132\022.dlvc_api.Metadata\022" +
+      "4\n\ruser_metadata\030\005 \003(\0132\035.dlvc_api.UserDe" +
+      "finedMetadata\022)\n\013source_type\030\006 \001(\0132\024.dlv" +
+      "c_api.SourceType\0223\n\014bounding_box\030\007 \001(\0132\035" +
+      ".dlvc_api.PositionBoundingBox\022\'\n\ntime_ra" +
+      "nge\030\010 \001(\0132\023.dlvc_api.TimeRange\022\022\n\nnext_i" +
+      "ndex\030\t \001(\003\022\r\n\005limit\030\n \001(\003\022\021\n\tlen_bytes\030\013" +
+      " \001(\003J\004\010\001\020\002\"\200\001\n\026GetRawMessagesResponse\022*\n" +
+      "\010messages\030\002 \003(\0132\030.dlvc_api.WrappedMessag" +
+      "e\022\022\n\nnext_index\030\003 \001(\003\022\021\n\tlen_bytes\030\004 \001(\003" +
+      "\022\r\n\005count\030\005 \001(\003J\004\010\001\020\002\"\253\001\n\nSourceType\022:\n\014" +
+      "message_type\030\002 \001(\0162$.dlvc_api.WrappedMes" +
+      "sage.MessageType\022=\n\rencoding_type\030\003 \001(\0162" +
+      "&.dlvc_api.MessageEncoding.EncodingType\022" +
+      "\034\n\024custom_encoding_type\030\004 \001(\tJ\004\010\001\020\002\"o\n\tT" +
+      "imeRange\022.\n\nstart_time\030\002 \001(\0132\032.google.pr" +
+      "otobuf.Timestamp\022,\n\010end_time\030\003 \001(\0132\032.goo" +
+      "gle.protobuf.TimestampJ\004\010\001\020\002\"\030\n\020Summariz" +
+      "eRequestJ\004\010\001\020\002\"\350\002\n\021SummarizeResponse\022\025\n\r" +
+      "metadata_keys\030\002 \003(\t\022\032\n\022user_metadata_key" +
+      "s\030\003 \003(\t\022;\n\rmessage_types\030\004 \003(\0162$.dlvc_ap" +
+      "i.WrappedMessage.MessageType\022>\n\016encoding" +
+      "_types\030\005 \003(\0162&.dlvc_api.MessageEncoding." +
+      "EncodingType\022\035\n\025custom_encoding_types\030\006 " +
+      "\003(\t\022.\n\nstart_time\030\007 \001(\0132\032.google.protobu" +
+      "f.Timestamp\022,\n\010end_time\030\010 \001(\0132\032.google.p" +
+      "rotobuf.Timestamp\022\021\n\tlen_bytes\030\t \001(\003\022\r\n\005" +
+      "count\030\n \001(\003J\004\010\001\020\002\".\n\031ListMetadataValuesR" +
+      "equest\022\013\n\003key\030\002 \001(\tJ\004\010\001\020\002\"?\n\032ListMetadat" +
+      "aValuesResponse\022\013\n\003key\030\002 \001(\t\022\016\n\006values\030\003" +
+      " \003(\tJ\004\010\001\020\002\"\034\n\024ListExercisesRequestJ\004\010\001\020\002" +
+      "\"T\n\025ListExercisesResponse\0225\n\021exercise_me" +
+      "tadata\030\002 \003(\0132\032.dlvc_api.ExerciseMetadata" +
+      "J\004\010\001\020\002\"\266\001\n\020ExerciseMetadata\022\n\n\002id\030\002 \001(\t\022" +
+      "\014\n\004name\030\003 \001(\t\022\023\n\013description\030\004 \001(\t\022\017\n\007is" +
+      "_live\030\005 \001(\010\022.\n\nstart_time\030\006 \001(\0132\032.google" +
+      ".protobuf.Timestamp\022,\n\010end_time\030\007 \001(\0132\032." +
+      "google.protobuf.TimestampJ\004\010\001\020\002\"\327\003\n\016Wrap" +
+      "pedMessage\022\027\n\017idempotency_key\030\002 \001(\t\022$\n\010m" +
+      "etadata\030\003 \001(\0132\022.dlvc_api.Metadata\0224\n\ruse" +
+      "r_metadata\030\004 \003(\0132\035.dlvc_api.UserDefinedM" +
+      "etadata\022:\n\014message_type\030\005 \001(\0162$.dlvc_api" +
+      ".WrappedMessage.MessageType\0223\n\020message_e" +
+      "ncoding\030\006 \001(\0132\031.dlvc_api.MessageEncoding" +
+      "\022$\n\010position\030\007 \001(\0132\022.dlvc_api.Position\0220" +
+      "\n\014created_time\030\010 \001(\0132\032.google.protobuf.T" +
+      "imestamp\022\023\n\013raw_message\030\t \001(\014\"l\n\013Message" +
+      "Type\022\017\n\013UNSPECIFIED\020\000\022\n\n\006CUSTOM\020\001\022\010\n\004DIS" +
+      "7\020\002\022\007\n\003COT\020\003\022\n\n\006LINK16\020\004\022\t\n\005JREAP\020\005\022\026\n\022I" +
+      "NSTRUCTOR_COMMENT\020\006J\004\010\001\020\002\"\222\002\n\010Metadata\022\022" +
+      "\n\npartner_id\030\002 \001(\t\022\027\n\017partner_cert_id\030\003 " +
+      "\001(\t\022\021\n\tsource_id\030\004 \001(\t\022\023\n\013exercise_id\030\005 " +
+      "\001(\t\022\025\n\rexercise_name\030\006 \001(\t\022\030\n\020entity_sta" +
+      "te_pdu\030\007 \001(\t\0222\n\013force_color\030\010 \001(\0162\035.dlvc" +
+      "_api.Metadata.ForceColor\"F\n\nForceColor\022\017" +
+      "\n\013UNSPECIFIED\020\000\022\010\n\004BLUE\020\001\022\007\n\003RED\020\002\022\t\n\005WH" +
+      "ITE\020\003\022\t\n\005GREEN\020\004J\004\010\001\020\002\"^\n\023UserDefinedMet" +
+      "adata\022\013\n\003key\030\002 \001(\t\022\r\n\005value\030\003 \001(\t\022\022\n\nval" +
+      "ue_type\030\004 \001(\t\022\021\n\tunit_type\030\005 \001(\tJ\004\010\001\020\002\"\307" +
+      "\001\n\017MessageEncoding\022=\n\rencoding_type\030\002 \001(" +
+      "\0162&.dlvc_api.MessageEncoding.EncodingTyp" +
+      "e\022\034\n\024custom_encoding_type\030\003 \001(\t\"Q\n\014Encod" +
+      "ingType\022\017\n\013UNSPECIFIED\020\000\022\n\n\006CUSTOM\020\001\022\010\n\004" +
+      "TEXT\020\002\022\010\n\004JSON\020\003\022\007\n\003XML\020\004\022\007\n\003CSV\020\005J\004\010\001\020\002" +
+      "\"\223\004\n\010Position\022\020\n\010latitude\030\002 \001(\002\022\021\n\tlongi" +
+      "tude\030\003 \001(\002\022\r\n\005pitch\030\004 \001(\002\022\013\n\003yaw\030\005 \001(\002\022\014" +
+      "\n\004roll\030\006 \001(\002\022\025\n\rradius_meters\030\007 \001(\002\022\031\n\021r" +
+      "esolution_meters\030\010 \001(\002\022%\n\004tfom\030\t \001(\0162\027.d" +
+      "lvc_api.Position.TFOM\"\330\002\n\004TFOM\022\017\n\013UNSPEC" +
+      "IFIED\020\000\022\024\n\020LTE_1_NANOSECOND\020\001\022\026\n\022LTE_10_" +
+      "NANOSECONDS\020\002\022\027\n\023LTE_100_NANOSECONDS\020\003\022\025" +
+      "\n\021LTE_1_MICROSECOND\020\004\022\027\n\023LTE_10_MICROSEC" +
+      "ONDS\020\005\022\030\n\024LTE_100_MICROSECONDS\020\006\022\025\n\021LTE_" +
+      "1_MILLISECOND\020\007\022\027\n\023LTE_10_MILLISECONDS\020\010" +
+      "\022\030\n\024LTE_100_MILLISECONDS\020\t\022\020\n\014LTE_1_SECO" +
+      "ND\020\n\022\022\n\016LTE_10_SECONDS\020\013\022\023\n\017LTE_100_SECO" +
+      "NDS\020\014\022\024\n\020LTE_1000_SECONDS\020\r\022\023\n\017GT_1000_S" +
+      "ECONDS\020\016J\004\010\001\020\002\"u\n\023PositionBoundingBox\022\024\n" +
+      "\014min_latitude\030\002 \001(\002\022\024\n\014max_latitude\030\003 \001(" +
+      "\002\022\025\n\rmin_longitude\030\004 \001(\002\022\025\n\rmax_longitud" +
+      "e\030\005 \001(\002J\004\010\001\020\002*\245\001\n\024MessageRetrievalType\022\017" +
+      "\n\013UNSPECIFIED\020\000\022\t\n\005INDEX\020\001\022\010\n\004TIME\020\002\022\020\n\014" +
+      "MESSAGE_TYPE\020\003\022\021\n\rENCODING_TYPE\020\004\022\014\n\010MET" +
+      "ADATA\020\005\022\031\n\025USER_DEFINED_METADATA\020\006\022\031\n\025PO" +
+      "SITION_BOUNDING_BOX\020\007*\304\001\n\024ReturnedMetada" +
+      "taType\022\026\n\022RETURN_UNSPECIFIED\020\000\022\017\n\013RETURN" +
+      "_NONE\020\001\022\016\n\nRETURN_ALL\020\002\022\017\n\013RETURN_TIME\020\003" +
+      "\022\026\n\022RETURN_SOURCE_TYPE\020\004\022\023\n\017RETURN_METAD" +
+      "ATA\020\005\022 \n\034RETURN_USER_DEFINED_METADATA\020\006\022" +
+      "\023\n\017RETURN_POSITION\020\007b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -23524,7 +27456,7 @@ public final class Dlvc {
     internal_static_dlvc_api_PushRawMessageResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_PushRawMessageResponse_descriptor,
-        new java.lang.String[] { "DuplicateDetails", });
+        new java.lang.String[] { "DuplicateDetails", "ErrorDetails", });
     internal_static_dlvc_api_PushRawMessagesRequest_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_dlvc_api_PushRawMessagesRequest_fieldAccessorTable = new
@@ -23536,117 +27468,135 @@ public final class Dlvc {
     internal_static_dlvc_api_PushRawMessagesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_PushRawMessagesResponse_descriptor,
-        new java.lang.String[] { "DuplicateDetails", });
+        new java.lang.String[] { "DuplicateDetails", "ErrorDetails", });
     internal_static_dlvc_api_DuplicateDetails_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_dlvc_api_DuplicateDetails_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_DuplicateDetails_descriptor,
         new java.lang.String[] { "Duplicates", "IdempotencyKeys", });
-    internal_static_dlvc_api_GetRawMessageRequest_descriptor =
+    internal_static_dlvc_api_ErrorDetails_descriptor =
       getDescriptor().getMessageTypes().get(5);
+    internal_static_dlvc_api_ErrorDetails_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dlvc_api_ErrorDetails_descriptor,
+        new java.lang.String[] { "IdempotencyKeys", "Errors", });
+    internal_static_dlvc_api_ErrorDetailsError_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_dlvc_api_ErrorDetailsError_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dlvc_api_ErrorDetailsError_descriptor,
+        new java.lang.String[] { "IdempotencyKey", "ErrorMessage", });
+    internal_static_dlvc_api_GetRawMessageRequest_descriptor =
+      getDescriptor().getMessageTypes().get(7);
     internal_static_dlvc_api_GetRawMessageRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_GetRawMessageRequest_descriptor,
         new java.lang.String[] { "RetrievalTypes", "ReturnedMetadataTypes", "Metadata", "UserMetadata", "SourceType", "BoundingBox", "TimeRange", "NextIndex", });
     internal_static_dlvc_api_GetRawMessageResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_dlvc_api_GetRawMessageResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_GetRawMessageResponse_descriptor,
         new java.lang.String[] { "Message", "NextIndex", "LenBytes", });
     internal_static_dlvc_api_GetRawMessagesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_dlvc_api_GetRawMessagesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_GetRawMessagesRequest_descriptor,
         new java.lang.String[] { "RetrievalTypes", "ReturnedMetadataTypes", "Metadata", "UserMetadata", "SourceType", "BoundingBox", "TimeRange", "NextIndex", "Limit", "LenBytes", });
     internal_static_dlvc_api_GetRawMessagesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_dlvc_api_GetRawMessagesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_GetRawMessagesResponse_descriptor,
         new java.lang.String[] { "Messages", "NextIndex", "LenBytes", "Count", });
     internal_static_dlvc_api_SourceType_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_dlvc_api_SourceType_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_SourceType_descriptor,
         new java.lang.String[] { "MessageType", "EncodingType", "CustomEncodingType", });
     internal_static_dlvc_api_TimeRange_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_dlvc_api_TimeRange_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_TimeRange_descriptor,
         new java.lang.String[] { "StartTime", "EndTime", });
     internal_static_dlvc_api_SummarizeRequest_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_dlvc_api_SummarizeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_SummarizeRequest_descriptor,
         new java.lang.String[] { });
     internal_static_dlvc_api_SummarizeResponse_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_dlvc_api_SummarizeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_SummarizeResponse_descriptor,
-        new java.lang.String[] { "MetadataKeys", "UserMetadataKeys", "MessageTypes", "EncodingTypes", "CustomEncodingTypes", "LenBytes", "Count", });
+        new java.lang.String[] { "MetadataKeys", "UserMetadataKeys", "MessageTypes", "EncodingTypes", "CustomEncodingTypes", "StartTime", "EndTime", "LenBytes", "Count", });
     internal_static_dlvc_api_ListMetadataValuesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_dlvc_api_ListMetadataValuesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_ListMetadataValuesRequest_descriptor,
         new java.lang.String[] { "Key", });
     internal_static_dlvc_api_ListMetadataValuesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_dlvc_api_ListMetadataValuesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_ListMetadataValuesResponse_descriptor,
         new java.lang.String[] { "Key", "Values", });
     internal_static_dlvc_api_ListExercisesRequest_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_dlvc_api_ListExercisesRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_ListExercisesRequest_descriptor,
         new java.lang.String[] { });
     internal_static_dlvc_api_ListExercisesResponse_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_dlvc_api_ListExercisesResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_ListExercisesResponse_descriptor,
-        new java.lang.String[] { "ExerciseIds", });
+        new java.lang.String[] { "ExerciseMetadata", });
+    internal_static_dlvc_api_ExerciseMetadata_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_dlvc_api_ExerciseMetadata_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_dlvc_api_ExerciseMetadata_descriptor,
+        new java.lang.String[] { "Id", "Name", "Description", "IsLive", "StartTime", "EndTime", });
     internal_static_dlvc_api_WrappedMessage_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_dlvc_api_WrappedMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_WrappedMessage_descriptor,
         new java.lang.String[] { "IdempotencyKey", "Metadata", "UserMetadata", "MessageType", "MessageEncoding", "Position", "CreatedTime", "RawMessage", });
     internal_static_dlvc_api_Metadata_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_dlvc_api_Metadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_Metadata_descriptor,
         new java.lang.String[] { "PartnerId", "PartnerCertId", "SourceId", "ExerciseId", "ExerciseName", "EntityStatePdu", "ForceColor", });
     internal_static_dlvc_api_UserDefinedMetadata_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_dlvc_api_UserDefinedMetadata_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_UserDefinedMetadata_descriptor,
         new java.lang.String[] { "Key", "Value", "ValueType", "UnitType", });
     internal_static_dlvc_api_MessageEncoding_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_dlvc_api_MessageEncoding_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_MessageEncoding_descriptor,
         new java.lang.String[] { "EncodingType", "CustomEncodingType", });
     internal_static_dlvc_api_Position_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(24);
     internal_static_dlvc_api_Position_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_Position_descriptor,
         new java.lang.String[] { "Latitude", "Longitude", "Pitch", "Yaw", "Roll", "RadiusMeters", "ResolutionMeters", "Tfom", });
     internal_static_dlvc_api_PositionBoundingBox_descriptor =
-      getDescriptor().getMessageTypes().get(22);
+      getDescriptor().getMessageTypes().get(25);
     internal_static_dlvc_api_PositionBoundingBox_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_dlvc_api_PositionBoundingBox_descriptor,

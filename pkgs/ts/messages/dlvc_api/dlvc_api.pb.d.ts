@@ -99,6 +99,9 @@ export namespace dlvc_api {
 
         /** PushRawMessageResponse duplicateDetails */
         duplicateDetails?: (dlvc_api.IDuplicateDetails|null);
+
+        /** PushRawMessageResponse errorDetails */
+        errorDetails?: (dlvc_api.IErrorDetails|null);
     }
 
     /** Represents a PushRawMessageResponse. */
@@ -112,6 +115,9 @@ export namespace dlvc_api {
 
         /** PushRawMessageResponse duplicateDetails. */
         public duplicateDetails?: (dlvc_api.IDuplicateDetails|null);
+
+        /** PushRawMessageResponse errorDetails. */
+        public errorDetails?: (dlvc_api.IErrorDetails|null);
 
         /**
          * Creates a new PushRawMessageResponse instance using the specified properties.
@@ -291,6 +297,9 @@ export namespace dlvc_api {
 
         /** PushRawMessagesResponse duplicateDetails */
         duplicateDetails?: (dlvc_api.IDuplicateDetails|null);
+
+        /** PushRawMessagesResponse errorDetails */
+        errorDetails?: (dlvc_api.IErrorDetails|null);
     }
 
     /** Represents a PushRawMessagesResponse. */
@@ -304,6 +313,9 @@ export namespace dlvc_api {
 
         /** PushRawMessagesResponse duplicateDetails. */
         public duplicateDetails?: (dlvc_api.IDuplicateDetails|null);
+
+        /** PushRawMessagesResponse errorDetails. */
+        public errorDetails?: (dlvc_api.IErrorDetails|null);
 
         /**
          * Creates a new PushRawMessagesResponse instance using the specified properties.
@@ -467,6 +479,198 @@ export namespace dlvc_api {
 
         /**
          * Converts this DuplicateDetails to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an ErrorDetails. */
+    interface IErrorDetails {
+
+        /** ErrorDetails idempotencyKeys */
+        idempotencyKeys?: (string[]|null);
+
+        /** ErrorDetails errors */
+        errors?: (dlvc_api.IErrorDetailsError[]|null);
+    }
+
+    /** Represents an ErrorDetails. */
+    class ErrorDetails implements IErrorDetails {
+
+        /**
+         * Constructs a new ErrorDetails.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: dlvc_api.IErrorDetails);
+
+        /** ErrorDetails idempotencyKeys. */
+        public idempotencyKeys: string[];
+
+        /** ErrorDetails errors. */
+        public errors: dlvc_api.IErrorDetailsError[];
+
+        /**
+         * Creates a new ErrorDetails instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ErrorDetails instance
+         */
+        public static create(properties?: dlvc_api.IErrorDetails): dlvc_api.ErrorDetails;
+
+        /**
+         * Encodes the specified ErrorDetails message. Does not implicitly {@link dlvc_api.ErrorDetails.verify|verify} messages.
+         * @param message ErrorDetails message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: dlvc_api.IErrorDetails, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ErrorDetails message, length delimited. Does not implicitly {@link dlvc_api.ErrorDetails.verify|verify} messages.
+         * @param message ErrorDetails message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: dlvc_api.IErrorDetails, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an ErrorDetails message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ErrorDetails
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): dlvc_api.ErrorDetails;
+
+        /**
+         * Decodes an ErrorDetails message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ErrorDetails
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): dlvc_api.ErrorDetails;
+
+        /**
+         * Verifies an ErrorDetails message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an ErrorDetails message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ErrorDetails
+         */
+        public static fromObject(object: { [k: string]: any }): dlvc_api.ErrorDetails;
+
+        /**
+         * Creates a plain object from an ErrorDetails message. Also converts values to other types if specified.
+         * @param message ErrorDetails
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: dlvc_api.ErrorDetails, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ErrorDetails to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an ErrorDetailsError. */
+    interface IErrorDetailsError {
+
+        /** ErrorDetailsError idempotencyKey */
+        idempotencyKey?: (string|null);
+
+        /** ErrorDetailsError errorMessage */
+        errorMessage?: (string|null);
+    }
+
+    /** Represents an ErrorDetailsError. */
+    class ErrorDetailsError implements IErrorDetailsError {
+
+        /**
+         * Constructs a new ErrorDetailsError.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: dlvc_api.IErrorDetailsError);
+
+        /** ErrorDetailsError idempotencyKey. */
+        public idempotencyKey: string;
+
+        /** ErrorDetailsError errorMessage. */
+        public errorMessage: string;
+
+        /**
+         * Creates a new ErrorDetailsError instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ErrorDetailsError instance
+         */
+        public static create(properties?: dlvc_api.IErrorDetailsError): dlvc_api.ErrorDetailsError;
+
+        /**
+         * Encodes the specified ErrorDetailsError message. Does not implicitly {@link dlvc_api.ErrorDetailsError.verify|verify} messages.
+         * @param message ErrorDetailsError message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: dlvc_api.IErrorDetailsError, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ErrorDetailsError message, length delimited. Does not implicitly {@link dlvc_api.ErrorDetailsError.verify|verify} messages.
+         * @param message ErrorDetailsError message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: dlvc_api.IErrorDetailsError, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an ErrorDetailsError message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ErrorDetailsError
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): dlvc_api.ErrorDetailsError;
+
+        /**
+         * Decodes an ErrorDetailsError message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ErrorDetailsError
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): dlvc_api.ErrorDetailsError;
+
+        /**
+         * Verifies an ErrorDetailsError message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an ErrorDetailsError message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ErrorDetailsError
+         */
+        public static fromObject(object: { [k: string]: any }): dlvc_api.ErrorDetailsError;
+
+        /**
+         * Creates a plain object from an ErrorDetailsError message. Also converts values to other types if specified.
+         * @param message ErrorDetailsError
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: dlvc_api.ErrorDetailsError, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ErrorDetailsError to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };
@@ -1282,6 +1486,12 @@ export namespace dlvc_api {
         /** SummarizeResponse customEncodingTypes */
         customEncodingTypes?: (string[]|null);
 
+        /** SummarizeResponse startTime */
+        startTime?: (google.protobuf.ITimestamp|null);
+
+        /** SummarizeResponse endTime */
+        endTime?: (google.protobuf.ITimestamp|null);
+
         /** SummarizeResponse lenBytes */
         lenBytes?: (number|Long|null);
 
@@ -1312,6 +1522,12 @@ export namespace dlvc_api {
 
         /** SummarizeResponse customEncodingTypes. */
         public customEncodingTypes: string[];
+
+        /** SummarizeResponse startTime. */
+        public startTime?: (google.protobuf.ITimestamp|null);
+
+        /** SummarizeResponse endTime. */
+        public endTime?: (google.protobuf.ITimestamp|null);
 
         /** SummarizeResponse lenBytes. */
         public lenBytes: (number|Long);
@@ -1663,8 +1879,8 @@ export namespace dlvc_api {
     /** Properties of a ListExercisesResponse. */
     interface IListExercisesResponse {
 
-        /** ListExercisesResponse exerciseIds */
-        exerciseIds?: (string[]|null);
+        /** ListExercisesResponse exerciseMetadata */
+        exerciseMetadata?: (dlvc_api.IExerciseMetadata[]|null);
     }
 
     /** Represents a ListExercisesResponse. */
@@ -1676,8 +1892,8 @@ export namespace dlvc_api {
          */
         constructor(properties?: dlvc_api.IListExercisesResponse);
 
-        /** ListExercisesResponse exerciseIds. */
-        public exerciseIds: string[];
+        /** ListExercisesResponse exerciseMetadata. */
+        public exerciseMetadata: dlvc_api.IExerciseMetadata[];
 
         /**
          * Creates a new ListExercisesResponse instance using the specified properties.
@@ -1745,6 +1961,126 @@ export namespace dlvc_api {
 
         /**
          * Converts this ListExercisesResponse to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of an ExerciseMetadata. */
+    interface IExerciseMetadata {
+
+        /** ExerciseMetadata id */
+        id?: (string|null);
+
+        /** ExerciseMetadata name */
+        name?: (string|null);
+
+        /** ExerciseMetadata description */
+        description?: (string|null);
+
+        /** ExerciseMetadata isLive */
+        isLive?: (boolean|null);
+
+        /** ExerciseMetadata startTime */
+        startTime?: (google.protobuf.ITimestamp|null);
+
+        /** ExerciseMetadata endTime */
+        endTime?: (google.protobuf.ITimestamp|null);
+    }
+
+    /** Represents an ExerciseMetadata. */
+    class ExerciseMetadata implements IExerciseMetadata {
+
+        /**
+         * Constructs a new ExerciseMetadata.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: dlvc_api.IExerciseMetadata);
+
+        /** ExerciseMetadata id. */
+        public id: string;
+
+        /** ExerciseMetadata name. */
+        public name: string;
+
+        /** ExerciseMetadata description. */
+        public description: string;
+
+        /** ExerciseMetadata isLive. */
+        public isLive: boolean;
+
+        /** ExerciseMetadata startTime. */
+        public startTime?: (google.protobuf.ITimestamp|null);
+
+        /** ExerciseMetadata endTime. */
+        public endTime?: (google.protobuf.ITimestamp|null);
+
+        /**
+         * Creates a new ExerciseMetadata instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns ExerciseMetadata instance
+         */
+        public static create(properties?: dlvc_api.IExerciseMetadata): dlvc_api.ExerciseMetadata;
+
+        /**
+         * Encodes the specified ExerciseMetadata message. Does not implicitly {@link dlvc_api.ExerciseMetadata.verify|verify} messages.
+         * @param message ExerciseMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: dlvc_api.IExerciseMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified ExerciseMetadata message, length delimited. Does not implicitly {@link dlvc_api.ExerciseMetadata.verify|verify} messages.
+         * @param message ExerciseMetadata message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: dlvc_api.IExerciseMetadata, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes an ExerciseMetadata message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns ExerciseMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): dlvc_api.ExerciseMetadata;
+
+        /**
+         * Decodes an ExerciseMetadata message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns ExerciseMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): dlvc_api.ExerciseMetadata;
+
+        /**
+         * Verifies an ExerciseMetadata message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates an ExerciseMetadata message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns ExerciseMetadata
+         */
+        public static fromObject(object: { [k: string]: any }): dlvc_api.ExerciseMetadata;
+
+        /**
+         * Creates a plain object from an ExerciseMetadata message. Also converts values to other types if specified.
+         * @param message ExerciseMetadata
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: dlvc_api.ExerciseMetadata, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this ExerciseMetadata to JSON.
          * @returns JSON object
          */
         public toJSON(): { [k: string]: any };

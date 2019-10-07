@@ -14,6 +14,7 @@ message PushRawMessageRequest {
 message PushRawMessageResponse {
   reserved 1;
   DuplicateDetails duplicate_details = 2;
+  ErrorDetails error_details = 3;
 }
 
 message PushRawMessagesRequest {
@@ -26,12 +27,25 @@ message PushRawMessagesRequest {
 message PushRawMessagesResponse {
   reserved 1;
   DuplicateDetails duplicate_details = 2;
+  ErrorDetails error_details = 3;
 }
 
 message DuplicateDetails {
   reserved 1;
   bool duplicates = 2;
   repeated string idempotency_keys = 3;
+}
+
+message ErrorDetails {
+  reserved 1;
+  repeated string idempotency_keys = 2;
+  repeated ErrorDetailsError errors = 3;
+}
+
+message ErrorDetailsError {
+  reserved 1;
+  string idempotency_key = 2;
+  string error_message = 3;
 }
 
 enum MessageRetrievalType {
@@ -121,8 +135,10 @@ message SummarizeResponse {
   repeated WrappedMessage.MessageType message_types = 4;
   repeated MessageEncoding.EncodingType encoding_types = 5;
   repeated string custom_encoding_types = 6;
-  int64 len_bytes = 7;
-  int64 count = 8;
+  google.protobuf.Timestamp start_time = 7;
+  google.protobuf.Timestamp end_time = 8;
+  int64 len_bytes = 9;
+  int64 count = 10;
 }
 
 message ListMetadataValuesRequest {
@@ -142,7 +158,18 @@ message ListExercisesRequest {
 
 message ListExercisesResponse {
   reserved 1;
-  repeated string exercise_ids = 3;
+
+  repeated ExerciseMetadata exercise_metadata = 2;
+}
+
+message ExerciseMetadata {
+  reserved 1;
+  string id = 2;
+  string name = 3;
+  string description = 4;
+  bool is_live = 5;
+  google.protobuf.Timestamp start_time = 6;
+  google.protobuf.Timestamp end_time = 7;
 }
 
 message WrappedMessage {

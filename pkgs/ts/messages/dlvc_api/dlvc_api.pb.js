@@ -215,6 +215,7 @@ export const dlvc_api = $root.dlvc_api = (() => {
          * @memberof dlvc_api
          * @interface IPushRawMessageResponse
          * @property {dlvc_api.IDuplicateDetails|null} [duplicateDetails] PushRawMessageResponse duplicateDetails
+         * @property {dlvc_api.IErrorDetails|null} [errorDetails] PushRawMessageResponse errorDetails
          */
 
         /**
@@ -239,6 +240,14 @@ export const dlvc_api = $root.dlvc_api = (() => {
          * @instance
          */
         PushRawMessageResponse.prototype.duplicateDetails = null;
+
+        /**
+         * PushRawMessageResponse errorDetails.
+         * @member {dlvc_api.IErrorDetails|null|undefined} errorDetails
+         * @memberof dlvc_api.PushRawMessageResponse
+         * @instance
+         */
+        PushRawMessageResponse.prototype.errorDetails = null;
 
         /**
          * Creates a new PushRawMessageResponse instance using the specified properties.
@@ -266,6 +275,8 @@ export const dlvc_api = $root.dlvc_api = (() => {
                 writer = $Writer.create();
             if (message.duplicateDetails != null && Object.hasOwnProperty.call(message, "duplicateDetails"))
                 $root.dlvc_api.DuplicateDetails.encode(message.duplicateDetails, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.errorDetails != null && Object.hasOwnProperty.call(message, "errorDetails"))
+                $root.dlvc_api.ErrorDetails.encode(message.errorDetails, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
             return writer;
         };
 
@@ -302,6 +313,9 @@ export const dlvc_api = $root.dlvc_api = (() => {
                 switch (tag >>> 3) {
                 case 2:
                     message.duplicateDetails = $root.dlvc_api.DuplicateDetails.decode(reader, reader.uint32());
+                    break;
+                case 3:
+                    message.errorDetails = $root.dlvc_api.ErrorDetails.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -343,6 +357,11 @@ export const dlvc_api = $root.dlvc_api = (() => {
                 if (error)
                     return "duplicateDetails." + error;
             }
+            if (message.errorDetails != null && message.hasOwnProperty("errorDetails")) {
+                let error = $root.dlvc_api.ErrorDetails.verify(message.errorDetails);
+                if (error)
+                    return "errorDetails." + error;
+            }
             return null;
         };
 
@@ -363,6 +382,11 @@ export const dlvc_api = $root.dlvc_api = (() => {
                     throw TypeError(".dlvc_api.PushRawMessageResponse.duplicateDetails: object expected");
                 message.duplicateDetails = $root.dlvc_api.DuplicateDetails.fromObject(object.duplicateDetails);
             }
+            if (object.errorDetails != null) {
+                if (typeof object.errorDetails !== "object")
+                    throw TypeError(".dlvc_api.PushRawMessageResponse.errorDetails: object expected");
+                message.errorDetails = $root.dlvc_api.ErrorDetails.fromObject(object.errorDetails);
+            }
             return message;
         };
 
@@ -379,10 +403,14 @@ export const dlvc_api = $root.dlvc_api = (() => {
             if (!options)
                 options = {};
             let object = {};
-            if (options.defaults)
+            if (options.defaults) {
                 object.duplicateDetails = null;
+                object.errorDetails = null;
+            }
             if (message.duplicateDetails != null && message.hasOwnProperty("duplicateDetails"))
                 object.duplicateDetails = $root.dlvc_api.DuplicateDetails.toObject(message.duplicateDetails, options);
+            if (message.errorDetails != null && message.hasOwnProperty("errorDetails"))
+                object.errorDetails = $root.dlvc_api.ErrorDetails.toObject(message.errorDetails, options);
             return object;
         };
 
@@ -687,6 +715,7 @@ export const dlvc_api = $root.dlvc_api = (() => {
          * @memberof dlvc_api
          * @interface IPushRawMessagesResponse
          * @property {dlvc_api.IDuplicateDetails|null} [duplicateDetails] PushRawMessagesResponse duplicateDetails
+         * @property {dlvc_api.IErrorDetails|null} [errorDetails] PushRawMessagesResponse errorDetails
          */
 
         /**
@@ -711,6 +740,14 @@ export const dlvc_api = $root.dlvc_api = (() => {
          * @instance
          */
         PushRawMessagesResponse.prototype.duplicateDetails = null;
+
+        /**
+         * PushRawMessagesResponse errorDetails.
+         * @member {dlvc_api.IErrorDetails|null|undefined} errorDetails
+         * @memberof dlvc_api.PushRawMessagesResponse
+         * @instance
+         */
+        PushRawMessagesResponse.prototype.errorDetails = null;
 
         /**
          * Creates a new PushRawMessagesResponse instance using the specified properties.
@@ -738,6 +775,8 @@ export const dlvc_api = $root.dlvc_api = (() => {
                 writer = $Writer.create();
             if (message.duplicateDetails != null && Object.hasOwnProperty.call(message, "duplicateDetails"))
                 $root.dlvc_api.DuplicateDetails.encode(message.duplicateDetails, writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
+            if (message.errorDetails != null && Object.hasOwnProperty.call(message, "errorDetails"))
+                $root.dlvc_api.ErrorDetails.encode(message.errorDetails, writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
             return writer;
         };
 
@@ -774,6 +813,9 @@ export const dlvc_api = $root.dlvc_api = (() => {
                 switch (tag >>> 3) {
                 case 2:
                     message.duplicateDetails = $root.dlvc_api.DuplicateDetails.decode(reader, reader.uint32());
+                    break;
+                case 3:
+                    message.errorDetails = $root.dlvc_api.ErrorDetails.decode(reader, reader.uint32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -815,6 +857,11 @@ export const dlvc_api = $root.dlvc_api = (() => {
                 if (error)
                     return "duplicateDetails." + error;
             }
+            if (message.errorDetails != null && message.hasOwnProperty("errorDetails")) {
+                let error = $root.dlvc_api.ErrorDetails.verify(message.errorDetails);
+                if (error)
+                    return "errorDetails." + error;
+            }
             return null;
         };
 
@@ -835,6 +882,11 @@ export const dlvc_api = $root.dlvc_api = (() => {
                     throw TypeError(".dlvc_api.PushRawMessagesResponse.duplicateDetails: object expected");
                 message.duplicateDetails = $root.dlvc_api.DuplicateDetails.fromObject(object.duplicateDetails);
             }
+            if (object.errorDetails != null) {
+                if (typeof object.errorDetails !== "object")
+                    throw TypeError(".dlvc_api.PushRawMessagesResponse.errorDetails: object expected");
+                message.errorDetails = $root.dlvc_api.ErrorDetails.fromObject(object.errorDetails);
+            }
             return message;
         };
 
@@ -851,10 +903,14 @@ export const dlvc_api = $root.dlvc_api = (() => {
             if (!options)
                 options = {};
             let object = {};
-            if (options.defaults)
+            if (options.defaults) {
                 object.duplicateDetails = null;
+                object.errorDetails = null;
+            }
             if (message.duplicateDetails != null && message.hasOwnProperty("duplicateDetails"))
                 object.duplicateDetails = $root.dlvc_api.DuplicateDetails.toObject(message.duplicateDetails, options);
+            if (message.errorDetails != null && message.hasOwnProperty("errorDetails"))
+                object.errorDetails = $root.dlvc_api.ErrorDetails.toObject(message.errorDetails, options);
             return object;
         };
 
@@ -1096,6 +1152,463 @@ export const dlvc_api = $root.dlvc_api = (() => {
         };
 
         return DuplicateDetails;
+    })();
+
+    dlvc_api.ErrorDetails = (function() {
+
+        /**
+         * Properties of an ErrorDetails.
+         * @memberof dlvc_api
+         * @interface IErrorDetails
+         * @property {Array.<string>|null} [idempotencyKeys] ErrorDetails idempotencyKeys
+         * @property {Array.<dlvc_api.IErrorDetailsError>|null} [errors] ErrorDetails errors
+         */
+
+        /**
+         * Constructs a new ErrorDetails.
+         * @memberof dlvc_api
+         * @classdesc Represents an ErrorDetails.
+         * @implements IErrorDetails
+         * @constructor
+         * @param {dlvc_api.IErrorDetails=} [properties] Properties to set
+         */
+        function ErrorDetails(properties) {
+            this.idempotencyKeys = [];
+            this.errors = [];
+            if (properties)
+                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ErrorDetails idempotencyKeys.
+         * @member {Array.<string>} idempotencyKeys
+         * @memberof dlvc_api.ErrorDetails
+         * @instance
+         */
+        ErrorDetails.prototype.idempotencyKeys = $util.emptyArray;
+
+        /**
+         * ErrorDetails errors.
+         * @member {Array.<dlvc_api.IErrorDetailsError>} errors
+         * @memberof dlvc_api.ErrorDetails
+         * @instance
+         */
+        ErrorDetails.prototype.errors = $util.emptyArray;
+
+        /**
+         * Creates a new ErrorDetails instance using the specified properties.
+         * @function create
+         * @memberof dlvc_api.ErrorDetails
+         * @static
+         * @param {dlvc_api.IErrorDetails=} [properties] Properties to set
+         * @returns {dlvc_api.ErrorDetails} ErrorDetails instance
+         */
+        ErrorDetails.create = function create(properties) {
+            return new ErrorDetails(properties);
+        };
+
+        /**
+         * Encodes the specified ErrorDetails message. Does not implicitly {@link dlvc_api.ErrorDetails.verify|verify} messages.
+         * @function encode
+         * @memberof dlvc_api.ErrorDetails
+         * @static
+         * @param {dlvc_api.IErrorDetails} message ErrorDetails message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ErrorDetails.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.idempotencyKeys != null && message.idempotencyKeys.length)
+                for (let i = 0; i < message.idempotencyKeys.length; ++i)
+                    writer.uint32(/* id 2, wireType 2 =*/18).string(message.idempotencyKeys[i]);
+            if (message.errors != null && message.errors.length)
+                for (let i = 0; i < message.errors.length; ++i)
+                    $root.dlvc_api.ErrorDetailsError.encode(message.errors[i], writer.uint32(/* id 3, wireType 2 =*/26).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified ErrorDetails message, length delimited. Does not implicitly {@link dlvc_api.ErrorDetails.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof dlvc_api.ErrorDetails
+         * @static
+         * @param {dlvc_api.IErrorDetails} message ErrorDetails message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ErrorDetails.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an ErrorDetails message from the specified reader or buffer.
+         * @function decode
+         * @memberof dlvc_api.ErrorDetails
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {dlvc_api.ErrorDetails} ErrorDetails
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ErrorDetails.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.dlvc_api.ErrorDetails();
+            while (reader.pos < end) {
+                let tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 2:
+                    if (!(message.idempotencyKeys && message.idempotencyKeys.length))
+                        message.idempotencyKeys = [];
+                    message.idempotencyKeys.push(reader.string());
+                    break;
+                case 3:
+                    if (!(message.errors && message.errors.length))
+                        message.errors = [];
+                    message.errors.push($root.dlvc_api.ErrorDetailsError.decode(reader, reader.uint32()));
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an ErrorDetails message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof dlvc_api.ErrorDetails
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {dlvc_api.ErrorDetails} ErrorDetails
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ErrorDetails.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an ErrorDetails message.
+         * @function verify
+         * @memberof dlvc_api.ErrorDetails
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ErrorDetails.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.idempotencyKeys != null && message.hasOwnProperty("idempotencyKeys")) {
+                if (!Array.isArray(message.idempotencyKeys))
+                    return "idempotencyKeys: array expected";
+                for (let i = 0; i < message.idempotencyKeys.length; ++i)
+                    if (!$util.isString(message.idempotencyKeys[i]))
+                        return "idempotencyKeys: string[] expected";
+            }
+            if (message.errors != null && message.hasOwnProperty("errors")) {
+                if (!Array.isArray(message.errors))
+                    return "errors: array expected";
+                for (let i = 0; i < message.errors.length; ++i) {
+                    let error = $root.dlvc_api.ErrorDetailsError.verify(message.errors[i]);
+                    if (error)
+                        return "errors." + error;
+                }
+            }
+            return null;
+        };
+
+        /**
+         * Creates an ErrorDetails message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof dlvc_api.ErrorDetails
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {dlvc_api.ErrorDetails} ErrorDetails
+         */
+        ErrorDetails.fromObject = function fromObject(object) {
+            if (object instanceof $root.dlvc_api.ErrorDetails)
+                return object;
+            let message = new $root.dlvc_api.ErrorDetails();
+            if (object.idempotencyKeys) {
+                if (!Array.isArray(object.idempotencyKeys))
+                    throw TypeError(".dlvc_api.ErrorDetails.idempotencyKeys: array expected");
+                message.idempotencyKeys = [];
+                for (let i = 0; i < object.idempotencyKeys.length; ++i)
+                    message.idempotencyKeys[i] = String(object.idempotencyKeys[i]);
+            }
+            if (object.errors) {
+                if (!Array.isArray(object.errors))
+                    throw TypeError(".dlvc_api.ErrorDetails.errors: array expected");
+                message.errors = [];
+                for (let i = 0; i < object.errors.length; ++i) {
+                    if (typeof object.errors[i] !== "object")
+                        throw TypeError(".dlvc_api.ErrorDetails.errors: object expected");
+                    message.errors[i] = $root.dlvc_api.ErrorDetailsError.fromObject(object.errors[i]);
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an ErrorDetails message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof dlvc_api.ErrorDetails
+         * @static
+         * @param {dlvc_api.ErrorDetails} message ErrorDetails
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ErrorDetails.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            let object = {};
+            if (options.arrays || options.defaults) {
+                object.idempotencyKeys = [];
+                object.errors = [];
+            }
+            if (message.idempotencyKeys && message.idempotencyKeys.length) {
+                object.idempotencyKeys = [];
+                for (let j = 0; j < message.idempotencyKeys.length; ++j)
+                    object.idempotencyKeys[j] = message.idempotencyKeys[j];
+            }
+            if (message.errors && message.errors.length) {
+                object.errors = [];
+                for (let j = 0; j < message.errors.length; ++j)
+                    object.errors[j] = $root.dlvc_api.ErrorDetailsError.toObject(message.errors[j], options);
+            }
+            return object;
+        };
+
+        /**
+         * Converts this ErrorDetails to JSON.
+         * @function toJSON
+         * @memberof dlvc_api.ErrorDetails
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ErrorDetails.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ErrorDetails;
+    })();
+
+    dlvc_api.ErrorDetailsError = (function() {
+
+        /**
+         * Properties of an ErrorDetailsError.
+         * @memberof dlvc_api
+         * @interface IErrorDetailsError
+         * @property {string|null} [idempotencyKey] ErrorDetailsError idempotencyKey
+         * @property {string|null} [errorMessage] ErrorDetailsError errorMessage
+         */
+
+        /**
+         * Constructs a new ErrorDetailsError.
+         * @memberof dlvc_api
+         * @classdesc Represents an ErrorDetailsError.
+         * @implements IErrorDetailsError
+         * @constructor
+         * @param {dlvc_api.IErrorDetailsError=} [properties] Properties to set
+         */
+        function ErrorDetailsError(properties) {
+            if (properties)
+                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ErrorDetailsError idempotencyKey.
+         * @member {string} idempotencyKey
+         * @memberof dlvc_api.ErrorDetailsError
+         * @instance
+         */
+        ErrorDetailsError.prototype.idempotencyKey = "";
+
+        /**
+         * ErrorDetailsError errorMessage.
+         * @member {string} errorMessage
+         * @memberof dlvc_api.ErrorDetailsError
+         * @instance
+         */
+        ErrorDetailsError.prototype.errorMessage = "";
+
+        /**
+         * Creates a new ErrorDetailsError instance using the specified properties.
+         * @function create
+         * @memberof dlvc_api.ErrorDetailsError
+         * @static
+         * @param {dlvc_api.IErrorDetailsError=} [properties] Properties to set
+         * @returns {dlvc_api.ErrorDetailsError} ErrorDetailsError instance
+         */
+        ErrorDetailsError.create = function create(properties) {
+            return new ErrorDetailsError(properties);
+        };
+
+        /**
+         * Encodes the specified ErrorDetailsError message. Does not implicitly {@link dlvc_api.ErrorDetailsError.verify|verify} messages.
+         * @function encode
+         * @memberof dlvc_api.ErrorDetailsError
+         * @static
+         * @param {dlvc_api.IErrorDetailsError} message ErrorDetailsError message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ErrorDetailsError.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.idempotencyKey != null && Object.hasOwnProperty.call(message, "idempotencyKey"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.idempotencyKey);
+            if (message.errorMessage != null && Object.hasOwnProperty.call(message, "errorMessage"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.errorMessage);
+            return writer;
+        };
+
+        /**
+         * Encodes the specified ErrorDetailsError message, length delimited. Does not implicitly {@link dlvc_api.ErrorDetailsError.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof dlvc_api.ErrorDetailsError
+         * @static
+         * @param {dlvc_api.IErrorDetailsError} message ErrorDetailsError message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ErrorDetailsError.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an ErrorDetailsError message from the specified reader or buffer.
+         * @function decode
+         * @memberof dlvc_api.ErrorDetailsError
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {dlvc_api.ErrorDetailsError} ErrorDetailsError
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ErrorDetailsError.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.dlvc_api.ErrorDetailsError();
+            while (reader.pos < end) {
+                let tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 2:
+                    message.idempotencyKey = reader.string();
+                    break;
+                case 3:
+                    message.errorMessage = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an ErrorDetailsError message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof dlvc_api.ErrorDetailsError
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {dlvc_api.ErrorDetailsError} ErrorDetailsError
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ErrorDetailsError.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an ErrorDetailsError message.
+         * @function verify
+         * @memberof dlvc_api.ErrorDetailsError
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ErrorDetailsError.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.idempotencyKey != null && message.hasOwnProperty("idempotencyKey"))
+                if (!$util.isString(message.idempotencyKey))
+                    return "idempotencyKey: string expected";
+            if (message.errorMessage != null && message.hasOwnProperty("errorMessage"))
+                if (!$util.isString(message.errorMessage))
+                    return "errorMessage: string expected";
+            return null;
+        };
+
+        /**
+         * Creates an ErrorDetailsError message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof dlvc_api.ErrorDetailsError
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {dlvc_api.ErrorDetailsError} ErrorDetailsError
+         */
+        ErrorDetailsError.fromObject = function fromObject(object) {
+            if (object instanceof $root.dlvc_api.ErrorDetailsError)
+                return object;
+            let message = new $root.dlvc_api.ErrorDetailsError();
+            if (object.idempotencyKey != null)
+                message.idempotencyKey = String(object.idempotencyKey);
+            if (object.errorMessage != null)
+                message.errorMessage = String(object.errorMessage);
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an ErrorDetailsError message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof dlvc_api.ErrorDetailsError
+         * @static
+         * @param {dlvc_api.ErrorDetailsError} message ErrorDetailsError
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ErrorDetailsError.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            let object = {};
+            if (options.defaults) {
+                object.idempotencyKey = "";
+                object.errorMessage = "";
+            }
+            if (message.idempotencyKey != null && message.hasOwnProperty("idempotencyKey"))
+                object.idempotencyKey = message.idempotencyKey;
+            if (message.errorMessage != null && message.hasOwnProperty("errorMessage"))
+                object.errorMessage = message.errorMessage;
+            return object;
+        };
+
+        /**
+         * Converts this ErrorDetailsError to JSON.
+         * @function toJSON
+         * @memberof dlvc_api.ErrorDetailsError
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ErrorDetailsError.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ErrorDetailsError;
     })();
 
     /**
@@ -3573,6 +4086,8 @@ export const dlvc_api = $root.dlvc_api = (() => {
          * @property {Array.<dlvc_api.WrappedMessage.MessageType>|null} [messageTypes] SummarizeResponse messageTypes
          * @property {Array.<dlvc_api.MessageEncoding.EncodingType>|null} [encodingTypes] SummarizeResponse encodingTypes
          * @property {Array.<string>|null} [customEncodingTypes] SummarizeResponse customEncodingTypes
+         * @property {google.protobuf.ITimestamp|null} [startTime] SummarizeResponse startTime
+         * @property {google.protobuf.ITimestamp|null} [endTime] SummarizeResponse endTime
          * @property {number|Long|null} [lenBytes] SummarizeResponse lenBytes
          * @property {number|Long|null} [count] SummarizeResponse count
          */
@@ -3638,6 +4153,22 @@ export const dlvc_api = $root.dlvc_api = (() => {
         SummarizeResponse.prototype.customEncodingTypes = $util.emptyArray;
 
         /**
+         * SummarizeResponse startTime.
+         * @member {google.protobuf.ITimestamp|null|undefined} startTime
+         * @memberof dlvc_api.SummarizeResponse
+         * @instance
+         */
+        SummarizeResponse.prototype.startTime = null;
+
+        /**
+         * SummarizeResponse endTime.
+         * @member {google.protobuf.ITimestamp|null|undefined} endTime
+         * @memberof dlvc_api.SummarizeResponse
+         * @instance
+         */
+        SummarizeResponse.prototype.endTime = null;
+
+        /**
          * SummarizeResponse lenBytes.
          * @member {number|Long} lenBytes
          * @memberof dlvc_api.SummarizeResponse
@@ -3698,10 +4229,14 @@ export const dlvc_api = $root.dlvc_api = (() => {
             if (message.customEncodingTypes != null && message.customEncodingTypes.length)
                 for (let i = 0; i < message.customEncodingTypes.length; ++i)
                     writer.uint32(/* id 6, wireType 2 =*/50).string(message.customEncodingTypes[i]);
+            if (message.startTime != null && Object.hasOwnProperty.call(message, "startTime"))
+                $root.google.protobuf.Timestamp.encode(message.startTime, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+            if (message.endTime != null && Object.hasOwnProperty.call(message, "endTime"))
+                $root.google.protobuf.Timestamp.encode(message.endTime, writer.uint32(/* id 8, wireType 2 =*/66).fork()).ldelim();
             if (message.lenBytes != null && Object.hasOwnProperty.call(message, "lenBytes"))
-                writer.uint32(/* id 7, wireType 0 =*/56).int64(message.lenBytes);
+                writer.uint32(/* id 9, wireType 0 =*/72).int64(message.lenBytes);
             if (message.count != null && Object.hasOwnProperty.call(message, "count"))
-                writer.uint32(/* id 8, wireType 0 =*/64).int64(message.count);
+                writer.uint32(/* id 10, wireType 0 =*/80).int64(message.count);
             return writer;
         };
 
@@ -3772,9 +4307,15 @@ export const dlvc_api = $root.dlvc_api = (() => {
                     message.customEncodingTypes.push(reader.string());
                     break;
                 case 7:
-                    message.lenBytes = reader.int64();
+                    message.startTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
                     break;
                 case 8:
+                    message.endTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                    break;
+                case 9:
+                    message.lenBytes = reader.int64();
+                    break;
+                case 10:
                     message.count = reader.int64();
                     break;
                 default:
@@ -3865,6 +4406,16 @@ export const dlvc_api = $root.dlvc_api = (() => {
                 for (let i = 0; i < message.customEncodingTypes.length; ++i)
                     if (!$util.isString(message.customEncodingTypes[i]))
                         return "customEncodingTypes: string[] expected";
+            }
+            if (message.startTime != null && message.hasOwnProperty("startTime")) {
+                let error = $root.google.protobuf.Timestamp.verify(message.startTime);
+                if (error)
+                    return "startTime." + error;
+            }
+            if (message.endTime != null && message.hasOwnProperty("endTime")) {
+                let error = $root.google.protobuf.Timestamp.verify(message.endTime);
+                if (error)
+                    return "endTime." + error;
             }
             if (message.lenBytes != null && message.hasOwnProperty("lenBytes"))
                 if (!$util.isInteger(message.lenBytes) && !(message.lenBytes && $util.isInteger(message.lenBytes.low) && $util.isInteger(message.lenBytes.high)))
@@ -3978,6 +4529,16 @@ export const dlvc_api = $root.dlvc_api = (() => {
                 for (let i = 0; i < object.customEncodingTypes.length; ++i)
                     message.customEncodingTypes[i] = String(object.customEncodingTypes[i]);
             }
+            if (object.startTime != null) {
+                if (typeof object.startTime !== "object")
+                    throw TypeError(".dlvc_api.SummarizeResponse.startTime: object expected");
+                message.startTime = $root.google.protobuf.Timestamp.fromObject(object.startTime);
+            }
+            if (object.endTime != null) {
+                if (typeof object.endTime !== "object")
+                    throw TypeError(".dlvc_api.SummarizeResponse.endTime: object expected");
+                message.endTime = $root.google.protobuf.Timestamp.fromObject(object.endTime);
+            }
             if (object.lenBytes != null)
                 if ($util.Long)
                     (message.lenBytes = $util.Long.fromValue(object.lenBytes)).unsigned = false;
@@ -4020,6 +4581,8 @@ export const dlvc_api = $root.dlvc_api = (() => {
                 object.customEncodingTypes = [];
             }
             if (options.defaults) {
+                object.startTime = null;
+                object.endTime = null;
                 if ($util.Long) {
                     let long = new $util.Long(0, 0, false);
                     object.lenBytes = options.longs === String ? long.toString() : options.longs === Number ? long.toNumber() : long;
@@ -4056,6 +4619,10 @@ export const dlvc_api = $root.dlvc_api = (() => {
                 for (let j = 0; j < message.customEncodingTypes.length; ++j)
                     object.customEncodingTypes[j] = message.customEncodingTypes[j];
             }
+            if (message.startTime != null && message.hasOwnProperty("startTime"))
+                object.startTime = $root.google.protobuf.Timestamp.toObject(message.startTime, options);
+            if (message.endTime != null && message.hasOwnProperty("endTime"))
+                object.endTime = $root.google.protobuf.Timestamp.toObject(message.endTime, options);
             if (message.lenBytes != null && message.hasOwnProperty("lenBytes"))
                 if (typeof message.lenBytes === "number")
                     object.lenBytes = options.longs === String ? String(message.lenBytes) : message.lenBytes;
@@ -4662,7 +5229,7 @@ export const dlvc_api = $root.dlvc_api = (() => {
          * Properties of a ListExercisesResponse.
          * @memberof dlvc_api
          * @interface IListExercisesResponse
-         * @property {Array.<string>|null} [exerciseIds] ListExercisesResponse exerciseIds
+         * @property {Array.<dlvc_api.IExerciseMetadata>|null} [exerciseMetadata] ListExercisesResponse exerciseMetadata
          */
 
         /**
@@ -4674,7 +5241,7 @@ export const dlvc_api = $root.dlvc_api = (() => {
          * @param {dlvc_api.IListExercisesResponse=} [properties] Properties to set
          */
         function ListExercisesResponse(properties) {
-            this.exerciseIds = [];
+            this.exerciseMetadata = [];
             if (properties)
                 for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
                     if (properties[keys[i]] != null)
@@ -4682,12 +5249,12 @@ export const dlvc_api = $root.dlvc_api = (() => {
         }
 
         /**
-         * ListExercisesResponse exerciseIds.
-         * @member {Array.<string>} exerciseIds
+         * ListExercisesResponse exerciseMetadata.
+         * @member {Array.<dlvc_api.IExerciseMetadata>} exerciseMetadata
          * @memberof dlvc_api.ListExercisesResponse
          * @instance
          */
-        ListExercisesResponse.prototype.exerciseIds = $util.emptyArray;
+        ListExercisesResponse.prototype.exerciseMetadata = $util.emptyArray;
 
         /**
          * Creates a new ListExercisesResponse instance using the specified properties.
@@ -4713,9 +5280,9 @@ export const dlvc_api = $root.dlvc_api = (() => {
         ListExercisesResponse.encode = function encode(message, writer) {
             if (!writer)
                 writer = $Writer.create();
-            if (message.exerciseIds != null && message.exerciseIds.length)
-                for (let i = 0; i < message.exerciseIds.length; ++i)
-                    writer.uint32(/* id 3, wireType 2 =*/26).string(message.exerciseIds[i]);
+            if (message.exerciseMetadata != null && message.exerciseMetadata.length)
+                for (let i = 0; i < message.exerciseMetadata.length; ++i)
+                    $root.dlvc_api.ExerciseMetadata.encode(message.exerciseMetadata[i], writer.uint32(/* id 2, wireType 2 =*/18).fork()).ldelim();
             return writer;
         };
 
@@ -4750,10 +5317,10 @@ export const dlvc_api = $root.dlvc_api = (() => {
             while (reader.pos < end) {
                 let tag = reader.uint32();
                 switch (tag >>> 3) {
-                case 3:
-                    if (!(message.exerciseIds && message.exerciseIds.length))
-                        message.exerciseIds = [];
-                    message.exerciseIds.push(reader.string());
+                case 2:
+                    if (!(message.exerciseMetadata && message.exerciseMetadata.length))
+                        message.exerciseMetadata = [];
+                    message.exerciseMetadata.push($root.dlvc_api.ExerciseMetadata.decode(reader, reader.uint32()));
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -4790,12 +5357,14 @@ export const dlvc_api = $root.dlvc_api = (() => {
         ListExercisesResponse.verify = function verify(message) {
             if (typeof message !== "object" || message === null)
                 return "object expected";
-            if (message.exerciseIds != null && message.hasOwnProperty("exerciseIds")) {
-                if (!Array.isArray(message.exerciseIds))
-                    return "exerciseIds: array expected";
-                for (let i = 0; i < message.exerciseIds.length; ++i)
-                    if (!$util.isString(message.exerciseIds[i]))
-                        return "exerciseIds: string[] expected";
+            if (message.exerciseMetadata != null && message.hasOwnProperty("exerciseMetadata")) {
+                if (!Array.isArray(message.exerciseMetadata))
+                    return "exerciseMetadata: array expected";
+                for (let i = 0; i < message.exerciseMetadata.length; ++i) {
+                    let error = $root.dlvc_api.ExerciseMetadata.verify(message.exerciseMetadata[i]);
+                    if (error)
+                        return "exerciseMetadata." + error;
+                }
             }
             return null;
         };
@@ -4812,12 +5381,15 @@ export const dlvc_api = $root.dlvc_api = (() => {
             if (object instanceof $root.dlvc_api.ListExercisesResponse)
                 return object;
             let message = new $root.dlvc_api.ListExercisesResponse();
-            if (object.exerciseIds) {
-                if (!Array.isArray(object.exerciseIds))
-                    throw TypeError(".dlvc_api.ListExercisesResponse.exerciseIds: array expected");
-                message.exerciseIds = [];
-                for (let i = 0; i < object.exerciseIds.length; ++i)
-                    message.exerciseIds[i] = String(object.exerciseIds[i]);
+            if (object.exerciseMetadata) {
+                if (!Array.isArray(object.exerciseMetadata))
+                    throw TypeError(".dlvc_api.ListExercisesResponse.exerciseMetadata: array expected");
+                message.exerciseMetadata = [];
+                for (let i = 0; i < object.exerciseMetadata.length; ++i) {
+                    if (typeof object.exerciseMetadata[i] !== "object")
+                        throw TypeError(".dlvc_api.ListExercisesResponse.exerciseMetadata: object expected");
+                    message.exerciseMetadata[i] = $root.dlvc_api.ExerciseMetadata.fromObject(object.exerciseMetadata[i]);
+                }
             }
             return message;
         };
@@ -4836,11 +5408,11 @@ export const dlvc_api = $root.dlvc_api = (() => {
                 options = {};
             let object = {};
             if (options.arrays || options.defaults)
-                object.exerciseIds = [];
-            if (message.exerciseIds && message.exerciseIds.length) {
-                object.exerciseIds = [];
-                for (let j = 0; j < message.exerciseIds.length; ++j)
-                    object.exerciseIds[j] = message.exerciseIds[j];
+                object.exerciseMetadata = [];
+            if (message.exerciseMetadata && message.exerciseMetadata.length) {
+                object.exerciseMetadata = [];
+                for (let j = 0; j < message.exerciseMetadata.length; ++j)
+                    object.exerciseMetadata[j] = $root.dlvc_api.ExerciseMetadata.toObject(message.exerciseMetadata[j], options);
             }
             return object;
         };
@@ -4857,6 +5429,314 @@ export const dlvc_api = $root.dlvc_api = (() => {
         };
 
         return ListExercisesResponse;
+    })();
+
+    dlvc_api.ExerciseMetadata = (function() {
+
+        /**
+         * Properties of an ExerciseMetadata.
+         * @memberof dlvc_api
+         * @interface IExerciseMetadata
+         * @property {string|null} [id] ExerciseMetadata id
+         * @property {string|null} [name] ExerciseMetadata name
+         * @property {string|null} [description] ExerciseMetadata description
+         * @property {boolean|null} [isLive] ExerciseMetadata isLive
+         * @property {google.protobuf.ITimestamp|null} [startTime] ExerciseMetadata startTime
+         * @property {google.protobuf.ITimestamp|null} [endTime] ExerciseMetadata endTime
+         */
+
+        /**
+         * Constructs a new ExerciseMetadata.
+         * @memberof dlvc_api
+         * @classdesc Represents an ExerciseMetadata.
+         * @implements IExerciseMetadata
+         * @constructor
+         * @param {dlvc_api.IExerciseMetadata=} [properties] Properties to set
+         */
+        function ExerciseMetadata(properties) {
+            if (properties)
+                for (let keys = Object.keys(properties), i = 0; i < keys.length; ++i)
+                    if (properties[keys[i]] != null)
+                        this[keys[i]] = properties[keys[i]];
+        }
+
+        /**
+         * ExerciseMetadata id.
+         * @member {string} id
+         * @memberof dlvc_api.ExerciseMetadata
+         * @instance
+         */
+        ExerciseMetadata.prototype.id = "";
+
+        /**
+         * ExerciseMetadata name.
+         * @member {string} name
+         * @memberof dlvc_api.ExerciseMetadata
+         * @instance
+         */
+        ExerciseMetadata.prototype.name = "";
+
+        /**
+         * ExerciseMetadata description.
+         * @member {string} description
+         * @memberof dlvc_api.ExerciseMetadata
+         * @instance
+         */
+        ExerciseMetadata.prototype.description = "";
+
+        /**
+         * ExerciseMetadata isLive.
+         * @member {boolean} isLive
+         * @memberof dlvc_api.ExerciseMetadata
+         * @instance
+         */
+        ExerciseMetadata.prototype.isLive = false;
+
+        /**
+         * ExerciseMetadata startTime.
+         * @member {google.protobuf.ITimestamp|null|undefined} startTime
+         * @memberof dlvc_api.ExerciseMetadata
+         * @instance
+         */
+        ExerciseMetadata.prototype.startTime = null;
+
+        /**
+         * ExerciseMetadata endTime.
+         * @member {google.protobuf.ITimestamp|null|undefined} endTime
+         * @memberof dlvc_api.ExerciseMetadata
+         * @instance
+         */
+        ExerciseMetadata.prototype.endTime = null;
+
+        /**
+         * Creates a new ExerciseMetadata instance using the specified properties.
+         * @function create
+         * @memberof dlvc_api.ExerciseMetadata
+         * @static
+         * @param {dlvc_api.IExerciseMetadata=} [properties] Properties to set
+         * @returns {dlvc_api.ExerciseMetadata} ExerciseMetadata instance
+         */
+        ExerciseMetadata.create = function create(properties) {
+            return new ExerciseMetadata(properties);
+        };
+
+        /**
+         * Encodes the specified ExerciseMetadata message. Does not implicitly {@link dlvc_api.ExerciseMetadata.verify|verify} messages.
+         * @function encode
+         * @memberof dlvc_api.ExerciseMetadata
+         * @static
+         * @param {dlvc_api.IExerciseMetadata} message ExerciseMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ExerciseMetadata.encode = function encode(message, writer) {
+            if (!writer)
+                writer = $Writer.create();
+            if (message.id != null && Object.hasOwnProperty.call(message, "id"))
+                writer.uint32(/* id 2, wireType 2 =*/18).string(message.id);
+            if (message.name != null && Object.hasOwnProperty.call(message, "name"))
+                writer.uint32(/* id 3, wireType 2 =*/26).string(message.name);
+            if (message.description != null && Object.hasOwnProperty.call(message, "description"))
+                writer.uint32(/* id 4, wireType 2 =*/34).string(message.description);
+            if (message.isLive != null && Object.hasOwnProperty.call(message, "isLive"))
+                writer.uint32(/* id 5, wireType 0 =*/40).bool(message.isLive);
+            if (message.startTime != null && Object.hasOwnProperty.call(message, "startTime"))
+                $root.google.protobuf.Timestamp.encode(message.startTime, writer.uint32(/* id 6, wireType 2 =*/50).fork()).ldelim();
+            if (message.endTime != null && Object.hasOwnProperty.call(message, "endTime"))
+                $root.google.protobuf.Timestamp.encode(message.endTime, writer.uint32(/* id 7, wireType 2 =*/58).fork()).ldelim();
+            return writer;
+        };
+
+        /**
+         * Encodes the specified ExerciseMetadata message, length delimited. Does not implicitly {@link dlvc_api.ExerciseMetadata.verify|verify} messages.
+         * @function encodeDelimited
+         * @memberof dlvc_api.ExerciseMetadata
+         * @static
+         * @param {dlvc_api.IExerciseMetadata} message ExerciseMetadata message or plain object to encode
+         * @param {$protobuf.Writer} [writer] Writer to encode to
+         * @returns {$protobuf.Writer} Writer
+         */
+        ExerciseMetadata.encodeDelimited = function encodeDelimited(message, writer) {
+            return this.encode(message, writer).ldelim();
+        };
+
+        /**
+         * Decodes an ExerciseMetadata message from the specified reader or buffer.
+         * @function decode
+         * @memberof dlvc_api.ExerciseMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @param {number} [length] Message length if known beforehand
+         * @returns {dlvc_api.ExerciseMetadata} ExerciseMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ExerciseMetadata.decode = function decode(reader, length) {
+            if (!(reader instanceof $Reader))
+                reader = $Reader.create(reader);
+            let end = length === undefined ? reader.len : reader.pos + length, message = new $root.dlvc_api.ExerciseMetadata();
+            while (reader.pos < end) {
+                let tag = reader.uint32();
+                switch (tag >>> 3) {
+                case 2:
+                    message.id = reader.string();
+                    break;
+                case 3:
+                    message.name = reader.string();
+                    break;
+                case 4:
+                    message.description = reader.string();
+                    break;
+                case 5:
+                    message.isLive = reader.bool();
+                    break;
+                case 6:
+                    message.startTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                    break;
+                case 7:
+                    message.endTime = $root.google.protobuf.Timestamp.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+                }
+            }
+            return message;
+        };
+
+        /**
+         * Decodes an ExerciseMetadata message from the specified reader or buffer, length delimited.
+         * @function decodeDelimited
+         * @memberof dlvc_api.ExerciseMetadata
+         * @static
+         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
+         * @returns {dlvc_api.ExerciseMetadata} ExerciseMetadata
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        ExerciseMetadata.decodeDelimited = function decodeDelimited(reader) {
+            if (!(reader instanceof $Reader))
+                reader = new $Reader(reader);
+            return this.decode(reader, reader.uint32());
+        };
+
+        /**
+         * Verifies an ExerciseMetadata message.
+         * @function verify
+         * @memberof dlvc_api.ExerciseMetadata
+         * @static
+         * @param {Object.<string,*>} message Plain object to verify
+         * @returns {string|null} `null` if valid, otherwise the reason why it is not
+         */
+        ExerciseMetadata.verify = function verify(message) {
+            if (typeof message !== "object" || message === null)
+                return "object expected";
+            if (message.id != null && message.hasOwnProperty("id"))
+                if (!$util.isString(message.id))
+                    return "id: string expected";
+            if (message.name != null && message.hasOwnProperty("name"))
+                if (!$util.isString(message.name))
+                    return "name: string expected";
+            if (message.description != null && message.hasOwnProperty("description"))
+                if (!$util.isString(message.description))
+                    return "description: string expected";
+            if (message.isLive != null && message.hasOwnProperty("isLive"))
+                if (typeof message.isLive !== "boolean")
+                    return "isLive: boolean expected";
+            if (message.startTime != null && message.hasOwnProperty("startTime")) {
+                let error = $root.google.protobuf.Timestamp.verify(message.startTime);
+                if (error)
+                    return "startTime." + error;
+            }
+            if (message.endTime != null && message.hasOwnProperty("endTime")) {
+                let error = $root.google.protobuf.Timestamp.verify(message.endTime);
+                if (error)
+                    return "endTime." + error;
+            }
+            return null;
+        };
+
+        /**
+         * Creates an ExerciseMetadata message from a plain object. Also converts values to their respective internal types.
+         * @function fromObject
+         * @memberof dlvc_api.ExerciseMetadata
+         * @static
+         * @param {Object.<string,*>} object Plain object
+         * @returns {dlvc_api.ExerciseMetadata} ExerciseMetadata
+         */
+        ExerciseMetadata.fromObject = function fromObject(object) {
+            if (object instanceof $root.dlvc_api.ExerciseMetadata)
+                return object;
+            let message = new $root.dlvc_api.ExerciseMetadata();
+            if (object.id != null)
+                message.id = String(object.id);
+            if (object.name != null)
+                message.name = String(object.name);
+            if (object.description != null)
+                message.description = String(object.description);
+            if (object.isLive != null)
+                message.isLive = Boolean(object.isLive);
+            if (object.startTime != null) {
+                if (typeof object.startTime !== "object")
+                    throw TypeError(".dlvc_api.ExerciseMetadata.startTime: object expected");
+                message.startTime = $root.google.protobuf.Timestamp.fromObject(object.startTime);
+            }
+            if (object.endTime != null) {
+                if (typeof object.endTime !== "object")
+                    throw TypeError(".dlvc_api.ExerciseMetadata.endTime: object expected");
+                message.endTime = $root.google.protobuf.Timestamp.fromObject(object.endTime);
+            }
+            return message;
+        };
+
+        /**
+         * Creates a plain object from an ExerciseMetadata message. Also converts values to other types if specified.
+         * @function toObject
+         * @memberof dlvc_api.ExerciseMetadata
+         * @static
+         * @param {dlvc_api.ExerciseMetadata} message ExerciseMetadata
+         * @param {$protobuf.IConversionOptions} [options] Conversion options
+         * @returns {Object.<string,*>} Plain object
+         */
+        ExerciseMetadata.toObject = function toObject(message, options) {
+            if (!options)
+                options = {};
+            let object = {};
+            if (options.defaults) {
+                object.id = "";
+                object.name = "";
+                object.description = "";
+                object.isLive = false;
+                object.startTime = null;
+                object.endTime = null;
+            }
+            if (message.id != null && message.hasOwnProperty("id"))
+                object.id = message.id;
+            if (message.name != null && message.hasOwnProperty("name"))
+                object.name = message.name;
+            if (message.description != null && message.hasOwnProperty("description"))
+                object.description = message.description;
+            if (message.isLive != null && message.hasOwnProperty("isLive"))
+                object.isLive = message.isLive;
+            if (message.startTime != null && message.hasOwnProperty("startTime"))
+                object.startTime = $root.google.protobuf.Timestamp.toObject(message.startTime, options);
+            if (message.endTime != null && message.hasOwnProperty("endTime"))
+                object.endTime = $root.google.protobuf.Timestamp.toObject(message.endTime, options);
+            return object;
+        };
+
+        /**
+         * Converts this ExerciseMetadata to JSON.
+         * @function toJSON
+         * @memberof dlvc_api.ExerciseMetadata
+         * @instance
+         * @returns {Object.<string,*>} JSON object
+         */
+        ExerciseMetadata.prototype.toJSON = function toJSON() {
+            return this.constructor.toObject(this, $protobuf.util.toJSONOptions);
+        };
+
+        return ExerciseMetadata;
     })();
 
     dlvc_api.WrappedMessage = (function() {
