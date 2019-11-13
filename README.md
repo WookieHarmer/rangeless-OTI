@@ -1,9 +1,5 @@
 ![Raven Black Logo](logo.png)
 # DLVC API (Deployable Live, Virtual, Constructive)
-
-|    Upcoming Milestones            |  No Later Than         | Available in Release |
-|-----------------------------------|------------------------|----------------------|
-| Launch Always-on Debug Servers    | Monday, Sept 23rd 2019 |                      |
 ______
 Three-Eyed Raven (3ER) is a series of data infrastructure tools designed to support AFRL's Deployable Live, Virtual, Constructive (DLVC) project.  This code repository contains the APIs needed by other DLVC elements to send and receive data from 3ER.
 
